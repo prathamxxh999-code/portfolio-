@@ -31,3 +31,5 @@ npm run build
 ```
 
 The build copies `src/` into `dist/`. Commit both source and generated output when publishing changes.
+
+Vercel uses `dist/` as its output directory through `vercel.json`.
