@@ -39,12 +39,14 @@
       return "CityPulse is a speculative urban operations concept connecting visitors, parking, service requests, and public assets on a live map.";
     if (/concept|speculative|side project/.test(q))
       return "The Beyond the brief section has three speculative concepts: Orbit OS, Bloom, and CityPulse. They are visual explorations, not shipped client projects.";
+    if (/idsspl/.test(q))
+      return "Prathamesh designed the IDSSPL website, a live showcase for core banking, payments and digital banking. Open the featured IDSSPL card to see real website screenshots and visit idsspl.com.";
     for (const [key, description] of projects) {
       if (q.includes(key)) return "The " + key.replace(/\b\w/g, c => c.toUpperCase()) +
         " project focuses on " + description + ". Open its card in Selected work to see the illustrative screens.";
     }
     if (/project|portfolio|work|design|bank|saas|product|experience|about/.test(q))
-      return "Prathamesh has 3+ years in product design across banking, lending, hospitality, and enterprise SaaS. His portfolio covers five banking and lending products and five operational tools. Which project would you like to explore?";
+      return "Prathamesh has 3+ years in product design across banking, lending, hospitality, and enterprise SaaS. His portfolio features the live IDSSPL website, five banking and lending products, and five operational tools. Which project would you like to explore?";
     return "I can help with Prathamesh's projects, design process, tools, résumé, and contact details. Try asking about a specific project or play the design game.";
   };
 })();
