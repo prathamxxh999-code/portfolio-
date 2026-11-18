@@ -8,13 +8,41 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./greeting.css">
 </head>
 <body>
 <canvas id="gl" aria-hidden="true"></canvas>
-<nav class="gl nav"><button class="logo" data-s="top">Prathamesh Phadatare</button><button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">☰</button><ul id="nav-links"><li><button data-s="work">Work</button></li><li><button data-s="about">About</button></li><li><button data-s="experience">Experience</button></li><li><button data-s="tools">Tools</button></li><li><button data-s="process">Process</button></li><li><button data-s="contact">Contact</button></li></ul><button class="btn s" data-r>Résumé ↓</button></nav>
+<nav class="gl nav"><button class="logo" data-s="top">Prathamesh Phadatare</button><button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">☰</button><ul id="nav-links"><li><button data-s="work">Work</button></li><li><button data-s="about">About</button></li><li><button data-s="experience">Experience</button></li><li><button data-s="contact">Contact</button></li></ul><button class="btn s" data-r>Résumé ↓</button></nav>
 <main>
 <div id="home">
-<header class="hero" id="top"><div class="hc"><p class="av"><i></i>Open to new opportunities</p><p class="eye">Product Designer · Fintech &amp; Enterprise SaaS</p><h1>Prathamesh Phadatare</h1><p class="sub">I design banking and enterprise software that people trust and use without a manual.</p><div class="btns"><button class="btn m" data-s="work">View my work</button><button class="btn" data-r>Download résumé</button></div></div><div class="ph"><img src="./hero-original.webp" alt="Portrait of Prathamesh Phadatare" width="720" height="864"></div></header>
+<section class="greeting" id="top" aria-labelledby="greeting-title">
+  <div class="greeting-window">
+    <div class="greeting-toolbar">
+      <span class="greeting-document"><span class="greeting-frame-icon" aria-hidden="true"></span> Welcome</span>
+      <span class="greeting-count"><i aria-hidden="true"></i> 1,000 cursors</span>
+    </div>
+    <div class="greeting-stage">
+      <canvas class="greeting-swarm" aria-hidden="true"></canvas>
+      <div class="greeting-selection" aria-hidden="true">
+        <span class="greeting-layer">Greeting</span>
+        <i></i><i></i><i></i><i></i>
+      </div>
+      <div class="greeting-message">
+        <h2 id="greeting-title"><span lang="en" dir="auto">Hello.</span></h2>
+        <span class="greeting-language">English</span>
+      </div>
+      <div class="greeting-pointer pointer-left" aria-hidden="true"><i></i><span>नमस्कार</span></div>
+      <div class="greeting-pointer pointer-right" aria-hidden="true"><i></i><span>Español</span></div>
+      <div class="greeting-pointer pointer-bottom-left" aria-hidden="true"><i></i><span>日本語</span></div>
+      <div class="greeting-pointer pointer-bottom-right" aria-hidden="true"><i></i><span>Prathamesh</span></div>
+    </div>
+    <div class="greeting-controls">
+      <button class="greeting-play" type="button" hidden>Replay greeting</button>
+      <a class="greeting-enter" href="#intro">Explore portfolio <span aria-hidden="true">↓</span></a>
+    </div>
+  </div>
+</section>
+<header class="hero" id="intro" tabindex="-1"><div class="hc"><p class="av"><i></i>Open to new opportunities</p><p class="eye">Product Designer</p><h1>Prathamesh Phadatare</h1><p class="sub">I design banking and enterprise software that people trust and use without a manual.</p><div class="btns"><button class="btn m" data-s="work">View my work</button><button class="btn" data-r>Download résumé</button></div></div><div class="ph"><img src="./hero-original.webp" alt="Portrait of Prathamesh Phadatare" width="720" height="864"></div></header>
 <div class="marq" aria-hidden="true"><div class="track" id="mq"></div></div>
 <section class="stm"><div class="wrap"><p id="stm">Selected work across digital banking, lending and enterprise operations, including the live IDSSPL website.</p>
 <div class="stats"><div class="gl rv"><b data-n="2">2</b><span>Companies in my design experience</span></div><div class="gl rv"><b data-n="14">14</b><span>Projects featured</span></div><div class="gl rv"><b data-n="8">8</b><span>Fintech product initiatives at IDSSPL</span></div><div class="gl rv"><b data-n="5">5</b><span>Enterprise SaaS tools featured</span></div></div></div></section>
@@ -43,7 +71,6 @@
           <li>Worked on loan origination and loan management systems (LOS/LMS), CRM and a merchant management portal.</li>
           <li>Designed the public IDSSPL website showcasing its banking technology.</li>
         </ul>
-        <button class="btn" type="button" data-p="10">View the IDSSPL website project →</button>
       </article>
       <article class="gl rv">
         <div class="jh"><h3>Product Designer</h3><span>July 2024 – February 2026</span></div>
@@ -92,5 +119,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="./mockups.js"></script>
 <script src="./app.js"></script>
+<script src="./greeting.js" defer></script>
 </body>
 </html>
