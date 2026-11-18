@@ -3,17 +3,21 @@ document.documentElement.classList.add('js');
 if('scrollRestoration' in history)history.scrollRestoration='manual';
 var $=function(s,r){return(r||document).querySelector(s)},$$=function(s,r){return[].slice.call((r||document).querySelectorAll(s))};
 var red=matchMedia('(prefers-reduced-motion:reduce)').matches;
-var P=[['Core Banking System','Interfaces for the engine behind accounts, deposits, loans and ledgers, built for speed and accuracy.','CBS · Web','w',0,220],
-['Internet Banking','A secure retail portal for payments, statements and account management that is easy to scan.','Retail · Web','w',0,190],
-['Corporate Banking','Multi-user workflows for businesses: bulk payments, approvals and clear cash visibility.','Business · Web','w',0,250],
-['Banking Mobile App','A mobile-first experience built around everyday tasks and fast, safe transactions.','iOS · Android','m',0,280],
-['Lending App (LOS and LMS)','Loan origination to servicing in one journey: onboarding, underwriting, disbursal and repayments.','Lending · Mobile and web','m',0,160],
+var P=[['Core Banking System','A staff-facing workspace for core banking operations, with an overview and tools for maintaining branch and industry records.','Core banking · Web','w',0,220],
+['Internet Banking','Retail online banking with a clear account overview, debit card controls and card statements.','Retail banking · Web','w',0,190],
+['Corporate Banking','A banking workspace for businesses to review balances, find accounts and read statements.','Business banking · Web','w',0,250],
+['Mobile Banking','A banking app organized around balances, quick actions and transaction history.','Retail banking · Mobile','m',0,280],
+['Lending (LOS and LMS)','Loan origination and servicing workflows, from application review to repayment tracking.','Lending · Web','w',0,160],
 ['Gate Pass Management','Request, approve and track the movement of materials and people through every gate.','Facility · Web','w',1,30],
 ['Visitor Management','Pre-registration, quick check-in and host alerts for a smoother front desk.','Facility · Web','w',1,330],
 ['Valet Parking Management','Handover, tracking and retrieval flows for valet teams and guests.','Hospitality · Mobile','m',1,200],
 ['Asset Management','Follow every asset from tagging and allocation through maintenance and retirement.','Operations · Web','w',1,120],
 ['Helpdesk','Ticketing and SLA workflows that keep requests moving and teams accountable.','Support · Web','w',1,265],
-['IDSSPL Website','A bold digital home for IDSSPL’s core banking, payments and digital banking ecosystem.','Live website · Web','w',0,205,'https://idsspl.com/']];
+['IDSSPL Website','A bold digital home for IDSSPL’s core banking, payments and digital banking ecosystem.','Live website · Web','w',0,205,'https://idsspl.com/'],
+['Pigmy Banking','Design work for a banking product that handles small recurring deposits and collections.','Deposit banking · Web','w',0,150],
+['CRM','Design work for managing customer records and follow-ups in a fintech workspace.','Customer management · Web','w',0,270],
+['Merchant Management Portal','Design work for managing merchant accounts, onboarding and operational reviews.','Merchant operations · Web','w',0,35]];
+var idssplProjects=[0,1,2,3,4,11,12,13];
 var TX=[['Dense, regulated workflows with many roles, strict approvals and no room for ambiguity.','Mapped journeys by role, simplified the flows, then built a consistent component library in Figma and prototyped the critical paths.','A clean, scannable interface with clear hierarchy, predictable patterns and states designed for every edge case.'],
 ['Teams relying on registers, calls and spreadsheets, with little visibility into what was happening on the ground.','Studied the on-site routine, cut the steps to the essentials and designed fast flows for both desk staff and admins.','A focused product that is quick to use at the counter and gives managers a clear live picture.']];
 function rnd(s){return function(){s=s*16807%2147483647;return s/2147483647}}
@@ -44,7 +48,8 @@ var SV=[['Product design','Turning business requirements into flows and features
 $('#svc').innerHTML=SV.map(function(s){return'<div class="gl rv"><div class="i3"><svg viewBox="0 0 64 64">'+s[2]+'</svg></div><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join('');
 $('#pg').innerHTML=[['Discover','Understand users, roles and business goals through stakeholder talks and workflow audits.'],['Define','Map journeys, rank the problems and agree on scope before opening Figma.'],['Design','Wireframes to polished, prototyped screens on a reusable component system.'],['Deliver','Developer-ready handoff and specs, with follow-up so what ships matches the design.']].map(function(s,i){return'<div class="gl pr rv"><b>0'+(i+1)+'</b><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join('');
 var mq=['Product Design','UI Design','UX Design','Design Systems','Fintech','Enterprise SaaS'].map(function(x){return'<span>'+x+'</span>'}).join('');$('#mq').innerHTML=mq+mq;
-var tr=$('#tr'),featured=P.length-1,cardOrder=[featured].concat(P.map(function(_,i){return i}).filter(function(i){return i!==featured}));
+var tr=$('#tr'),featured=10,cardOrder=[featured].concat(idssplProjects);
+cardOrder=cardOrder.concat(P.map(function(_,i){return i}).filter(function(i){return !cardOrder.includes(i)}));
 tr.innerHTML=cardOrder.map(function(i){var p=P[i];return'<button class="card gl" data-p="'+i+'">'+art(i,0)+'<h3>'+p[0]+'</h3><p>'+p[1]+'</p><em>'+p[2]+'</em></button>'}).join('');
 var st=$('#stm');st.innerHTML=st.textContent.split(' ').map(function(w){return'<span class="w">'+w+'</span>'}).join(' ');var W=$$('.w',st);
 var io=window.IntersectionObserver&&!red?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);var b=$('b[data-n]',e.target);if(b){var n=+b.dataset.n,t0=performance.now();(function f(t){var k=Math.min(1,(t-t0)/1100);b.textContent=Math.round(n*(1-Math.pow(1-k,3)))+(b.dataset.p||'');if(k<1)requestAnimationFrame(f)})(t0)}}})},{threshold:.12,rootMargin:'0px 0px 40px 0px'}):null;
@@ -56,9 +61,18 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNav()})
 var lastHomeY=null,pendingAnchor=null;
 function jumpTo(id){var e=document.getElementById(id);if(!e)return;var offset=id=='work'?(stacked?70:0):70;scrollTo({top:id=='top'?0:e.getBoundingClientRect().top+scrollY-offset,behavior:red?'instant':'smooth'})}
 function go(id){closeNav();if(!$('#pv').hidden){pendingAnchor=id;location.hash=''}else jumpTo(id)}
-function pv(i){var p=P[i],t=TX[p[4]],n=(i+1)%P.length,h=$('#pv');
+function pv(i){var p=P[i],t=TX[p[4]],n=cardOrder[(cardOrder.indexOf(i)+1)%cardOrder.length],h=$('#pv');
 if(p[6]){
   h.innerHTML='<button class="btn back" data-b>← All projects</button><p class="eye">'+p[2]+'</p><h1>'+p[0]+'</h1><p class="lead" style="max-width:62ch">'+p[1]+'</p><p class="site-actions"><a class="btn m" href="'+p[6]+'" target="_blank" rel="noopener noreferrer">Visit live website ↗</a></p><div class="gl sh">'+art(i,0)+'</div><div class="meta"><div class="gl"><small>Contribution</small>Website design</div><div class="gl"><small>Format</small>Live website</div><div class="gl"><small>Industry</small>Banking technology</div><div class="gl"><small>Website</small><a href="'+p[6]+'" target="_blank" rel="noopener noreferrer">idsspl.com ↗</a></div></div><div class="txt"><div class="gl rv"><h3>The website</h3><p>Designed to present IDSSPL’s banking technology portfolio as one connected ecosystem, from core banking and payments to digital channels.</p></div><div class="gl rv"><h3>Visual direction</h3><p>Deep navy surfaces, luminous blue accents and spacious typography give complex financial technology a clear, modern presence.</p></div></div><h2 style="margin-top:56px">Explore the screens</h2><div class="gal site-gallery"><div class="gl shot rv">'+art(i,1)+'<small>01 / Homepage</small></div><div class="gl shot rv">'+art(i,2)+'<small>02 / Product ecosystem</small></div><div class="gl shot rv">'+art(i,3)+'<small>03 / Connected banking flow</small></div></div><p class="note">Screenshots from the live IDSSPL website.</p><div class="gl nx rv"><div><small style="color:var(--ac)">Next project</small><h3 style="font:700 28px var(--d);margin:0">'+P[n][0]+'</h3></div><button class="btn m" data-p="'+n+'">Open →</button></div>';
+  rv(h);return
+}
+if(idssplProjects.includes(i)){
+  h.innerHTML='<button class="btn back" data-b>← All projects</button>'+
+    '<p class="eye">IDSSPL · '+p[2]+'</p><h1>'+p[0]+'</h1><p class="lead">'+p[1]+'</p>'+
+    '<div class="meta"><div class="gl"><small>Company</small>IDSSPL</div><div class="gl"><small>Role at IDSSPL</small>Lead Product Designer</div></div>'+
+    '<h2>Interface previews</h2><p class="lead">Illustrative mockups with sample data.</p>'+
+    '<div class="gal">'+[0,1,2].map(function(variant){return '<div class="gl shot rv">'+art(i,variant)+'</div>'}).join('')+'</div>'+
+    '<div class="gl nx rv"><div><small style="color:var(--ac)">Next project</small><h3 style="font:700 28px var(--d);margin:0">'+P[n][0]+'</h3></div><button class="btn m" data-p="'+n+'">Open →</button></div>';
   rv(h);return
 }
 h.innerHTML='<button class="btn back" data-b>← All projects</button><p class="eye">'+p[2]+'</p><h1>'+p[0]+'</h1><p class="lead" style="max-width:62ch">'+p[1]+'</p><div class="gl sh">'+art(i,0)+'</div><div class="meta"><div class="gl"><small>Role</small>Product Designer</div><div class="gl"><small>Focus</small>UI, UX and flows</div><div class="gl"><small>Platform</small>'+p[2].split(' · ')[1]+'</div><div class="gl"><small>Domain</small>'+(p[4]?'Enterprise SaaS':'Banking and lending')+'</div></div><div class="txt"><div class="gl rv"><h3>Challenge</h3><p>'+t[0]+'</p></div><div class="gl rv"><h3>Approach</h3><p>'+t[1]+'</p></div><div class="gl rv" style="grid-column:1/-1"><h3>Solution</h3><p>'+t[2]+'</p></div></div><h2 style="margin-top:56px">Design priorities</h2><div class="imp"><div class="gl rv"><b>01</b><span>Make dense tasks easy to scan</span></div><div class="gl rv"><b>02</b><span>Guide each role to its next action</span></div><div class="gl rv"><b>03</b><span>Keep patterns consistent across screens</span></div></div><h2 style="margin-top:56px">Key screens</h2><div class="gal"><div class="gl shot rv">'+art(i,1)+'</div><div class="gl shot rv">'+art(i,2)+'</div><div class="gl shot rv">'+art(i,3)+'</div></div><p class="note">Illustrative interface mockups with sample data.</p><div class="gl nx rv"><div><small style="color:var(--ac)">Next project</small><h3 style="font:700 28px var(--d);margin:0">'+P[n][0]+'</h3></div><button class="btn m" data-p="'+n+'">Open →</button></div>';rv(h)}

@@ -1,16 +1,21 @@
 (function () {
   const screens = [
-    { nav: ['Overview', 'Accounts', 'Deposits', 'Loans'], titles: ['Account overview', 'Ledger activity', 'Loan servicing'], rows: ['Current accounts', 'Savings deposits', 'Term deposits'], stats: ['₹8.4M', '1,248', '99.2%'] },
-    { nav: ['Home', 'Payments', 'Statements', 'Cards'], titles: ['Your money at a glance', 'Recent payments', 'Monthly statements'], rows: ['Salary account', 'Electricity bill', 'Card payment'], stats: ['₹2.48L', '18', '4'] },
-    { nav: ['Dashboard', 'Bulk payments', 'Approvals', 'Reports'], titles: ['Cash position', 'Approval queue', 'Payment batches'], rows: ['Payroll batch', 'Vendor payment', 'Tax transfer'], stats: ['₹12.6M', '24', '8'] },
-    { nav: ['Home', 'Transfer', 'Cards', 'Activity'], titles: ['Good morning', 'Send money', 'Card controls'], rows: ['Coffee House', 'Monthly rent', 'Grocery Store'], stats: ['₹48,920', '12', '3'] },
+    { nav: ['Dashboard', 'Branch master', 'Industry master', 'Accounts'], titles: ['Core banking dashboard', 'Branch master', 'Industry master'], rows: ['Branch directory', 'Industry codes', 'Record status'], stats: ['₹8.4M', '12', '38'], metrics: ['DEPOSITS', 'BRANCHES', 'INDUSTRIES'], list: true },
+    { nav: ['Home', 'Cards', 'Statements', 'Transfers'], titles: ['Account overview', 'Debit card controls', 'Card statements'], rows: ['Card settings', 'Spending limits', 'Monthly activity'], stats: ['₹2.48L', '2', '4'], metrics: ['BALANCE', 'DEBIT CARDS', 'STATEMENTS'], list: true },
+    { nav: ['Dashboard', 'Accounts', 'Statements', 'Alerts'], titles: ['Corporate dashboard', 'Accounts overview', 'Account statements'], rows: ['Operating account', 'Payroll account', 'Reserve account'], stats: ['₹12.6M', '3', '8'], metrics: ['TOTAL BALANCE', 'ACCOUNTS', 'ALERTS'], list: true },
+    { nav: ['Home', 'Quick actions', 'Statements', 'Activity'], titles: ['Account home', 'Quick actions', 'Statement period'], rows: ['Transfer money', 'Pay a bill', 'View statement'], stats: ['₹48,920', '12', '3'] },
     { nav: ['Overview', 'Applications', 'Repayments', 'Reports'], titles: ['Loan overview', 'Application review', 'Repayment plan'], rows: ['Application 1042', 'Application 1043', 'Application 1044'], stats: ['₹4.2M', '36', '92%'] },
     { nav: ['Overview', 'Requests', 'Approvals', 'Gate log'], titles: ['Movement overview', 'Pending passes', 'Gate activity'], rows: ['Material dispatch', 'Vendor entry', 'Returnable item'], stats: ['128', '14', '98%'] },
     { nav: ['Overview', 'Visitors', 'Check-in', 'Hosts'], titles: ['Front desk today', 'Upcoming visitors', 'Check-in activity'], rows: ['Guest arrival', 'Interview visit', 'Vendor meeting'], stats: ['46', '12', '4'] },
     { nav: ['Overview', 'Vehicles', 'Tickets', 'Reports'], titles: ['Valet queue', 'Vehicle handover', 'Ready for pickup'], rows: ['Ticket V-204', 'Ticket V-205', 'Ticket V-206'], stats: ['28', '6', '4 min'] },
     { nav: ['Overview', 'Inventory', 'Maintenance', 'People'], titles: ['Asset overview', 'Maintenance queue', 'Allocation history'], rows: ['Laptop fleet', 'Office equipment', 'Network devices'], stats: ['1,842', '32', '96%'] },
-    { nav: ['Overview', 'Tickets', 'SLA', 'Knowledge'], titles: ['Support overview', 'Ticket queue', 'Service performance'], rows: ['Login issue', 'Access request', 'Device support'], stats: ['142', '18', '94%'] }
+    { nav: ['Overview', 'Tickets', 'SLA', 'Knowledge'], titles: ['Support overview', 'Ticket queue', 'Service performance'], rows: ['Login issue', 'Access request', 'Device support'], stats: ['142', '18', '94%'] },
+    null,
+    { nav: ['Overview', 'Collections', 'Deposit accounts', 'Reports'], titles: ['Deposit overview', 'Daily collections', 'Deposit accounts'], rows: ['Collection Route A', 'Collection Route B', 'Collection Route C'], stats: ['₹42,300', '12', '84'], metrics: ['COLLECTED', 'ROUTES', 'ACTIVE DEPOSITS'], list: true },
+    { nav: ['Overview', 'Customers', 'Follow-ups', 'Activity'], titles: ['Customer overview', 'Customer records', 'Follow-up queue'], rows: ['New enquiry', 'Profile review', 'Follow-up due'], stats: ['320', '18', '7'], metrics: ['CUSTOMERS', 'OPEN ENQUIRIES', 'DUE TODAY'], list: true },
+    { nav: ['Overview', 'Onboarding', 'Merchants', 'Reports'], titles: ['Merchant overview', 'Onboarding review', 'Merchant directory'], rows: ['North Market', 'Coastline Goods', 'Corner Studio'], stats: ['248', '16', '9'], metrics: ['ACTIVE MERCHANTS', 'APPLICATIONS', 'IN REVIEW'], list: true }
   ];
+  let previewCount = 0;
 
   function escapeXml(value) {
     return String(value).replace(/[&<>"']/g, c => ({
@@ -56,13 +61,12 @@
     });
     svg += label(36, 352, 'SAMPLE DATA', 8, '#72818e', 700) +
       label(170, 86, config.titles[mode], 22, '#f5f7f2', 700) +
-      label(171, 105, 'A clearer view of what matters now', 10, '#9caab5') +
       rect(532, 72, 67, 23, lime, 11) +
       label(546, 88, mode === 1 ? 'Review' : 'Explore', 9, '#101823', 700);
     for (let i = 0; i < 3; i++) {
       const x = 170 + i * 143;
       svg += rect(x, 122, 132, 68, i === 0 ? '#223a37' : '#1a2732', 12, '#34444b') +
-        label(x + 13, 145, ['TOTAL', 'IN PROGRESS', 'ON TRACK'][i], 8, '#aebfc5', 700) +
+        label(x + 13, 145, (config.metrics || ['TOTAL', 'IN PROGRESS', 'ON TRACK'])[i], 8, '#aebfc5', 700) +
         label(x + 13, 174, config.stats[i], 20, i === 0 ? lime : '#f5f7f2', 700);
     }
     if (mode === 0) {
@@ -78,9 +82,9 @@
         svg += rect(464, 246 + i * 32, 17, 17, i === 0 ? lime : '#30444a', 5) +
           label(490, 259 + i * 32, row, 9, '#bdcbd0');
       });
-    } else if (mode === 1) {
+    } else if (mode === 1 || config.list) {
       svg += rect(170, 204, 429, 153, '#17232e', 13, '#33424b') +
-        label(186, 230, 'Needs attention', 12, '#e8f0ee', 700);
+        label(186, 230, config.list ? 'Records' : 'Needs attention', 12, '#e8f0ee', 700);
       config.rows.forEach((row, i) => {
         const y = 252 + i * 34;
         svg += rect(186, y - 11, 397, 29, i % 2 ? '#192a34' : '#20303a', 7) +
@@ -132,7 +136,7 @@
   }
   window.makeProjectMockup = function (project, index, variant) {
     const config = screens[index], mode = variant % 3;
-    let svg = background(project, 'preview' + index + '-' + variant);
+    let svg = background(project, 'preview-' + ++previewCount);
     if (project[3] === 'm') {
       svg += phone(config, project, 80, 42, 170, 328, (mode + 1) % 3, false) +
         phone(config, project, 246, 18, 190, 360, mode, true) +
