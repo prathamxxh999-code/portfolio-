@@ -95,8 +95,12 @@ footer{padding:28px 24px 40px;text-align:center;color:var(--mute);font-size:14px
 @media(max-width:560px){.tg{grid-template-columns:repeat(2,1fr)}.tl{padding-left:28px}.tl>article::before{left:-28px}.tl>article{padding:24px 20px}}
 .av{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);font-size:14px;margin:0 0 18px}
 .av i{width:8px;height:8px;border-radius:50%;background:var(--ac);animation:pu 2s infinite}@keyframes pu{0%{box-shadow:0 0 0 0 rgba(198,255,61,.6)}70%,100%{box-shadow:0 0 0 10px rgba(198,255,61,0)}}
-.cr,.cp,.imp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.cr>div,.imp>div{padding:30px 28px}.cr h3,.cp h3{font:700 22px var(--d);letter-spacing:-.02em;margin:0 0 14px}.cr p{margin:0 0 14px;color:var(--mute);font-size:15px}.cr b{color:var(--ink);font-weight:500}.cr span{color:var(--ac);font-size:14px}
+.cp,.imp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:28px}
+.cr>div,.imp>div{padding:30px 28px}.cr h3,.cp h3{font:700 22px var(--d);letter-spacing:-.02em;margin:0 0 14px}
+.cr .cr-title{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px 12px;margin-bottom:7px}
+.cr .cr-title h3{margin:0}.cr time,.cr .cr-grade{color:var(--ac);font-size:14px}
+.cr p{margin:0;color:var(--mute);font-size:15px}.cr .cr-grade{margin-top:4px}
 .cp>div{padding:14px 14px 26px}.cp i{display:block;aspect-ratio:16/9;border-radius:16px;margin-bottom:16px;background:radial-gradient(circle at 25% 30%,hsla(var(--h),90%,60%,.55),transparent 60%),radial-gradient(circle at 80% 75%,rgba(198,255,61,.45),transparent 55%),#0d0f16}
 .cp h3{margin:0 8px 6px}.cp p{margin:0 8px 8px;color:var(--mute);font-size:15px}.cp em{font-style:normal;color:var(--ac);font-size:13px;margin:0 8px}
 .cp>article{padding:12px 12px 25px;min-width:0;transition:transform .3s,border-color .3s}.cp>article:hover{transform:translateY(-7px);border-color:rgba(198,255,61,.5)}
