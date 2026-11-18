@@ -3,42 +3,9 @@
 .hero-anchor { position: absolute; top: 0; left: 0; }
 .greeting-lock { overflow: hidden; }
 
-.greeting {
-  width: min(1160px, 100%);
-  margin-inline: auto;
-  padding: clamp(40px, 7vw, 86px) 24px 0;
-  scroll-margin-top: 72px;
-}
-
 .greeting-window {
-  overflow: hidden;
-  border: 1px solid #31382b;
-  border-radius: 18px;
-  background: #101311;
-}
-
-.greeting-toolbar,
-.greeting-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  min-height: 45px;
-  padding: 8px 16px;
-  font-size: 13px;
-}
-
-.greeting-toolbar { border-bottom: 1px solid #272d25; }
-.greeting-controls { border-top: 1px solid #272d25; }
-.greeting-document { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; }
-.greeting-count, .greeting-language { color: #b6c2b2; }
-
-.greeting-frame-icon {
-  width: 15px;
-  height: 15px;
-  background:
-    linear-gradient(90deg, transparent 3px, var(--ac) 3px 4px, transparent 4px 10px, var(--ac) 10px 11px, transparent 11px),
-    linear-gradient(transparent 3px, var(--ac) 3px 4px, transparent 4px 10px, var(--ac) 10px 11px, transparent 11px);
+  width: 100%;
+  height: 100%;
 }
 
 .greeting-stage {
@@ -46,10 +13,25 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  height: clamp(230px, 36vw, 404px);
+  height: 100%;
   background:
-    radial-gradient(circle at center, #c6ff3d1c .75px, transparent 1.2px) 0 0 / 21px 21px,
-    radial-gradient(ellipse at center, #1b2414, #080b0b 68%);
+    radial-gradient(circle at center, #b4cd9c1a .65px, transparent 1px) center / 21px 21px;
+}
+
+.greeting-stage::before {
+  content: "";
+  position: absolute;
+  inset: 10% 0;
+  background: radial-gradient(ellipse at center, #9bd9cc20, #62935612 24%, transparent 60%);
+  opacity: .85;
+  animation: greeting-light 4.83s ease both;
+}
+
+@keyframes greeting-light {
+  0% { opacity: 0; transform: scale(.3); }
+  36% { opacity: .9; transform: scale(1); }
+  78% { opacity: .58; }
+  100% { opacity: .85; transform: scale(1.1); }
 }
 
 .greeting-swarm {
@@ -62,18 +44,22 @@
 
 .greeting-selection {
   position: absolute;
-  inset: 17% 6%;
-  border: 1px solid #c6ff3d7a;
+  top: 22%;
+  left: 9%;
+  border: 1px solid #4cd9ff99;
+  box-shadow: inset 0 0 65px #4cd9ff0a;
   pointer-events: none;
-  transition: opacity .25s, transform .35s cubic-bezier(.25,.85,.25,1);
+  opacity: var(--frame-opacity, 0);
+  width: calc(82% * var(--frame-open, 0));
+  height: calc(56% * var(--frame-open, 0));
 }
 
 .greeting-selection i {
   position: absolute;
   width: 7px;
   height: 7px;
-  border: 1px solid var(--ac);
-  background: #f4ffd7;
+  border: 1px solid #4cd9ff;
+  background: #fff;
 }
 
 .greeting-selection i:nth-child(1) { top: -4px; left: -4px; }
@@ -87,6 +73,7 @@
   color: var(--ink);
   text-align: center;
 }
+#greeting-title:focus { outline: none; }
 
 .greeting-window[data-rendered] #greeting-title {
   position: absolute;
@@ -97,21 +84,6 @@
   white-space: nowrap;
 }
 
-.greeting-play, .greeting-skip {
-  min-height: 38px;
-  padding: 7px 12px;
-  border: 1px solid #c6ff3d55;
-  border-radius: 8px;
-  background: #101611;
-  color: #e6ffd1;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.greeting-play:hover, .greeting-skip:hover { border-color: var(--ac); color: var(--ac); }
-.greeting-skip span { margin-inline-start: 7px; }
-.greeting-controls [hidden] { display: none; }
-
 .greeting-splash {
   position: fixed;
   inset: 0;
@@ -120,68 +92,28 @@
   max-width: none;
   max-height: none;
   margin: 0;
-  padding: max(18px, env(safe-area-inset-top)) 22px max(18px, env(safe-area-inset-bottom));
-  overflow: auto;
+  padding: 0;
+  overflow: hidden;
   overscroll-behavior: contain;
   border: 0;
   color: var(--ink);
-  background: radial-gradient(ellipse at 50% 40%, #151e11 0%, #080b0b 66%, #050609);
+  background: radial-gradient(ellipse at 50% 46%, #162018 0%, #0b100e 42%, #080908 76%);
 }
 
 .greeting-splash[open] { display: grid; place-items: center; }
 .greeting-splash::backdrop { background: transparent; }
-.greeting-splash .greeting-window { width: min(100%, 1280px); border: 0; background: transparent; }
-.greeting-splash .greeting-stage { height: clamp(235px, 59svh, 580px); background: transparent; }
-.greeting-splash .greeting-toolbar, .greeting-splash .greeting-controls { padding-inline: 8px; border-color: #c6ff3d24; }
-.greeting-splash .greeting-selection { inset: 15% 5%; }
-.greeting-splash [data-phase="orbit"] .greeting-selection { opacity: 0; transform: scale(.87); }
-.greeting-splash[data-leaving] { animation: greeting-unveil .54s cubic-bezier(.5,0,.25,1) both; }
+.greeting-splash[data-leaving] { animation: greeting-unveil .62s cubic-bezier(.5,0,.25,1) both; }
 
 @keyframes greeting-unveil {
   from { opacity: 1; clip-path: inset(0 0 0 0); }
-  to { opacity: 0; clip-path: inset(45% 0 45% 0); }
+  to { opacity: 0; clip-path: inset(48% 0 48% 0); }
 }
 
-.hero.greeting-arrival h1 { position: relative; }
-.hero.greeting-arrival h1::after,
-.hero.greeting-arrival .ph::after {
-  position: absolute;
-  inset: 1px;
-  border: 1px solid var(--ac);
-  background:
-    linear-gradient(var(--ac),var(--ac)) 0 0 / 5px 5px,
-    linear-gradient(var(--ac),var(--ac)) 100% 0 / 5px 5px,
-    linear-gradient(var(--ac),var(--ac)) 0 100% / 5px 5px,
-    linear-gradient(var(--ac),var(--ac)) 100% 100% / 5px 5px;
-  background-repeat: no-repeat;
-  box-shadow: inset 0 0 35px #c6ff3d14;
-  content: "";
+.portfolio-frames {
+  position: fixed;
+  z-index: 11;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
-  animation: greeting-selection-in 1.12s ease-out both;
-}
-
-.hero.greeting-arrival .ph::after { animation-delay: .15s; }
-.hero.greeting-arrival .ph img { animation: greeting-portrait-in .68s .10s cubic-bezier(.22,.78,.23,1) both; }
-
-@keyframes greeting-selection-in {
-  0% { opacity: 0; clip-path: inset(0 100% 0 0); }
-  37% { opacity: .95; clip-path: inset(0); }
-  63% { opacity: .70; }
-  100% { opacity: 0; }
-}
-
-@keyframes greeting-portrait-in {
-  from { clip-path: inset(0 0 100% 0); }
-  to { clip-path: inset(0); }
-}
-
-@media (max-width: 600px) {
-  .greeting { padding-inline: 14px; }
-  .greeting-window { border-radius: 13px; }
-  .greeting-splash { padding-inline: 14px; }
-  .greeting-toolbar, .greeting-controls { padding-inline: 11px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .greeting-selection { transition: none; }
 }

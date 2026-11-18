@@ -1,51 +1,42 @@
+import { cursorColors, cursorSprite, paintCommentCursor } from './cursor-frames.js';
+
 (() => {
-  const inline = document.querySelector('.greeting');
   const splash = document.querySelector('.greeting-splash');
   const hero = document.querySelector('.hero');
-  if (!inline || !splash || !hero) return;
+  if (!splash || !hero) return;
 
-  const panel = inline.querySelector('.greeting-window');
+  const panel = splash.querySelector('.greeting-window');
   const stage = panel.querySelector('.greeting-stage');
   const canvas = panel.querySelector('.greeting-swarm');
   const heading = panel.querySelector('#greeting-title span');
-  const language = panel.querySelector('.greeting-language');
-  const replay = panel.querySelector('.greeting-play');
-  const skip = panel.querySelector('.greeting-skip');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const context = canvas.getContext('2d');
   const mask = document.createElement('canvas');
   const ink = mask.getContext('2d', { willReadFrequently: true });
   const supportsSplash = Boolean(context && ink && typeof splash.showModal === 'function');
+  const atHome = () => ['', '#top', '#intro', '#home'].includes(location.hash);
 
   const greetings = [
-    ['Hello', 'en', 'English'],
-    ['नमस्कार', 'mr', 'Marathi'],
-    ['Hola', 'es', 'Spanish'],
-    ['こんにちは', 'ja', 'Japanese'],
-    ['Bonjour', 'fr', 'French'],
-    ['مرحبًا', 'ar', 'Arabic'],
-    ['नमस्ते', 'hi', 'Hindi'],
-    ['你好', 'zh', 'Chinese'],
-    ['안녕하세요', 'ko', 'Korean'],
-    ['Hallo', 'de', 'German']
+    ['Hello', 'en'],
+    ['नमस्कार', 'mr'],
+    ['Hola', 'es'],
+    ['こんにちは', 'ja']
   ];
   const opening = [0, 1, 2, 3, 0];
-  const fullSequence = [...greetings.keys(), 0];
   const cursorCount = 1000;
-  const orbitEnd = 430;
-  const assembleEnd = 1100;
-  const morphStart = 1530;
-  const beat = 640;
-  const morphLength = 360;
-  const sessionKey = 'portfolio-cursor-splash-v2';
-  let seen = false;
+  const orbitEnd = 560;
+  const assembleEnd = 1460;
+  const morphStart = 1730;
+  const beat = 735;
+  const morphLength = 435;
+  const handoff = 620;
+  const collaborators = [[.13, .31], [.23, .74], [.77, .24], [.88, .65], [.66, .78]];
   let width = 0;
   let height = 0;
   let activeGreeting = 0;
   let playback = null;
   let nextFrame = 0;
   let leaveTimer = 0;
-  let arrivalTimer = 0;
   let seed = 11987;
   const shapes = new Map();
 
@@ -54,41 +45,19 @@
     return seed / 4294967296;
   }
 
-  function cursor(color) {
-    const sprite = document.createElement('canvas');
-    sprite.width = 24;
-    sprite.height = 30;
-    const brush = sprite.getContext('2d');
-    brush.beginPath();
-    brush.moveTo(2, 2);
-    brush.lineTo(22, 17);
-    brush.lineTo(14, 18);
-    brush.lineTo(18, 26);
-    brush.lineTo(13, 28);
-    brush.lineTo(9, 20);
-    brush.lineTo(4, 25);
-    brush.closePath();
-    brush.fillStyle = color;
-    brush.strokeStyle = '#101a0d';
-    brush.lineWidth = 1.35;
-    brush.lineJoin = 'round';
-    brush.fill();
-    brush.stroke();
-    return sprite;
-  }
-
-  const sprites = context ? ['#c6ff46', '#dbff8e', '#f1ffd9', '#82b846', '#a2e6a4'].map(cursor) : [];
+  const sprites = context ? cursorColors.map(color =>
+    Array.from({ length: 8 }, (_, direction) => cursorSprite(color, direction * Math.PI / 4))) : [];
   const swarm = context ? Array.from({ length: cursorCount }, (_, index) => ({
     angle: index % 13 * Math.PI * 2 / 13 + (random() - .5) * .5,
     radius: .45 + random() * .62,
     delay: random() * .21,
     scale: .83 + random() * .34,
-    sprite: sprites[Math.floor(random() * sprites.length)]
+    sprites: sprites[Math.floor(random() * sprites.length)]
   })) : [];
 
   function shape(index) {
     if (shapes.has(index)) return shapes.get(index);
-    const [word, code] = greetings[index];
+    const [word] = greetings[index];
     const ratio = Math.min(1, 1000 / width, 560 / height);
     const maskWidth = Math.max(1, Math.round(width * ratio));
     const maskHeight = Math.max(1, Math.round(height * ratio));
@@ -96,7 +65,7 @@
     mask.height = maskHeight;
     const font = 'Arial Black, Arial, Nirmala UI, sans-serif';
     let size = Math.min(maskHeight * .56, maskWidth * .41, 250);
-    ink.direction = code === 'ar' ? 'rtl' : 'ltr';
+    ink.direction = 'ltr';
     ink.textAlign = 'center';
     ink.font = `900 ${size}px ${font}`;
     size *= Math.min(1, maskWidth * .78 / Math.max(1, ink.measureText(word).width));
@@ -137,10 +106,9 @@
   function label(index) {
     if (activeGreeting === index) return;
     activeGreeting = index;
-    const [word, code, name] = greetings[index];
+    const [word, code] = greetings[index];
     heading.textContent = word;
     heading.lang = code;
-    language.textContent = name;
   }
 
   function ease(value) {
@@ -171,6 +139,9 @@
     }
     const phase = inOrbit ? 'orbit' : amount < 1 ? 'compose' : 'formed';
     if (panel.dataset.phase !== phase) panel.dataset.phase = phase;
+    const selectionProgress = time < morphStart ? ease(amount) : 1;
+    panel.style.setProperty('--frame-open', selectionProgress);
+    panel.style.setProperty('--frame-opacity', Math.min(1, selectionProgress * 5));
     const incoming = shape(toIndex);
     const outgoing = fromIndex === null ? null : shape(fromIndex);
     panel.toggleAttribute('data-rendered', Boolean(incoming));
@@ -178,25 +149,45 @@
     if (!incoming) return;
 
     const ring = Math.min(width, height);
+    const openingDepth = Math.min(1, time / orbitEnd);
+    const openingRadius = .32 + .68 * ease(openingDepth);
+    const orbitTip = Math.max(4.3, Math.min(9.8, ring * .011));
     for (let index = 0; index < cursorCount; index++) {
       const particle = swarm[index];
       const next = incoming.points[index];
       const previous = outgoing?.points[index];
-      const angle = particle.angle + Math.min(time, orbitEnd + 210) * .004;
-      const startX = previous?.x ?? width / 2 + Math.cos(angle) * ring * .33 * particle.radius;
-      const startY = previous?.y ?? height / 2 + Math.sin(angle) * ring * .23 * particle.radius;
+      const angle = particle.angle + Math.min(time, orbitEnd + 290) * .0028;
+      const startX = previous?.x ?? width / 2 + Math.cos(angle) * ring * .35 * particle.radius * openingRadius;
+      const startY = previous?.y ?? height / 2 + Math.sin(angle) * ring * .22 * particle.radius * openingRadius;
       const progress = ease(Math.max(0, Math.min(1, (amount - particle.delay) / (1 - particle.delay))));
-      const size = ((outgoing?.size ?? Math.max(3.8, ring * .012)) * (1 - progress) +
+      const size = ((outgoing?.size ?? orbitTip * (1 + Math.sin(angle) * .23)) * (1 - progress) +
         incoming.size * progress) * particle.scale;
-      const x = startX + (next.x - startX) * progress;
-      const y = startY + (next.y - startY) * progress;
-      context.globalAlpha = inOrbit ? .60 : .96;
-      context.drawImage(particle.sprite, x - size * .46, y - size * .56, size, size * 1.25);
+      const drift = time * .00245 + particle.angle * 4;
+      const x = startX + (next.x - startX) * progress + Math.sin(drift) * progress * 2.3;
+      const y = startY + (next.y - startY) * progress + Math.cos(drift * 1.13) * progress * 2.7;
+      context.globalAlpha = inOrbit ? .47 + Math.sin(angle) * .21 : .88;
+      const direction = inOrbit ? Math.round((angle + 1.6) / (Math.PI / 4)) & 7 : 0;
+      context.drawImage(particle.sprites[direction], x - size * .62, y - size * .62, size * 1.24, size * 1.24);
     }
+    const driftDistance = Math.min(width, height);
+    collaborators.forEach(([anchorX, anchorY], index) => {
+      const motion = time * .0011 + index * 1.22;
+      const x = width * anchorX + Math.sin(motion) * driftDistance * .047;
+      const y = height * anchorY + Math.cos(motion * 1.22) * driftDistance * .039;
+      context.globalAlpha = Math.min(.86, time / 620);
+      paintCommentCursor(context, sprites[index][0], cursorColors[index], x, y,
+        width <= 600 ? 13 : 20, width, height);
+    });
     context.globalAlpha = 1;
+    if (selectionProgress > 0 && selectionProgress < 1) {
+      const x = width * (.09 + .82 * selectionProgress);
+      const y = height * (.22 + .56 * selectionProgress);
+      context.drawImage(sprites[0][0], x - 4, y - 3, 22, 22);
+    }
   }
 
   function resize() {
+    if (!splash.open) return;
     const bounds = stage.getBoundingClientRect();
     const nextWidth = Math.round(bounds.width);
     const nextHeight = Math.round(bounds.height);
@@ -242,21 +233,17 @@
     syncClock();
   }
 
-  function openSplash(isOpening) {
+  function openSplash() {
     if (!supportsSplash || motion.matches || splash.open) return;
-    const sequence = isOpening ? opening : fullSequence;
     playback = {
-      sequence, isOpening, originalScroll: window.scrollY, elapsed: 0, previous: null, paintTime: -Infinity, leaving: false,
-      duration: morphStart + (sequence.length - 1) * beat + 180
+      sequence: opening, elapsed: 0, previous: null, paintTime: -Infinity, leaving: false,
+      duration: morphStart + (opening.length - 1) * beat + 160
     };
     label(0);
-    replay.hidden = true;
-    skip.hidden = false;
     panel.dataset.phase = 'orbit';
-    inline.style.minHeight = `${inline.offsetHeight}px`;
-    splash.append(panel);
-    document.documentElement.classList.add('greeting-lock');
+    hero.classList.add('portrait-awaiting-light');
     splash.showModal();
+    document.documentElement.classList.add('greeting-lock');
     resize();
     paint(0);
     syncClock();
@@ -264,71 +251,44 @@
 
   function closeSplash(animate) {
     if (!playback || (playback.leaving && animate)) return;
-    const { isOpening, originalScroll } = playback;
     playback.leaving = true;
     stopClock();
     clearTimeout(leaveTimer);
     function restore() {
-      inline.append(panel);
       splash.close();
       splash.removeAttribute('data-leaving');
       document.documentElement.classList.remove('greeting-lock');
-      inline.style.minHeight = '';
       playback = null;
-      skip.hidden = true;
-      replay.hidden = false;
-      replay.textContent = motion.matches || !supportsSplash ? 'Next greeting' : 'Replay greeting';
-      label(0);
-      resize();
-      paint(0);
-      if (Math.abs(window.scrollY - originalScroll) > 1) window.scrollTo({ top: originalScroll, behavior: 'instant' });
-      (isOpening ? hero : replay).focus({ preventScroll: true });
+      hero.classList.remove('portrait-awaiting-light');
+      if (atHome()) {
+        if (!motion.matches) hero.classList.add('portrait-light-on');
+        hero.focus({ preventScroll: true });
+      }
     }
     if (animate && !motion.matches) {
-      if (isOpening) {
-        hero.classList.add('greeting-arrival');
-        clearTimeout(arrivalTimer);
-        arrivalTimer = setTimeout(() => hero.classList.remove('greeting-arrival'), 1400);
-      }
       splash.setAttribute('data-leaving', '');
-      leaveTimer = setTimeout(restore, 560);
+      leaveTimer = setTimeout(restore, handoff);
     } else {
       restore();
     }
   }
 
-  replay.hidden = false;
-  replay.textContent = motion.matches || !supportsSplash ? 'Next greeting' : 'Replay greeting';
-  replay.addEventListener('click', () => {
-    if (motion.matches || !supportsSplash) {
-      label((activeGreeting + 1) % greetings.length);
-      paint(0);
-    } else {
-      openSplash(false);
-    }
-  });
-  skip.addEventListener('click', () => closeSplash(false));
   splash.addEventListener('cancel', event => {
     event.preventDefault();
     closeSplash(false);
   });
   motion.addEventListener('change', () => {
     if (splash.open) closeSplash(false);
-    replay.textContent = motion.matches || !supportsSplash ? 'Next greeting' : 'Replay greeting';
+  });
+  window.addEventListener('hashchange', () => {
+    if (splash.open && !atHome()) closeSplash(false);
   });
   document.addEventListener('visibilitychange', syncClock);
   if ('ResizeObserver' in window) new ResizeObserver(resize).observe(stage);
   else window.addEventListener('resize', resize);
 
-  try { seen = sessionStorage.getItem(sessionKey) === '1'; } catch {}
-  if (!seen && !motion.matches && supportsSplash && (!location.hash || location.hash === '#top') &&
-      window.scrollY < 60) {
-    openSplash(true);
-    try { sessionStorage.setItem(sessionKey, '1'); } catch {}
-  } else {
-    resize();
-    if (location.hash === '#greeting') {
-      requestAnimationFrame(() => inline.scrollIntoView({ block: 'start', behavior: 'instant' }));
-    }
+  if (!motion.matches && supportsSplash && atHome()) {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    openSplash();
   }
 })();

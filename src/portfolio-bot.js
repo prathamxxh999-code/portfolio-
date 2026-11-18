@@ -31,14 +31,6 @@
       return "His process is Discover, Define, Design, Deliver: understand roles and goals, map the journey, prototype clear screens, then support engineering through handoff.";
     if (/design system|component|ui ux|ui\/ux|skill|special/.test(q))
       return "He works across product design, UI and UX, reusable Figma design systems, and complex fintech workflows. His focus is making dense enterprise products feel clear.";
-    if (/orbit/.test(q))
-      return "Orbit OS is a speculative spatial banking dashboard: an exploration of connected money movement, approvals, and risk signals. It is a concept, not shipped client work.";
-    if (/bloom/.test(q))
-      return "Bloom is a speculative mobile savings app where progress grows a digital garden. It explores making small money habits feel rewarding.";
-    if (/citypulse|city pulse|city/.test(q))
-      return "CityPulse is a speculative urban operations concept connecting visitors, parking, service requests, and public assets on a live map.";
-    if (/concept|speculative|side project/.test(q))
-      return "The Beyond the brief section has three speculative concepts: Orbit OS, Bloom, and CityPulse. They are visual explorations, not shipped client projects.";
     if (/idsspl/.test(q))
       return "Prathamesh designed the IDSSPL website, a live showcase for core banking, payments and digital banking. Open the featured IDSSPL card to see real website screenshots and visit idsspl.com.";
     for (const [key, description] of projects) {
