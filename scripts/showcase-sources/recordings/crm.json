@@ -1,0 +1,24 @@
+{
+  "width": 1440,
+  "height": 900,
+  "frames": 131,
+  "duration": 16.63167095184326,
+  "markers": [
+    {
+      "name": "overview",
+      "time": -0.03232908248901367
+    },
+    {
+      "name": "clients",
+      "time": 4.848670959472656
+    },
+    {
+      "name": "tasks",
+      "time": 8.194670915603638
+    },
+    {
+      "name": "reports",
+      "time": 11.753670930862427
+    }
+  ]
+}

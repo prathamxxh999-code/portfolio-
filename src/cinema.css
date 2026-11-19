@@ -178,7 +178,7 @@ main section[id], main h2 { scroll-margin-top: 86px; }
 .hero-object-frame i:nth-child(3) { bottom: -3px; left: -3px; }
 .hero-object-frame i:nth-child(4) { bottom: -3px; right: -3px; }
 .hero-object-cursor {
-  --cursor-color: #caf78c;
+  --cursor-color: #9aae85;
   --drift-x: 14px;
   --drift-y: -17px;
   position: absolute;
@@ -186,19 +186,19 @@ main section[id], main h2 { scroll-margin-top: 86px; }
   left: 69%;
 }
 .hero-object-cursor--second {
-  --cursor-color: #c3aff7;
+  --cursor-color: #a496b2;
   --drift-x: -12px;
   --drift-y: -14px;
   top: 72%;
   left: 12%;
 }
 .hero-object--left .hero-object-cursor--lead {
-  --cursor-color: #c3aff7;
+  --cursor-color: #a496b2;
   top: 18%;
   left: 14%;
 }
 .hero-object-cursor--note {
-  --cursor-color: #f1d68d;
+  --cursor-color: #b4a17f;
   --drift-x: 20px;
   --drift-y: 14px;
   top: 35%;
@@ -206,7 +206,7 @@ main section[id], main h2 { scroll-margin-top: 86px; }
 }
 .hero-object--left .hero-object-cursor--note { top: 23%; left: 82%; }
 .hero-object-cursor--guide {
-  --cursor-color: #a9d3e5;
+  --cursor-color: #8299a4;
   --drift-x: -16px;
   --drift-y: 13px;
   top: 66%;
@@ -214,7 +214,7 @@ main section[id], main h2 { scroll-margin-top: 86px; }
 }
 .hero-object--left .hero-object-cursor--guide { top: 65%; left: 7%; }
 .hero-object--left .hero-object-cursor--second {
-  --cursor-color: #b7dfe5;
+  --cursor-color: #789e96;
   top: 70%;
   left: 72%;
 }
@@ -223,7 +223,7 @@ main section[id], main h2 { scroll-margin-top: 86px; }
   inset: 0 auto auto 0;
   width: 15px;
   height: 17px;
-  background: #f0eede;
+  background: #b7cbb3;
   clip-path: polygon(0 0, 100% 62%, 57% 67%, 29% 100%);
   content: "";
 }
@@ -258,10 +258,10 @@ main section[id], main h2 { scroll-margin-top: 86px; }
   margin: 13px 0 0 11px;
   padding: 3px 7px;
   border-radius: 2px 9px 9px;
-  background: linear-gradient(165deg, #ffffff 0%, var(--cursor-color) 32%, #f1fff7 50%, var(--cursor-color) 55%);
-  border: 1px solid #ffffffc9;
-  box-shadow: inset 0 1px 0 #fff, 0 3px 7px #0004;
-  color: #181c19;
+  background: linear-gradient(160deg, #dae6d124, transparent 43%, #091b172b), var(--cursor-color);
+  border: 1px solid #c5d6bf70;
+  box-shadow: inset 0 1px 0 #d3e1c82e, inset 0 -1px 0 #152c2547, 0 3px 6px #0004;
+  color: #12211c;
   font: 700 10px/1.2 var(--b);
 }
 .hero-object-cursor:is(.hero-object-cursor--note, .hero-object-cursor--guide) span {
@@ -272,7 +272,7 @@ main section[id], main h2 { scroll-margin-top: 86px; }
     radial-gradient(circle at 28% 50%, #233023 1px, transparent 1.3px),
     radial-gradient(circle at 50% 50%, #233023 1px, transparent 1.3px),
     radial-gradient(circle at 72% 50%, #233023 1px, transparent 1.3px),
-    linear-gradient(165deg, #fff, var(--cursor-color) 40%, #f1fff7 50%, var(--cursor-color) 59%);
+    linear-gradient(160deg, #dae6d124, transparent 43%, #091b172b), var(--cursor-color);
 }
 @media (prefers-reduced-motion: no-preference) {
   .hero-object-cursor:is(.hero-object-cursor--note, .hero-object-cursor--guide) { animation: object-cursor-float 7.4s ease-in-out infinite paused; }
@@ -299,6 +299,35 @@ main section[id], main h2 { scroll-margin-top: 86px; }
 }
 .hero .hc { position: relative; z-index: 0; padding: 0; text-align: center; }
 .hero .eye { margin: 0 0 15px; font: 500 13px/1.4 var(--b); letter-spacing: .19em; }
+.hero .role-tag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ink);
+  font: 700 clamp(20px,1.65vw,24px)/1.15 var(--d);
+  letter-spacing: -.025em;
+  text-transform: none;
+}
+.role-tag-label { position: relative; z-index: 1; }
+.role-tag-accent { color: var(--ac); }
+.role-tag-canvas {
+  position: absolute;
+  z-index: 2;
+  left: -36px;
+  top: -22px;
+  width: calc(100% + 72px);
+  height: calc(100% + 44px);
+  display: block;
+  pointer-events: none;
+}
 .hero h1 {
   max-width: none;
   font-size: var(--hero-type-size);

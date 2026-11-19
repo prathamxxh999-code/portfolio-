@@ -1,4 +1,4 @@
-export const cursorColors = ['#73e5e7', '#a5edbb', '#ffc2d1', '#c9bdff', '#ffe19d'];
+export const cursorColors = ['#789e96', '#9aae85', '#a496b2', '#8299a4', '#b4a17f'];
 
 export function cursorSprite(color, rotation = 0) {
   const sprite = document.createElement('canvas');
@@ -7,34 +7,50 @@ export function cursorSprite(color, rotation = 0) {
   brush.scale(2.5, 2.5);
   brush.translate(16, 16);
   brush.rotate(rotation);
-  brush.beginPath();
-  brush.moveTo(-9, -11);
-  brush.lineTo(11, 1);
-  brush.lineTo(1, 3);
-  brush.lineTo(-5, 11);
-  brush.closePath();
-  const finish = brush.createLinearGradient(-7, -11, 8, 11);
-  finish.addColorStop(0, '#ffffff');
-  finish.addColorStop(.27, color);
-  finish.addColorStop(.5, '#f5fffb');
-  finish.addColorStop(.61, color);
-  finish.addColorStop(1, color);
-  brush.fillStyle = finish;
-  brush.strokeStyle = '#f8fffd';
-  brush.lineWidth = 1.3;
-  brush.lineJoin = 'round';
-  brush.shadowColor = '#0110117a';
-  brush.shadowBlur = 2.8;
-  brush.shadowOffsetY = 1.5;
+  const outline = [[-9, -11], [11, 1], [1, 3], [-5, 11]];
+  const thickness = [1.65, 2];
+  function surface(points) {
+    brush.beginPath();
+    for (const [x, y] of points) brush.lineTo(x, y);
+    brush.closePath();
+  }
+  const underside = outline.map(([x, y]) => [x + thickness[0], y + thickness[1]]);
+  surface(underside);
+  brush.fillStyle = '#1c3029';
+  brush.shadowColor = '#020a0780';
+  brush.shadowBlur = 3;
+  brush.shadowOffsetY = 1.8;
   brush.fill();
   brush.shadowColor = 'transparent';
+  for (let edge = 0; edge < outline.length; edge++) {
+    const next = (edge + 1) % outline.length;
+    surface([outline[edge], underside[edge], underside[next], outline[next]]);
+    brush.fillStyle = color;
+    brush.fill();
+    brush.fillStyle = edge % 2 ? '#0b1d1982' : '#0b1d195c';
+    brush.fill();
+  }
+  surface(outline);
+  brush.fillStyle = color;
+  brush.fill();
+  const lighting = brush.createLinearGradient(-9, -11, 9, 12);
+  lighting.addColorStop(0, '#d9e7d62b');
+  lighting.addColorStop(.42, '#c7d9c30b');
+  lighting.addColorStop(1, '#081c173d');
+  brush.fillStyle = lighting;
+  brush.fill();
+  brush.strokeStyle = '#c0d4bf70';
+  brush.lineWidth = .65;
+  brush.lineJoin = 'round';
   brush.stroke();
+  surface([outline[0], [0, 2], outline[3]]);
+  brush.fillStyle = '#c9ddc717';
+  brush.fill();
   brush.beginPath();
-  brush.moveTo(-7, -8);
-  brush.lineTo(7, .4);
-  brush.lineTo(.1, 1.2);
-  brush.strokeStyle = '#ffffffd9';
-  brush.lineWidth = .9;
+  brush.moveTo(-8.5, -10);
+  brush.lineTo(.2, 2.1);
+  brush.strokeStyle = '#d0e0cb52';
+  brush.lineWidth = .65;
   brush.stroke();
   return sprite;
 }
@@ -49,18 +65,22 @@ export function paintCommentCursor(context, sprite, color, x, y, size, width, he
     const ink = pill.getContext('2d');
     ink.scale(3, 3);
     const finish = ink.createLinearGradient(0, 1, 0, 14);
-    finish.addColorStop(0, '#ffffff');
-    finish.addColorStop(.3, color);
-    finish.addColorStop(.49, '#effffbe6');
-    finish.addColorStop(.55, color);
-    finish.addColorStop(1, color);
+    finish.addColorStop(0, '#d4e2cd28');
+    finish.addColorStop(.42, '#c5d8bf08');
+    finish.addColorStop(1, '#0b211d3d');
     ink.beginPath();
     if (ink.roundRect) ink.roundRect(1, 1, 22, 13, 6.5);
     else ink.rect(1, 1, 22, 13);
+    ink.fillStyle = color;
+    ink.shadowColor = '#07120e70';
+    ink.shadowBlur = 1.7;
+    ink.shadowOffsetY = .8;
+    ink.fill();
+    ink.shadowColor = 'transparent';
     ink.fillStyle = finish;
     ink.fill();
-    ink.strokeStyle = '#f8fffcd9';
-    ink.lineWidth = .8;
+    ink.strokeStyle = '#c5d6bf70';
+    ink.lineWidth = .65;
     ink.stroke();
     ink.fillStyle = '#25382f';
     for (let dot = 1; dot <= 3; dot++) {

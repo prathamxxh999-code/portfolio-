@@ -1,0 +1,12 @@
+{
+  "width": 1440,
+  "height": 1080,
+  "fps": 60,
+  "frames": 2160,
+  "duration": 36.0,
+  "audio": false,
+  "theme": "native-dark",
+  "hardware": "Photographs by Jakub Zerdzicki / Unsplash",
+  "reference": "eb608ed3e91117b79d0275adce3095e7.mp4",
+  "source_speed": 1.0
+}

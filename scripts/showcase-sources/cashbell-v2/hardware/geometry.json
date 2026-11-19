@@ -1,0 +1,27 @@
+{
+  "size": [
+    700,
+    1440
+  ],
+  "screen": [
+    [
+      28,
+      28
+    ],
+    [
+      672,
+      28
+    ],
+    [
+      672,
+      1412
+    ],
+    [
+      28,
+      1412
+    ]
+  ],
+  "source": "hand-isolated.jpg",
+  "rotation": 29.6,
+  "retouch": "Photographic perspective correction; small left bezel occlusion restored from the opposite photographed edge"
+}

@@ -1,0 +1,102 @@
+{
+  "source": "C:/cashbell_flutter",
+  "theme": "native-dark",
+  "screen": {
+    "width": 430,
+    "height": 880,
+    "dpr": 2
+  },
+  "records": [
+    {
+      "name": "login",
+      "duration": 3.2122750282287598,
+      "events": [
+        {
+          "time": 0.932,
+          "x": 215,
+          "y": 810,
+          "type": "tap"
+        },
+        {
+          "time": 1.878,
+          "x": 215,
+          "y": 810,
+          "type": "tap"
+        }
+      ],
+      "sourceSpeed": 1
+    },
+    {
+      "name": "home",
+      "duration": 3.9776179790496826,
+      "events": [],
+      "sourceSpeed": 1
+    },
+    {
+      "name": "bell",
+      "duration": 4.180321931838989,
+      "events": [],
+      "sourceSpeed": 1
+    },
+    {
+      "name": "offer",
+      "duration": 5.200588226318359,
+      "events": [
+        {
+          "time": 1.464,
+          "x": 215,
+          "y": 532,
+          "type": "tap"
+        }
+      ],
+      "sourceSpeed": 1
+    },
+    {
+      "name": "submission",
+      "duration": 6.200833082199097,
+      "events": [
+        {
+          "time": 0.189,
+          "x": 215,
+          "y": 842,
+          "type": "tap"
+        },
+        {
+          "time": 4.9,
+          "x": 215,
+          "y": 797,
+          "type": "tap"
+        }
+      ],
+      "sourceSpeed": 1
+    },
+    {
+      "name": "need",
+      "duration": 5.008780002593994,
+      "events": [],
+      "sourceSpeed": 1
+    },
+    {
+      "name": "payment",
+      "duration": 5.207989931106567,
+      "events": [
+        {
+          "type": "drag",
+          "time": 0.6,
+          "x": 194,
+          "y": 839,
+          "endX": 560,
+          "endY": 839,
+          "duration": 0.6
+        },
+        {
+          "time": 2.502,
+          "x": 161.9921875,
+          "y": 426,
+          "type": "tap"
+        }
+      ],
+      "sourceSpeed": 1
+    }
+  ]
+}

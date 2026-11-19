@@ -4,3 +4,7 @@ node_modules/
 !.env.example
 *.log
 .DS_Store
+__pycache__/
+*.pyc
+scripts/showcase-sources/cashbell-v3/render-cache/
+scripts/showcase-sources/cashbell-v3/clips/*/

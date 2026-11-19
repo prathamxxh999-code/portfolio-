@@ -1,0 +1,25 @@
+{
+  "width": 430,
+  "height": 880,
+  "theme": "native-dark",
+  "source": "C:/cashbell_flutter",
+  "duration": 22.249003171920776,
+  "markers": [
+    {
+      "name": "home",
+      "time": -0.02799701690673828
+    },
+    {
+      "name": "loan",
+      "time": 3.4940030574798584
+    },
+    {
+      "name": "application",
+      "time": 10.978003025054932
+    },
+    {
+      "name": "offers",
+      "time": 19.420003175735474
+    }
+  ]
+}

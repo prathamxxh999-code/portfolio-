@@ -1,0 +1,59 @@
+Create a 45.3-second premium product film for the CashBell mobile app. Use the attached video as the primary motion reference. Match its shot order, framing, camera pushes, interface zooms, cursor timing, floating-card transitions and return-to-start ending as closely as possible.
+
+FORMAT
+Landscape 4:3 video, 1440 × 1080 pixels, 60 fps, 45.3 seconds, no audio.
+The video canvas remains landscape; every phone display stays portrait.
+Use the high-resolution 1419 × 2796 iPhone 15 Pro hardware plate with its 1179 × 2556 display opening. Preserve the original hardware aspect ratio, bezel, camera island and reflections. Never draw or generate a substitute device shell.
+Use the actual CashBell captures at 860 × 1760 pixels (430 × 880 logical pixels at 2×) for readable still assets. Fit the app proportionally into the portrait display, reserving camera-safe space above it. Do not stretch the UI to 4:3, trim bottom navigation or hide demo notices.
+Use real interaction recordings at natural speed. Keep holds sharp and use the highest-resolution native still only when its visible state matches the recording. Maintain a safe margin around complete devices; intentional close-ups may crop the hardware, but not the control being demonstrated.
+Smooth, precise product motion design, with continuous camera paths and real interface interaction.
+
+ASSET RULE
+Composite the latest CashBell screenshots, approved logo and existing app icons as exact assets. Keep all UI text, amounts, icons, spacing and proportions sharp. Generate only the backgrounds, lighting, shadows and decorative 3D elements. Do not invent screens, loan approvals, credit scores, repayment results or customer data. Keep demo labels visible wherever the app shows them.
+
+VISUAL STYLE
+Near-black and deep forest green, CashBell lime, soft mint light, dark glass surfaces and restrained 3D depth. Use the current CashBell interface and floating navigation. Avoid the older splash-screen artwork. Reveal the approved CashBell logo only in the final brand moment.
+
+SEQUENCE AND TRANSITIONS
+
+0–2 seconds — Opening asset collage
+Start on black with CashBell interface fragments arranged in a spacious grid, like the reference’s opening collage: the home screen, offer card, application tracker, EMI card, Bell AI symbol, shield and realistic rupee coin. Give the elements slight independent depth. Push rapidly toward the login phone until it fills the composition. Transition to a warm, softly lit lime background.
+
+2–5 seconds — Login interaction
+Show the actual CashBell login screen in a straight-on phone. A clean white cursor enters with purpose, taps the mobile-number field, and the keypad lifts the glass panel correctly. Show a brief, readable entry using a supplied demo account. The cursor taps Continue. Use the reference’s bright button response and a short glow-and-blur transition into the next scene. Show OTP only if it is part of the supplied screen sequence.
+
+5–9 seconds — Home reveal
+The button glow becomes a circular field of fine lime light particles. Move the camera through its centre; the circle resolves into the current CashBell home screen. Pull back to reveal the entire phone. Hold on the command centre long enough to read its cards. Push gently into one real card, maintaining crisp UI text.
+
+9–13 seconds — Screen gallery
+Use the reference’s overlapping horizontal gallery of phones. Slide actual CashBell screens past the camera: Home, Activity, Offers, Bell AI and Profile. Let the nearest phone come briefly into focus while the others pass behind it. Use shallow motion blur during movement and sharp, readable frames during each pause. A cursor taps the relevant bottom-nav icon once to motivate the change.
+
+13–18 seconds — Offer card extraction
+Transition through a circular crop of a real loan-offer card into a full phone showing Offers. The cursor hovers over the card, selects it, and the card lifts out of the phone into the foreground with a small tilt and soft shadow, following the reference’s floating-card movement. The camera follows the card, then it settles back into the real offer-detail screen. Preserve its actual amount, tenure, EMI and cost information.
+
+18–23 seconds — Application journey
+Use the reference’s airy floating-object composition, replacing its unrelated characters with CashBell’s realistic rupee coin, shield, calendar and Bell AI visual. Keep these secondary to the interface. A narrow input or selection control appears using the actual Loan Need screen. The cursor makes one clear selection, then a controlled zoom carries us through the chosen card into the application review screen. No random cursor movement.
+
+23–28 seconds — Submission and tracking
+A real application summary card unfolds at the centre, using the reference’s receipt-style reveal. Push into its status area. A thin lime path draws from the submitted application to the next tracker milestone, matching the reference’s route-drawing rhythm. Show the actual application tracker and its real demo status. Use the existing CashBell submission animation briefly, then let its information panel settle and remain still.
+
+28–34 seconds — Connected-feature montage
+Create the reference’s fast but readable multi-phone montage using only actual CashBell screens: offer comparison, application status, Activity, Bell AI, EMI review and Profile. Phones slide vertically and horizontally in aligned rows. Selective crops briefly enlarge a meaningful control, then return to the full phone. Use clean mask reveals and match cuts between equivalent card shapes; avoid warped interfaces.
+
+34–39 seconds — EMI and payment
+The gallery opens to one large EMI review phone. Show the actual amount and due-date information. The cursor performs the CashBell slide-to-pay interaction once. Follow the slider with a smooth lateral camera move into the real processing and result screens. If the supplied demo shows pending or failed payment, preserve that status rather than replacing it with success. Use the reference’s large kinetic-number composition only for figures present in the supplied UI.
+
+39–43 seconds — Pullback to the ecosystem
+Pull the camera steadily away from the payment phone. The other CashBell screens assemble around it in a balanced grid, recalling the opening collage. Let the rupee coin and a few lime-lit objects occupy the spaces between screens. Keep the composition calm, with subtle parallax and no spinning.
+
+43–45.3 seconds — Brand and loop
+The screens recede into black. A soft central lime glow reveals the exact approved CashBell logo, sharp and motionless. Hold briefly. Continue the camera pull until the original opening collage reappears at the same scale and angle as frame one, creating a seamless loop.
+
+CURSOR DIRECTION
+Use one consistent cursor design. Its movements must have a visible purpose: enter the number, tap Continue, select a navigation item, lift an offer card, choose a loan option, and slide to pay. Add a subtle hover response before each action and a restrained click response. Keep the cursor away from important text.
+
+MOTION DIRECTION
+This must feel like a continuous product film, with the same clarity and connected camera movement as the approved CRM showcase. A meaningful interface action should motivate each transition. Do not make a sequence of static screenshots with a repeated headline-plus-phone layout. Maintain a shared focal point across camera moves and keep one main action readable at a time.
+Match the reference’s alternation between fast travel and short reading pauses. Use smooth acceleration and deceleration, shallow camera pushes, layered parallax, cards moving out of and back into phones, circular zoom-through transitions, and aligned horizontal phone galleries. Apply motion blur only while travelling; restore full sharpness at each hold. Keep all text and controls stable and readable.
+
+Do not use travel, health, food or other content from the reference. Do not add invented UI, exaggerated lens effects, glitch transitions, dramatic rotation or a continuously moving cursor. The reference supplies the motion; the latest CashBell app supplies every product visual.

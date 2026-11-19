@@ -1,0 +1,58 @@
+{
+  "width": 1440,
+  "height": 900,
+  "scale": 2,
+  "boxes": {
+    "ops-task-owner": {
+      "x": 357.5,
+      "y": 539,
+      "width": 339.5,
+      "height": 42
+    },
+    "ops-task-priority": {
+      "x": 713,
+      "y": 616.5,
+      "width": 339.5,
+      "height": 42
+    },
+    "ops-task-due": {
+      "x": 357.5,
+      "y": 616.5,
+      "width": 339.5,
+      "height": 42
+    },
+    "modal": {
+      "x": 332.5,
+      "y": 133.5,
+      "width": 760,
+      "height": 633
+    }
+  },
+  "metrics": [
+    {
+      "label": "Clients",
+      "value": 50
+    },
+    {
+      "label": "Open tasks",
+      "value": 5
+    },
+    {
+      "label": "Active cases",
+      "value": 2
+    },
+    {
+      "label": "Completed tasks",
+      "value": 0
+    }
+  ],
+  "source": "Existing IDSSPL CRM local demo",
+  "symbols": {
+    "users": "<circle cx=\"9\" cy=\"8\" r=\"3\"></circle><path d=\"M3 20v-2a6 6 0 0 1 12 0v2H3Zm13-15a3 3 0 0 1 0 6m2 3a5 5 0 0 1 3 5v1h-4\"></path>",
+    "task": "<rect x=\"5\" y=\"4\" width=\"14\" height=\"17\" rx=\"2\"></rect><path d=\"M9 4V2h6v2M8 12l3 3 5-6\"></path>",
+    "help": "<path d=\"M12 21a9 9 0 1 0-9-9v7l3-1.5A9 9 0 0 0 12 21Z\"></path><path d=\"M9.5 9a2.5 2.5 0 1 1 4.2 1.8c-.9.8-1.7 1.2-1.7 2.7M12 17h.01\"></path>",
+    "chart": "<path d=\"M4 3v17h17M8 16v-5m5 5V7m5 9V4\"></path>",
+    "note": "<path d=\"M4 4h16v11l-5 5H4V4Z M15 20v-5h5M8 9h8M8 13h4\"></path>",
+    "nav-prospects": "<circle cx=\"10\" cy=\"14\" r=\"7\"></circle><circle cx=\"10\" cy=\"14\" r=\"3\"></circle><path d=\"m10 14 10-10M15 4h5v5\"></path>"
+  }
+}

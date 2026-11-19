@@ -8,7 +8,7 @@ var P=[['Core Banking System','A staff-facing workspace for core banking operati
 ['Internet Banking','Retail online banking with a clear account overview, debit card controls and card statements.','Retail banking · Web','w',0,190],
 ['Corporate Banking','A banking workspace for businesses to review balances, find accounts and read statements.','Business banking · Web','w',0,250],
 ['Mobile Banking','A banking app organized around balances, quick actions and transaction history.','Retail banking · Mobile','m',0,280],
-['Lending (LOS and LMS)','Loan origination and servicing workflows, from application review to repayment tracking.','Lending · Web','w',0,160],
+['CashBell 360','A connected lending experience, from exploring loan options to managing repayments.','Lending · Mobile','m',0,160],
 ['Gate Pass Management','Request, approve and track the movement of materials and people through every gate.','Facility · Web','w',1,30],
 ['Visitor Management','Pre-registration, quick check-in and host alerts for a smoother front desk.','Facility · Web','w',1,330],
 ['Valet Parking Management','Handover, tracking and retrieval flows for valet teams and guests.','Hospitality · Mobile','m',1,200],
@@ -16,7 +16,7 @@ var P=[['Core Banking System','A staff-facing workspace for core banking operati
 ['Helpdesk','Ticketing and SLA workflows that keep requests moving and teams accountable.','Support · Web','w',1,265],
 ['IDSSPL Website','A bold digital home for IDSSPL’s core banking, payments and digital banking ecosystem.','Live website · Web','w',0,205,'https://idsspl.com/'],
 ['Pigmy Banking','Design work for a banking product that handles small recurring deposits and collections.','Deposit banking · Web','w',0,150],
-['CRM','Design work for managing customer records and follow-ups in a fintech workspace.','Customer management · Web','w',0,270],
+['IDSSPL CRM','A connected workspace for customer records, team follow-ups, tasks and reporting.','Customer management · Web','w',0,270],
 ['Merchant Management Portal','Design work for managing merchant accounts, onboarding and operational reviews.','Merchant operations · Web','w',0,35]];
 var idssplProjects=[0,1,2,3,4,11,12,13];
 var TX=[['Dense, regulated workflows with many roles, strict approvals and no room for ambiguity.','Mapped journeys by role, simplified the flows, then built a consistent component library in Figma and prototyped the critical paths.','A clean, scannable interface with clear hierarchy, predictable patterns and states designed for every edge case.'],
@@ -57,9 +57,10 @@ var posterFiles=[
 ];
 function renderCard(i){
   var p=P[i];
+  var showcase=i===4?'cashbell':i===12?'crm':null;
   return '<a href="#/p/'+i+'" class="card gl" data-p="'+i+'" aria-labelledby="work-title-'+i+'">'+
-    '<div class="card-visual project-poster">'+
-    '<img src="./posters/'+posterFiles[i]+'.webp" alt="" decoding="async"'+
+    '<div class="card-visual project-poster'+(showcase?' project-poster--showcase':'')+'">'+
+    '<img src="'+(showcase?'./showcases/'+showcase+'-poster.jpg':'./posters/'+posterFiles[i]+'.webp')+'" alt="" decoding="async"'+
     (cardOrder.indexOf(i)>1?' loading="lazy"':'')+'>'+
     '<div class="project-poster-title"><em>'+p[2]+'</em><h3 id="work-title-'+i+'">'+p[0]+'</h3></div></div>'+
     '<div class="card-copy"><p>'+p[1]+'</p>'+
@@ -104,6 +105,9 @@ function jumpTo(id){
 }
 function go(id){closeNav();if(!$('#pv').hidden){pendingAnchor=id;location.hash=''}else jumpTo(id)}
 function pv(i){var p=P[i],t=TX[p[4]],n=cardOrder[(cardOrder.indexOf(i)+1)%cardOrder.length],h=$('#pv');
+if((i===4||i===12)&&window.projectShowcase){
+  h.innerHTML=window.projectShowcase(i,p[0],n,P[n][0]);window.initProjectShowcase(h);rv(h);return
+}
 if(p[6]){
   h.innerHTML='<button class="btn back" data-b>← All projects</button><p class="eye">'+p[2]+'</p><h1>'+p[0]+'</h1><p class="lead" style="max-width:62ch">'+p[1]+'</p><p class="site-actions"><a class="btn m" href="'+p[6]+'" target="_blank" rel="noopener noreferrer">Visit live website ↗</a></p><div class="gl sh">'+art(i,0)+'</div><div class="meta"><div class="gl"><small>Contribution</small>Website design</div><div class="gl"><small>Format</small>Live website</div><div class="gl"><small>Industry</small>Banking technology</div><div class="gl"><small>Website</small><a href="'+p[6]+'" target="_blank" rel="noopener noreferrer">idsspl.com ↗</a></div></div><div class="txt"><div class="gl rv"><h3>The website</h3><p>Designed to present IDSSPL’s banking technology portfolio as one connected ecosystem, from core banking and payments to digital channels.</p></div><div class="gl rv"><h3>Visual direction</h3><p>Deep navy surfaces, luminous blue accents and spacious typography give complex financial technology a clear, modern presence.</p></div></div><h2 style="margin-top:56px">Explore the screens</h2><div class="gal site-gallery"><div class="gl shot rv">'+art(i,1)+'<small>01 / Homepage</small></div><div class="gl shot rv">'+art(i,2)+'<small>02 / Product ecosystem</small></div><div class="gl shot rv">'+art(i,3)+'<small>03 / Connected banking flow</small></div></div><p class="note">Screenshots from the live IDSSPL website.</p><div class="gl nx rv"><div><small style="color:var(--ac)">Next project</small><h3 style="font:700 28px var(--d);margin:0">'+P[n][0]+'</h3></div><button class="btn m" data-p="'+n+'">Open →</button></div>';
   rv(h);return
@@ -120,6 +124,9 @@ if(idssplProjects.includes(i)){
 h.innerHTML='<button class="btn back" data-b>← All projects</button><p class="eye">'+p[2]+'</p><h1>'+p[0]+'</h1><p class="lead" style="max-width:62ch">'+p[1]+'</p><div class="gl sh">'+art(i,0)+'</div><div class="meta"><div class="gl"><small>Role</small>Product Designer</div><div class="gl"><small>Focus</small>UI, UX and flows</div><div class="gl"><small>Platform</small>'+p[2].split(' · ')[1]+'</div><div class="gl"><small>Domain</small>'+(p[4]?'Enterprise SaaS':'Banking and lending')+'</div></div><div class="txt"><div class="gl rv"><h3>Challenge</h3><p>'+t[0]+'</p></div><div class="gl rv"><h3>Approach</h3><p>'+t[1]+'</p></div><div class="gl rv" style="grid-column:1/-1"><h3>Solution</h3><p>'+t[2]+'</p></div></div><h2 style="margin-top:56px">Design priorities</h2><div class="imp"><div class="gl rv"><b>01</b><span>Make dense tasks easy to scan</span></div><div class="gl rv"><b>02</b><span>Guide each role to its next action</span></div><div class="gl rv"><b>03</b><span>Keep patterns consistent across screens</span></div></div><h2 style="margin-top:56px">Key screens</h2><div class="gal"><div class="gl shot rv">'+art(i,1)+'</div><div class="gl shot rv">'+art(i,2)+'</div><div class="gl shot rv">'+art(i,3)+'</div></div><p class="note">Illustrative interface mockups with sample data.</p><div class="gl nx rv"><div><small style="color:var(--ac)">Next project</small><h3 style="font:700 28px var(--d);margin:0">'+P[n][0]+'</h3></div><button class="btn m" data-p="'+n+'">Open →</button></div>';rv(h)}
 function route(){
   var match=location.hash.match(/^#\/p\/(\d+)/),home=$('#home'),project=$('#pv');
+  document.body.classList.toggle('crm-project-view',Boolean(match&&+match[1]===12));
+  document.body.classList.toggle('cashbell-project-view',Boolean(match&&+match[1]===4));
+  $$('video',project).forEach(function(video){video.pause()});
   if(match&&P[+match[1]]){
     home.hidden=true;
     project.hidden=false;

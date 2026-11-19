@@ -1,4 +1,4 @@
-import { cursorSprite } from './cursor-frames.js';
+import { cursorSprite, paintCommentCursor } from './cursor-frames.js';
 
 const turn = Math.PI * 2;
 const clamp = value => Math.max(0, Math.min(1, value));
@@ -366,12 +366,54 @@ function makeObjectScene(root, direction, offset) {
   return scene;
 }
 
+function makeRoleSelection(canvas) {
+  const color = '#789e96';
+  const sprite = cursorSprite(color);
+  const smooth = value => { value = clamp(value); return value * value * (3 - 2 * value); };
+  return {
+    canvas,
+    draw(context, width, height, clock, reduced, paint) {
+      if (!paint) return;
+      context.clearRect(0, 0, width, height);
+      const time = clock % 9.6;
+      const flight = smooth(time / .85);
+      const drag = reduced ? 1 : smooth((time - .85) / 1.1);
+      const fade = reduced ? .65 : 1 - smooth((time - 5.6) / 1.0);
+      if (fade <= 0) return;
+      const left = 44;
+      const top = 27;
+      const frameWidth = Math.max(0, width - 88) * drag;
+      const frameHeight = Math.max(0, height - 54) * drag;
+      if (frameWidth > 2 && frameHeight > 2) {
+        context.globalAlpha = fade;
+        context.strokeStyle = color;
+        context.lineWidth = 1;
+        context.strokeRect(left, top, frameWidth, frameHeight);
+        context.fillStyle = '#c1d4cb';
+        for (const [x, y] of [[left,top],[left+frameWidth,top],[left,top+frameHeight],[left+frameWidth,top+frameHeight]]) {
+          context.fillRect(x-1.5,y-1.5,3,3);
+        }
+      }
+      if (!reduced) {
+        const hover = smooth((time - 1.95) / .4);
+        const x = left - 23 * (1-flight) + frameWidth + Math.sin(time * 2.8) * hover * 3;
+        const y = top - 14 * (1-flight) + frameHeight + Math.cos(time * 2.4) * hover * 3;
+        context.globalAlpha = fade * smooth(time / .2);
+        paintCommentCursor(context, sprite, color, x, y, 21, width, height);
+      }
+      context.globalAlpha = 1;
+    },
+  };
+}
+
 export function mountHeroMotion(hero, motion) {
   const greeting = document.querySelector('.greeting-splash');
+  const roleCanvas = hero.querySelector('.role-tag-canvas');
   const layers = [
     { canvas: hero.querySelector('.hero-wave'), draw: (context, width, height, time, reduced, paint) => {
       if (paint) drawWave(context, width, height, reduced ? 0 : time * turn / 13);
     } },
+    ...(roleCanvas ? [makeRoleSelection(roleCanvas)] : []),
     makeObjectScene(hero.querySelector('.hero-object--left'), -1, 0),
     makeObjectScene(hero.querySelector('.hero-object--right'), 1, 1.4),
   ].map(layer => ({ ...layer, context: layer.canvas.getContext('2d') })).filter(layer => layer.context);

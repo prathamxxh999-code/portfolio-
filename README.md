@@ -1,6 +1,6 @@
 # Prathamesh Phadatare — Portfolio
 
-Source code for [Prathamesh's product design portfolio](https://prathamesh-portfolio.chetan-patil767378.chatgpt.site/).
+Source code for [Prathamesh's product design portfolio](https://prathameshux.vercel.app/).
 
 ## Project files
 
@@ -10,6 +10,11 @@ Source code for [Prathamesh's product design portfolio](https://prathamesh-portf
 - `src/mockups.js` — project screen mockups
 - `src/portfolio-bot.js` — portfolio bot responses (the bot is currently hidden)
 - `src/hero-original.webp` — original hero photo
+- `src/hero-original-clean.webp` — original photo with the repaired hair matte
+- `src/project-showcases.js` and `.css` — CashBell and CRM project presentations
+- `src/showcases/` — silent product films, posters and real project screens
+- `scripts/showcase-sources/` — source clips, assets, licensing and reproduction notes
+- `scripts/render-cashbell-motion.py` and `render-crm-reference.py` — editable film timelines
 - `src/mini-pratham.png` — bot artwork
 - `dist/` — generated static site ready to publish
 - `.openai/hosting.json` — Sites hosting configuration

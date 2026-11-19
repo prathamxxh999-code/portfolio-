@@ -1,0 +1,12 @@
+{
+  "width": 1440,
+  "height": 1080,
+  "fps": 60,
+  "frames": 2718,
+  "duration": 45.3,
+  "audio": false,
+  "theme": "native-dark",
+  "ui": "Real Flutter interactions at 1x; native 2x stills",
+  "hardware": "iPhone 15 Pro template, Apple Design Resources via MockUPhone",
+  "sequence": "Connected camera, travelling phone gallery, real card selection, application animation, native Bell AI, pending payment demo"
+}
