@@ -10,6 +10,7 @@ function startCinema() {
   const film = document.querySelector('.design-film');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
   const pinQuery = matchMedia('(min-height: 360px) and (prefers-reduced-motion: no-preference)');
+  const curveQuery = matchMedia('(min-width: 651px)');
   const work = document.querySelector('#work');
   const deck = work.querySelector('.work-deck');
   const view = work.querySelector('.work-window');
@@ -40,6 +41,13 @@ function startCinema() {
   let previousY = -1;
   let touch = null;
   let settleTouch = false;
+  let settleTimer = 0;
+  let viewportWidth = innerWidth;
+  let viewportHeight = document.documentElement.clientHeight;
+  let pageTravel = 0;
+  let careerTop = 0;
+  let careerHeight = 1;
+  let resizedProject = null;
 
   function requestDraw() {
     if (!animation && !document.hidden) animation = requestAnimationFrame(render);
@@ -59,25 +67,41 @@ function startCinema() {
 
     pin = pinQuery.matches && cards.length > 1;
     work.classList.toggle('work-pinned', pin);
+    if (pin && deck.scrollHeight > document.documentElement.clientHeight + 2) {
+      pin = false;
+      work.classList.remove('work-pinned');
+    }
     controls.hidden = !pin;
     foot.hidden = !pin;
     instruction.hidden = !pin;
     travelFromControl = null;
     settleTouch = false;
+    clearTimeout(settleTimer);
     delete work.dataset.frame;
+    const career = timeline.getBoundingClientRect();
+    careerTop = career.top + scrollY;
+    careerHeight = Math.max(1, career.height);
     if (!pin) {
       cards[active]?.removeAttribute('aria-current');
       active = -1;
       stops = [];
+      resizedProject = null;
+      pageTravel = document.documentElement.scrollHeight - innerHeight;
       return;
     }
     windowWidth = view.clientWidth;
     view.style.setProperty('--window-width', `${windowWidth}px`);
     maxX = Math.max(0, track.scrollWidth - windowWidth);
-    travel = Math.min(maxX * .53, (cards.length - 1) * Math.min(296, innerHeight * .45));
+    travel = Math.min(maxX * .53, (cards.length - 1) * Math.min(296, deck.clientHeight * .45));
     work.style.setProperty('--work-travel', `${travel}px`);
     stops = cards.map(card => Math.min(maxX, Math.max(0, card.offsetLeft + (card.offsetWidth - windowWidth) / 2)));
     workTop = work.getBoundingClientRect().top + scrollY + work.clientTop;
+    if (resizedProject !== null && maxX > 0) {
+      window.scrollTo({ top: workTop + stops[resizedProject] / maxX * travel, behavior: 'instant' });
+      resizedProject = null;
+    }
+    careerTop = timeline.getBoundingClientRect().top + scrollY;
+    pageTravel = document.documentElement.scrollHeight - innerHeight;
     instruction.textContent = 'Scroll to move through projects';
   }
 
@@ -95,9 +119,9 @@ function startCinema() {
       if (Math.abs(stops[index] - offset) < Math.abs(stops[nearest] - offset)) nearest = index;
       const relative = (stops[index] - offset) / Math.max(1, windowWidth * .8);
       const card = cards[index];
-      const shouldCurve = Math.abs(relative) >= .04 && Math.abs(relative) < 1.4;
-      card.toggleAttribute('data-curved', shouldCurve);
-      if (shouldCurve) card.toggleAttribute('data-curve-right', relative < 0);
+      const shouldCurve = curveQuery.matches && Math.abs(relative) >= .04 && Math.abs(relative) < 1.4;
+      if (card.hasAttribute('data-curved') !== shouldCurve) card.toggleAttribute('data-curved', shouldCurve);
+      if (shouldCurve && card.hasAttribute('data-curve-right') !== (relative < 0)) card.toggleAttribute('data-curve-right', relative < 0);
       const distance = clamp(Math.abs(relative)).toFixed(3);
       if (card.style.getPropertyValue('--shot-distance') === distance && distance === '1.000') continue;
       card.style.setProperty('--shot-distance', distance);
@@ -108,7 +132,7 @@ function startCinema() {
     cards[active]?.removeAttribute('aria-current');
     active = nearest;
     cards[active].setAttribute('aria-current', 'true');
-    for (const cover of covers.slice(Math.max(0, active - 1), active + 2)) {
+    for (const cover of covers.slice(Math.max(0, active - 1), active + 3)) {
       if (cover?.loading === 'lazy') cover.loading = 'eager';
     }
     counter.textContent = `${currentFormat.format(active + 1)} / ${cards.length}`;
@@ -130,8 +154,7 @@ function startCinema() {
     const changed = y !== previousY;
     if (changed) {
       previousY = y;
-      const total = document.documentElement.scrollHeight - innerHeight;
-      progress.style.setProperty('--reading-progress', total > 0 ? clamp(y / total) : 0);
+      progress.style.setProperty('--reading-progress', pageTravel > 0 ? clamp(y / pageTravel) : 0);
     }
     if (home.hidden) return;
     updateWork(y);
@@ -143,8 +166,7 @@ function startCinema() {
       const exit = ease(clamp(y / Math.max(1, filmTop)));
       hero.style.setProperty('--portrait-y', `${motion.matches ? 0 : exit * 40}px`);
       hero.style.setProperty('--hero-motion-exit', motion.matches ? 0 : exit);
-      const career = timeline.getBoundingClientRect();
-      const filled = motion.matches ? 1 : clamp((innerHeight * .61 - career.top) / Math.max(1, career.height));
+      const filled = motion.matches ? 1 : clamp((innerHeight * .61 + y - careerTop) / careerHeight);
       timeline.style.setProperty('--experience-progress', filled.toFixed(3));
     }
   }
@@ -157,6 +179,7 @@ function startCinema() {
   view.addEventListener('pointerdown', event => {
     if (!pin || event.pointerType !== 'touch' || !event.isPrimary) return;
     touch = { id: event.pointerId, x: event.clientX, y: event.clientY, scroll: scrollY, dragging: false };
+    clearTimeout(settleTimer);
     settleTouch = true;
   });
   view.addEventListener('pointermove', event => {
@@ -183,20 +206,41 @@ function startCinema() {
       goToProject(cards.indexOf(card), 'instant');
     }
   });
-  window.addEventListener('scroll', requestDraw, { passive: true });
-  window.addEventListener('scrollend', () => {
+  function settleProjects() {
     if (!settleTouch || touch || home.hidden || scrollY <= workTop + 2) return;
     settleTouch = false;
     if (scrollY >= workTop + travel || active < 0) return;
     goToProject(active, 'smooth');
-  });
+  }
+  window.addEventListener('scroll', () => {
+    requestDraw();
+    if (!('onscrollend' in window) && settleTouch) {
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(settleProjects, 160);
+    }
+  }, { passive: true });
+  window.addEventListener('scrollend', settleProjects);
   window.addEventListener('wheel', () => { travelFromControl = null; settleTouch = false; }, { passive: true });
-  window.addEventListener('resize', requestLayout, { passive: true });
+  window.addEventListener('resize', () => {
+    const width = innerWidth;
+    const height = document.documentElement.clientHeight;
+    const changed = width !== viewportWidth || (!matchMedia('(pointer: coarse)').matches && height !== viewportHeight);
+    if (width !== viewportWidth && pin && active >= 0 && scrollY >= workTop && scrollY <= workTop + travel) resizedProject = active;
+    viewportWidth = width;
+    viewportHeight = height;
+    if (changed) requestLayout();
+  }, { passive: true });
   window.addEventListener('hashchange', requestLayout);
   motion.addEventListener('change', requestLayout);
   pinQuery.addEventListener('change', requestLayout);
+  curveQuery.addEventListener('change', requestLayout);
   document.addEventListener('visibilitychange', requestDraw);
-  if ('ResizeObserver' in window) new ResizeObserver(requestLayout).observe(hero);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(requestLayout);
+    observer.observe(hero);
+    observer.observe(timeline);
+    observer.observe(track);
+  }
   document.fonts?.ready.then(requestLayout);
   requestLayout();
 }

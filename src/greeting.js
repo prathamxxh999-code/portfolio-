@@ -165,7 +165,7 @@ import { cursorColors, cursorSprite, paintCommentCursor } from './cursor-frames.
       const drift = time * .00245 + particle.angle * 4;
       const x = startX + (next.x - startX) * progress + Math.sin(drift) * progress * 2.3;
       const y = startY + (next.y - startY) * progress + Math.cos(drift * 1.13) * progress * 2.7;
-      context.globalAlpha = inOrbit ? .47 + Math.sin(angle) * .21 : .88;
+      context.globalAlpha = inOrbit ? .75 + Math.sin(angle) * .12 : .96;
       const direction = inOrbit ? Math.round((angle + 1.6) / (Math.PI / 4)) & 7 : 0;
       context.drawImage(particle.sprites[direction], x - size * .62, y - size * .62, size * 1.24, size * 1.24);
     }
@@ -174,7 +174,7 @@ import { cursorColors, cursorSprite, paintCommentCursor } from './cursor-frames.
       const motion = time * .0011 + index * 1.22;
       const x = width * anchorX + Math.sin(motion) * driftDistance * .047;
       const y = height * anchorY + Math.cos(motion * 1.22) * driftDistance * .039;
-      context.globalAlpha = Math.min(.86, time / 620);
+      context.globalAlpha = Math.min(1, time / 620);
       paintCommentCursor(context, sprites[index][0], cursorColors[index], x, y,
         width <= 600 ? 13 : 20, width, height);
     });
@@ -194,7 +194,7 @@ import { cursorColors, cursorSprite, paintCommentCursor } from './cursor-frames.
     if (!context || !nextWidth || !nextHeight || (width === nextWidth && height === nextHeight)) return;
     width = nextWidth;
     height = nextHeight;
-    const ratio = Math.min(devicePixelRatio || 1, 1.8);
+    const ratio = Math.min(devicePixelRatio || 1, width <= 650 ? 1.35 : 1.8);
     canvas.width = Math.round(width * ratio);
     canvas.height = Math.round(height * ratio);
     context.setTransform(ratio, 0, 0, ratio, 0, 0);

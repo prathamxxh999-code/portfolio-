@@ -2,8 +2,9 @@ export const cursorColors = ['#73e5e7', '#a5edbb', '#ffc2d1', '#c9bdff', '#ffe19
 
 export function cursorSprite(color, rotation = 0) {
   const sprite = document.createElement('canvas');
-  sprite.width = sprite.height = 32;
+  sprite.width = sprite.height = 80;
   const brush = sprite.getContext('2d');
+  brush.scale(2.5, 2.5);
   brush.translate(16, 16);
   brush.rotate(rotation);
   brush.beginPath();
@@ -12,35 +13,67 @@ export function cursorSprite(color, rotation = 0) {
   brush.lineTo(1, 3);
   brush.lineTo(-5, 11);
   brush.closePath();
-  brush.fillStyle = color;
-  brush.strokeStyle = '#fffdf6';
-  brush.lineWidth = 2.2;
+  const finish = brush.createLinearGradient(-7, -11, 8, 11);
+  finish.addColorStop(0, '#ffffff');
+  finish.addColorStop(.27, color);
+  finish.addColorStop(.5, '#f5fffb');
+  finish.addColorStop(.61, color);
+  finish.addColorStop(1, color);
+  brush.fillStyle = finish;
+  brush.strokeStyle = '#f8fffd';
+  brush.lineWidth = 1.3;
   brush.lineJoin = 'round';
+  brush.shadowColor = '#0110117a';
+  brush.shadowBlur = 2.8;
+  brush.shadowOffsetY = 1.5;
   brush.fill();
+  brush.shadowColor = 'transparent';
+  brush.stroke();
+  brush.beginPath();
+  brush.moveTo(-7, -8);
+  brush.lineTo(7, .4);
+  brush.lineTo(.1, 1.2);
+  brush.strokeStyle = '#ffffffd9';
+  brush.lineWidth = .9;
   brush.stroke();
   return sprite;
 }
 
+const commentSprites = new Map();
+
 export function paintCommentCursor(context, sprite, color, x, y, size, width, height) {
-  context.drawImage(sprite, x - size * .22, y - size * .17, size, size);
-  const pillWidth = size * .86;
-  const pillHeight = size * .5;
-  const left = x + size * 1.45 > width ? x - size * 1.05 : x + size * .49;
-  const top = y + size > height ? y - size * .73 : y + size * .39;
-  context.beginPath();
-  if (context.roundRect) context.roundRect(left, top, pillWidth, pillHeight, pillHeight / 2);
-  else context.rect(left, top, pillWidth, pillHeight);
-  context.fillStyle = color;
-  context.fill();
-  context.lineWidth = .85;
-  context.strokeStyle = '#fffdf6cc';
-  context.stroke();
-  for (let index = 1; index <= 3; index++) {
-    context.beginPath();
-    context.arc(left + pillWidth * index / 4, top + pillHeight / 2, pillHeight * .105, 0, Math.PI * 2);
-    context.fillStyle = '#202c2e';
-    context.fill();
+  if (!commentSprites.has(color)) {
+    const pill = document.createElement('canvas');
+    pill.width = 72;
+    pill.height = 48;
+    const ink = pill.getContext('2d');
+    ink.scale(3, 3);
+    const finish = ink.createLinearGradient(0, 1, 0, 14);
+    finish.addColorStop(0, '#ffffff');
+    finish.addColorStop(.3, color);
+    finish.addColorStop(.49, '#effffbe6');
+    finish.addColorStop(.55, color);
+    finish.addColorStop(1, color);
+    ink.beginPath();
+    if (ink.roundRect) ink.roundRect(1, 1, 22, 13, 6.5);
+    else ink.rect(1, 1, 22, 13);
+    ink.fillStyle = finish;
+    ink.fill();
+    ink.strokeStyle = '#f8fffcd9';
+    ink.lineWidth = .8;
+    ink.stroke();
+    ink.fillStyle = '#25382f';
+    for (let dot = 1; dot <= 3; dot++) {
+      ink.beginPath();
+      ink.arc(1 + 22 * dot / 4, 7.5, 1.1, 0, Math.PI * 2);
+      ink.fill();
+    }
+    commentSprites.set(color, pill);
   }
+  const tipX = Math.min(width - size * 1.5, Math.max(size * .25, x));
+  const tipY = Math.min(height - size, Math.max(size * .2, y));
+  context.drawImage(sprite, tipX - size * .22, tipY - size * .17, size, size);
+  context.drawImage(commentSprites.get(color), tipX + size * .43, tipY + size * .32, size * .97, size * .65);
 }
 
 const canvas = document.querySelector('.portfolio-frames');
@@ -64,17 +97,20 @@ let height = 0;
 let ratio = 0;
 let sprites;
 let observer;
+let previousPaint = 0;
 const visited = new WeakSet();
 
 function selectSection(target, index) {
   if (!brush || motion.matches || document.hidden || !target.getClientRects().length) return false;
   const bounds = target.getBoundingClientRect();
-  if (bounds.bottom <= 0 || bounds.top >= innerHeight - 48) return false;
+  const navigation = document.querySelector('.nav').getBoundingClientRect();
+  if (bounds.top < navigation.bottom + 8 || bounds.top >= innerHeight - 48) return false;
   sprites ??= cursorColors.map(color => cursorSprite(color));
   const hue = index % sprites.length;
   const text = target.matches('h2, .film-copy p') ? new Range() : null;
   text?.selectNodeContents(target);
   selection = { target, text, sprite: sprites[hue], color: cursorColors[hue], start: performance.now() + 115 };
+  previousPaint = 0;
   canvas.hidden = false;
   if (!frame) frame = requestAnimationFrame(draw);
   return true;
@@ -82,6 +118,11 @@ function selectSection(target, index) {
 
 function draw(now) {
   frame = 0;
+  if (now - previousPaint < 28) {
+    frame = requestAnimationFrame(draw);
+    return;
+  }
+  previousPaint = now;
   const density = Math.min(devicePixelRatio || 1, 1.4, 1760 / Math.max(innerWidth, 1));
   if (width !== innerWidth || height !== innerHeight || ratio !== density) {
     width = innerWidth;
