@@ -48,7 +48,8 @@ function coin(c){return'<path class="l" d="M10 '+c+' v14 a22 9 0 0 0 44 0 v-14z"
 var SV=[['Product design','Turning business requirements into flows and features users complete on the first try.',CB],['UI and UX design','Wireframes, prototypes and polished interfaces for web and mobile.',slab(28)+slab(16)+slab(4)],['Design systems','Reusable Figma component libraries that keep large products consistent as they grow.',cube(17,2,30)+cube(5,13,30)+cube(29,13,30)+cube(17,24,30)],['Fintech workflows','Dense, role-based screens for approvals, compliance and operations that stay readable.',coin(38)+coin(24)]];
 $('#svc').innerHTML=SV.map(function(s){return'<div class="gl rv"><div class="i3"><svg viewBox="0 0 64 64">'+s[2]+'</svg></div><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join('');
 $('#pg').innerHTML=[['Discover','Understand users, roles and business goals through stakeholder talks and workflow audits.'],['Define','Map journeys, rank the problems and agree on scope before opening Figma.'],['Design','Wireframes to polished, prototyped screens on a reusable component system.'],['Deliver','Developer-ready handoff and specs, with follow-up so what ships matches the design.']].map(function(s,i){return'<div class="gl pr rv"><b>0'+(i+1)+'</b><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join('');
-var tr=$('#tr'),featured=10,cardOrder=[featured].concat(idssplProjects);
+var tr=$('#tr'),featuredProjects=[10,4,12];
+var cardOrder=featuredProjects.concat(idssplProjects.filter(function(i){return !featuredProjects.includes(i)}));
 cardOrder=cardOrder.concat(P.map(function(_,i){return i}).filter(function(i){return !cardOrder.includes(i)}));
 var posterFiles=[
   'core-banking','internet-banking','corporate-banking','mobile-banking','lending',
