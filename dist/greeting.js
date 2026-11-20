@@ -1,15 +1,26 @@
 import { cursorColors, cursorSprite, paintCommentCursor } from './cursor-frames.js';
+import { createRetroIntro } from './retro-intro.js';
 
 (() => {
   const splash = document.querySelector('.greeting-splash');
   const hero = document.querySelector('.hero');
   if (!splash || !hero) return;
+  if (new URLSearchParams(location.search).get('pc-screen') === '1') {
+    document.documentElement.classList.add('pc-embedded');
+    splash.remove();
+    const notify = () => parent.postMessage({ type: 'pc:ready' }, location.origin);
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', notify, { once: true });
+    else notify();
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') parent.postMessage({ type: 'pc:desktop' }, location.origin); });
+    return;
+  }
 
   const panel = splash.querySelector('.greeting-window');
   const stage = panel.querySelector('.greeting-stage');
   const canvas = panel.querySelector('.greeting-swarm');
   const heading = panel.querySelector('#greeting-title span');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  const retro = createRetroIntro(splash, { onEnter: enterPortfolio, onRestart: restartGreeting, motion });
   const context = canvas.getContext('2d');
   const mask = document.createElement('canvas');
   const ink = mask.getContext('2d', { willReadFrequently: true });
@@ -69,6 +80,7 @@ import { cursorColors, cursorSprite, paintCommentCursor } from './cursor-frames.
     ink.textAlign = 'center';
     ink.font = `900 ${size}px ${font}`;
     size *= Math.min(1, maskWidth * .78 / Math.max(1, ink.measureText(word).width));
+    size *= retro?.wordScale() ?? 1;
     ink.font = `900 ${size}px ${font}`;
     const metrics = ink.measureText(word);
     const ascent = metrics.actualBoundingBoxAscent ?? size * .72;
@@ -189,12 +201,14 @@ import { cursorColors, cursorSprite, paintCommentCursor } from './cursor-frames.
   function resize() {
     if (!splash.open) return;
     const bounds = stage.getBoundingClientRect();
-    const nextWidth = Math.round(bounds.width);
-    const nextHeight = Math.round(bounds.height);
+    retro?.resize();
+    const logical = retro?.logicalSize();
+    const nextWidth = logical?.width ?? Math.round(bounds.width);
+    const nextHeight = logical?.height ?? Math.round(bounds.height);
     if (!context || !nextWidth || !nextHeight || (width === nextWidth && height === nextHeight)) return;
     width = nextWidth;
     height = nextHeight;
-    const ratio = Math.min(devicePixelRatio || 1, width <= 650 ? 1.35 : 1.8);
+    const ratio = logical ? 1 : Math.min(devicePixelRatio || 1, width <= 650 ? 1.35 : 1.8);
     canvas.width = Math.round(width * ratio);
     canvas.height = Math.round(height * ratio);
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
@@ -209,7 +223,7 @@ import { cursorColors, cursorSprite, paintCommentCursor } from './cursor-frames.
   }
 
   function syncClock() {
-    if (playback && !playback.leaving && !document.hidden && !nextFrame) {
+    if (playback && !playback.leaving && !playback.waiting && !document.hidden && !nextFrame) {
       nextFrame = requestAnimationFrame(tick);
     } else if (document.hidden) {
       stopClock();
@@ -219,39 +233,90 @@ import { cursorColors, cursorSprite, paintCommentCursor } from './cursor-frames.
   function tick(now) {
     nextFrame = 0;
     if (!playback || playback.leaving) return;
-    if (playback.previous !== null) playback.elapsed += now - playback.previous;
+    const delta = playback.previous === null ? 0 : Math.min(80, now - playback.previous);
     playback.previous = now;
-    if (playback.elapsed >= playback.duration) {
-      paint(playback.duration);
+    if (playback.entering) {
+      playback.entryElapsed += delta;
+      retro?.enter(playback.entryElapsed);
+      if (playback.entryElapsed >= retro.entryDuration) {
+        playback.waiting = true;
+        playback.entering = false;
+        playback.previous = null;
+        retro.showDesktop();
+        return;
+      }
+      syncClock();
+      return;
+    }
+    playback.elapsed += delta;
+    if (retro && playback.elapsed >= retro.greetingEndAt) {
+      playback.elapsed = retro.greetingEndAt;
+      playback.waiting = true;
+      playback.previous = null;
+      const current = playback;
+      retro.revealWelcome().then(completed => { if (completed && playback === current) retro.wait(); });
+      return;
+    }
+    if (!retro && playback.elapsed >= playback.duration) {
+      paint(Math.max(0, playback.duration - (retro?.greetingStart ?? 0)));
+      retro?.update(playback.duration);
       closeSplash(true);
       return;
     }
-    if (now - playback.paintTime >= 30) {
-      paint(playback.elapsed);
+    if ((!retro || playback.elapsed < retro.greetingEndAt) && now - playback.paintTime >= 30) {
+      paint(Math.max(0, playback.elapsed - (retro?.greetingStart ?? 0)));
       playback.paintTime = now;
     }
+    retro?.update(playback.elapsed);
     syncClock();
   }
 
+  function enterPortfolio() {
+    if (!playback || playback.leaving || playback.entering || !playback.waiting || !retro) return;
+    playback.waiting = false;
+    playback.entering = true;
+    playback.entryElapsed = 0;
+    playback.previous = null;
+    retro.beginEntry();
+    syncClock();
+  }
+
+  function restartGreeting() {
+    stopClock();clearTimeout(leaveTimer);retro?.stop();
+    if(splash.open)splash.close();
+    playback=null;document.documentElement.classList.remove('greeting-lock');
+    openSplash();
+  }
+
   function openSplash() {
-    if (!supportsSplash || motion.matches || splash.open) return;
+    if (!supportsSplash || (motion.matches && !retro) || splash.open) return;
     playback = {
       sequence: opening, elapsed: 0, previous: null, paintTime: -Infinity, leaving: false,
+      waiting: false, entering: false, entryElapsed: 0,
       duration: morphStart + (opening.length - 1) * beat + 160
     };
     label(0);
     panel.dataset.phase = 'orbit';
+    retro?.reset();
     hero.classList.add('portrait-awaiting-light');
     splash.showModal();
     document.documentElement.classList.add('greeting-lock');
     resize();
     paint(0);
-    syncClock();
+    if (retro) retro.ready.then(loaded => {
+      if (!playback) return;
+      if (!loaded) resize();
+      retro.start();
+      if (motion.matches) { playback.waiting = true; retro.showDesktop(); return; }
+      syncClock();
+    });
+    else syncClock();
   }
 
   function closeSplash(animate) {
     if (!playback || (playback.leaving && animate)) return;
     playback.leaving = true;
+    retro?.stop();
     stopClock();
     clearTimeout(leaveTimer);
     function restore() {
@@ -275,19 +340,21 @@ import { cursorColors, cursorSprite, paintCommentCursor } from './cursor-frames.
 
   splash.addEventListener('cancel', event => {
     event.preventDefault();
-    closeSplash(false);
+    if (retro) { stopClock(); playback.waiting = true; playback.entering = false; retro.escape(); }
+    else closeSplash(false);
   });
   motion.addEventListener('change', () => {
-    if (splash.open) closeSplash(false);
+    if (splash.open && retro && motion.matches) { stopClock(); playback.waiting = true; playback.entering = false; retro.showDesktop(); }
+    else if (splash.open && !retro) closeSplash(false);
   });
   window.addEventListener('hashchange', () => {
-    if (splash.open && !atHome()) closeSplash(false);
+    if (splash.open && !atHome() && !retro?.persistent) closeSplash(false);
   });
   document.addEventListener('visibilitychange', syncClock);
-  if ('ResizeObserver' in window) new ResizeObserver(resize).observe(stage);
+  if ('ResizeObserver' in window) { const observer = new ResizeObserver(resize); if (!retro) observer.observe(stage); observer.observe(splash); }
   else window.addEventListener('resize', resize);
 
-  if (!motion.matches && supportsSplash && atHome()) {
+  if (supportsSplash && (atHome() || retro?.persistent)) {
     window.scrollTo({ top: 0, behavior: 'instant' });
     openSplash();
   }

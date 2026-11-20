@@ -1,0 +1,18 @@
+{
+  "method": "built-in imagegen board edit composited only onto the upper wall",
+  "wall_region": [
+    698,
+    16,
+    1245,
+    334
+  ],
+  "original_pc_preserved": [
+    704,
+    267,
+    1227,
+    690
+  ],
+  "quote": "Wake up to reality! Nothing ever goes as planned in this world. The longer you live, the more you realize that, in this reality only pain, suffering, and futility exist.",
+  "handwriting": "small fine-tip marker, brainstorm arrows, underlines and sticky notes",
+  "output": "room-landscape-whiteboard.png"
+}

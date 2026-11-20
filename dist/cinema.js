@@ -66,7 +66,25 @@ function startCinema() {
     filmTop = film.getBoundingClientRect().top + scrollY;
 
     pin = pinQuery.matches && cards.length > 1;
+    // Measure the layout visitors will actually see. Revealing these after
+    // the fit check made the gallery alternate between pinned and grid modes.
+    controls.hidden = !pin;
+    foot.hidden = !pin;
+    instruction.hidden = !pin;
+    instruction.textContent = pin ? 'Scroll to move through projects' : '';
     work.classList.toggle('work-pinned', pin);
+    if (pin && cards[0]?.classList.contains('folder-card')) {
+      const available = document.documentElement.clientHeight;
+      const desired = Math.min(view.clientWidth * (curveQuery.matches ? .51 : .84), curveQuery.matches ? 650 : 440);
+      work.style.setProperty('--shot-width', `${desired}px`);
+      let fitted = desired;
+      for (let pass = 0; pass < 3; pass++) {
+        const overflow = deck.scrollHeight - available;
+        if (overflow <= 2) break;
+        fitted = Math.max(230, fitted - (overflow + 12) * 1.31);
+        work.style.setProperty('--shot-width', `${fitted}px`);
+      }
+    }
     if (pin && deck.scrollHeight > document.documentElement.clientHeight + 2) {
       pin = false;
       work.classList.remove('work-pinned');

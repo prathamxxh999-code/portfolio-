@@ -7,12 +7,14 @@
 .showcase-hero .showcase-film{position:relative;min-width:0;margin-right:-24px}
 .project-showcase--crm .showcase-film video{aspect-ratio:4/3}
 .project-showcase--crm .showcase-intro{position:relative;isolation:isolate;--ink:#183e31;--mute:#59675d;--ac:#385c36;color:var(--ink);padding:0 clamp(0px,4.4vw,64px) 24px;margin-bottom:36px}
-.project-showcase--crm .showcase-intro::before{content:"";position:absolute;z-index:-1;top:-160px;bottom:0;left:calc((100vw - 100%)/-2);right:calc((100vw - 100%)/-2);background:#e9f4df;pointer-events:none}
+.crm-project-view{overflow-x:clip}
+.project-showcase--crm .showcase-intro::before{content:"";position:absolute;z-index:-1;top:-160px;bottom:0;left:0;right:0;background:#e9f4df;box-shadow:0 0 0 100vmax #e9f4df;clip-path:inset(0 -100vmax);pointer-events:none}
 .project-showcase--crm .showcase-hero{color:var(--ink);background:transparent;padding:14px 0 18px;margin:0;min-height:0}
 .project-showcase--crm .showcase-intro .back{margin-bottom:8px;background:#174b3806;border-color:#174b3833;color:#183e31;font-size:13px;padding:9px 16px}
 .crm-project-view #pv{padding-top:92px}
 .crm-project-view .nav{background:#f2f8eaeF;border-color:#234e3829;box-shadow:0 10px 32px -22px #173e3144}
 .crm-project-view .nav .logo,.crm-project-view .nav ul button,.crm-project-view .nav-toggle{color:#244331}
+.crm-project-view .nav .logo-accent{color:#385c36}
 .crm-project-view .nav.open ul{background:#f2f8ea;border-color:#234e3833;box-shadow:0 16px 36px #173e3126}
 .crm-project-view .nav.open li button:hover,.crm-project-view .nav.open li button:focus-visible{background:#234e3810;color:#183e31}
 .project-showcase--crm .showcase-hero::before{display:none}
@@ -57,3 +59,4 @@
 @media(max-width:800px){.showcase-hero::before{inset:-24px 0}}
 @media(max-width:800px){.project-showcase--cashbell .showcase-hero{gap:14px}.project-showcase--cashbell .showcase-hero .showcase-film{margin:0 -16px}}
 @media(max-width:560px){.project-showcase--cashbell .showcase-intro{overflow-clip-margin:20px}}
+@media(max-width:560px){.project-showcase .showcase-intro{padding-inline:0}.project-showcase .showcase-heading{margin-top:12px}}

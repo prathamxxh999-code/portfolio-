@@ -58,16 +58,19 @@ var posterFiles=[
 ];
 function renderCard(i){
   var p=P[i];
-  var showcase=i===4?'cashbell':i===12?'crm':null;
-  return '<a href="#/p/'+i+'" class="card gl" data-p="'+i+'" aria-labelledby="work-title-'+i+'">'+
-    '<div class="card-visual project-poster'+(showcase?' project-poster--showcase':'')+'">'+
-    '<img src="'+(showcase?'./showcases/'+showcase+'-poster.jpg':'./posters/'+posterFiles[i]+'.webp')+'" alt="" decoding="async"'+
-    (cardOrder.indexOf(i)>1?' loading="lazy"':'')+'>'+
-    '<div class="project-poster-title"><em>'+p[2]+'</em><h3 id="work-title-'+i+'">'+p[0]+'</h3></div></div>'+
-    '<div class="card-copy"><p>'+p[1]+'</p>'+
-    '<span class="card-link">View project <span aria-hidden="true">↗</span></span></div></a>';
+  var words=p[0].split(' '),first=words.shift(),rest=words.join(' ');
+  return '<a href="#/p/'+i+'" class="card gl folder-card" data-p="'+i+'" aria-labelledby="work-title-'+i+'">'+
+    '<div class="card-visual project-poster folder-visual">'+
+    '<div class="folder-surface">'+
+    '<div class="folder-cover-copy"><em>'+p[2]+'</em><div class="folder-title-frame"><h3 id="work-title-'+i+'"><span>'+first+'</span> <span class="folder-name-accent">'+rest+'</span></h3><i></i><i></i><i></i><i></i><span class="folder-size" aria-hidden="true"></span><span class="folder-frame-cursor" aria-hidden="true"><svg viewBox="0 0 24 28"><path d="M2 2v22l6-7 7 9 4-3-7-8 9-2z" fill="#c6ff3d" stroke="#0b160b" stroke-width="1.5"/></svg><b>Designer</b></span></div></div>'+
+    '<span class="folder-open">Open project <span aria-hidden="true">↗</span></span></div></div>'+
+    '<div class="card-copy"><p>'+p[1]+'</p></div></a>';
 }
 tr.innerHTML=cardOrder.map(renderCard).join('');
+if(window.ResizeObserver){
+  var titleFrames=new ResizeObserver(function(entries){entries.forEach(function(entry){var frame=entry.target;frame.querySelector('.folder-size').textContent=Math.round(frame.offsetWidth)+' × '+Math.round(frame.offsetHeight);});});
+  $$('.folder-title-frame',tr).forEach(function(frame){titleFrames.observe(frame)});
+}
 function animateStat(stat){
   if(!stat||red)return;
   var value=Number(stat.dataset.n);

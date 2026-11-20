@@ -1,0 +1,40 @@
+{
+  "size": [
+    1920,
+    1080
+  ],
+  "mobile_size": [
+    960,
+    540
+  ],
+  "fps": 30,
+  "frames": 524,
+  "duration": 17.466666666666665,
+  "audio": false,
+  "camera": "fixed",
+  "pc": "fixed source plate, independent of animated environment",
+  "motion": "isolated fern and leaf sway, layered coffee steam, differential tape reels, moving VU needles, curled magazine corners, pinned sticky-note flutter, ambient dust and upper-right lantern flicker; removed lamps have no effects",
+  "window": {
+    "source": "window/outside-cloudy-night.mp4",
+    "box": [
+      58,
+      61,
+      644,
+      647
+    ],
+    "frames": 524,
+    "fps": 30,
+    "duration": 17.466666666666665,
+    "crop_center": [
+      0.5,
+      0.35
+    ],
+    "mask": "window/window-glass-mask.png",
+    "audio": false,
+    "playback_speed": 1,
+    "description": "User-supplied drifting clouds across a dark night sky, behind the indoor foliage and window sill"
+  },
+  "source": "room-landscape-window-video.png",
+  "method": "FFmpeg masked window replacement over the approved looping ambient room; both sources at 1x",
+  "ambient_source": "window/room-ambient-starry-base.mp4"
+}

@@ -1,0 +1,39 @@
+{
+  "method": "built-in imagegen frame edit, installed only in the three wall regions",
+  "regions": [
+    [
+      292,
+      14,
+      474,
+      292
+    ],
+    [
+      1240,
+      34,
+      1426,
+      314
+    ],
+    [
+      1420,
+      5,
+      1656,
+      326
+    ]
+  ],
+  "protected": [
+    [
+      704,
+      267,
+      1227,
+      690
+    ],
+    [
+      698,
+      16,
+      1239,
+      267
+    ]
+  ],
+  "placement": "small panda on the left; raccoon and larger cat staggered on the right",
+  "output": "room-landscape-framed.png"
+}

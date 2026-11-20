@@ -1,0 +1,53 @@
+{
+  "method": "selected built-in imagegen room; original live PC, keyboard, board and print plates preserved",
+  "installed": [
+    "decor/room-final-imagegen-source.png"
+  ],
+  "regions": [
+    [
+      1232,
+      317,
+      1512,
+      793
+    ],
+    [
+      1580,
+      282,
+      1919,
+      551
+    ],
+    [
+      0,
+      0,
+      698,
+      904
+    ],
+    [
+      1540,
+      278,
+      1919,
+      555
+    ],
+    [
+      1480,
+      568,
+      1655,
+      808
+    ]
+  ],
+  "protected": [
+    [
+      704,
+      267,
+      1227,
+      765
+    ],
+    [
+      698,
+      16,
+      1239,
+      267
+    ]
+  ],
+  "output": "room-landscape-night-studio.png"
+}

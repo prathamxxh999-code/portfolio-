@@ -1,0 +1,39 @@
+{
+  "source": "reference-computer.mp4",
+  "source_range_seconds": [
+    0,
+    1
+  ],
+  "fps": 24,
+  "frames": 46,
+  "duration_seconds": 1.9166666666666667,
+  "size": [
+    1920,
+    1080
+  ],
+  "audio": false,
+  "loop": "forward and reverse ambient loop",
+  "portrait_position": [
+    600,
+    -100
+  ],
+  "glass_corners": [
+    [
+      150.0,
+      405.0
+    ],
+    [
+      407.0,
+      420.0
+    ],
+    [
+      408.0,
+      626.0
+    ],
+    [
+      149.0,
+      630.0
+    ]
+  ],
+  "notes": "Original source retained. Camera push aligned to first frame. Original countdown cleared. No generated background."
+}
