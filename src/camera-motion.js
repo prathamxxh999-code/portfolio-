@@ -35,4 +35,3 @@ export function cameraMotion(definitions,{duration=1850,easing='cubic-bezier(.4,
   })();
   return {finished,cancel:()=>end(false),finish:()=>end(true)};
 }
-
