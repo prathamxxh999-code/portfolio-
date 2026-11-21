@@ -7,5 +7,5 @@ const source = join(projectRoot, 'src');
 const output = join(projectRoot, 'dist');
 
 mkdirSync(output, { recursive: true });
-cpSync(source, output, { recursive: true, force: true });
+cpSync(source, output, { recursive: true, force: true, filter: path => !path.endsWith('.pending.mp4') });
 console.log('Built dist/ from src/');

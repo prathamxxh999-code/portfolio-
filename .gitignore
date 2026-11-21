@@ -6,5 +6,6 @@ node_modules/
 .DS_Store
 __pycache__/
 *.pyc
+*.pending.mp4
 scripts/showcase-sources/cashbell-v3/render-cache/
 scripts/showcase-sources/cashbell-v3/clips/*/

@@ -8,6 +8,7 @@ const source = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'src');
 const port = Number(process.env.PORT) || 8765;
 const types = {
   '.css': 'text/css; charset=utf-8',
+  '.svg': 'image/svg+xml',
   '.html': 'text/html; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
   '.pdf': 'application/pdf',

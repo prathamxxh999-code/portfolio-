@@ -187,3 +187,7 @@ CPU with Zenitsu, the six other figures and their spacing, wired mouse and
 pad, magazines, Panda tabletop frame and easel behind the mixer, whiteboard,
 two wall prints, globe, radio, coffee, plants and furniture. Full landscape
 16:9 room. Selected source: decor/room-final-imagegen-source.png.
+
+### November 21 cleanup
+
+Active ambient assets are `src/intro/room-ambient-clean.mp4` and `room-ambient-clean-mobile.mp4`. The window matte preserves the actual upper fern and bottom sill plant; old sky branches and bokeh in the middle left glazing have been removed. New filenames avoid replacing video files locked by an active Windows preview. Both silent files decode in full. The older room-ambient files remain historical sources and are not loaded by the page.

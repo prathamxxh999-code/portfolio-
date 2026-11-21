@@ -13,7 +13,10 @@ from PIL import Image
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--ffmpeg', required=True)
+parser.add_argument('--output-stem', default='room-ambient')
 args = parser.parse_args()
+if not args.output_stem.replace('-','').replace('_','').isalnum():
+    raise ValueError('Use a simple output filename stem')
 root = Path(__file__).resolve().parent.parent
 sources = root / 'scripts/showcase-sources/retro-intro'
 output = root / 'src/intro'
@@ -31,7 +34,8 @@ graph = (
     '[sky][mask]alphamerge=shortest=1[window];'
     f'[0:v][window]overlay={x}:{y}:shortest=1:format=auto,format=yuv420p[v]'
 )
-pending = output / 'room-ambient.pending.mp4'
+destination = output / f'{args.output_stem}.mp4'
+pending = output / f'{args.output_stem}.pending.mp4'
 subprocess.run([
     args.ffmpeg,'-hide_banner','-v','error','-y','-filter_complex_threads','1',
     '-stream_loop','-1','-i',str(base),
@@ -42,20 +46,21 @@ subprocess.run([
     '-color_primaries','bt709','-color_trc','bt709','-colorspace','bt709',
     '-movflags','+faststart',str(pending),
 ],check=True)
-pending.replace(output / 'room-ambient.mp4')
-mobile = output / 'room-ambient-mobile.pending.mp4'
+pending.replace(destination)
+mobile = output / f'{args.output_stem}-mobile.pending.mp4'
 subprocess.run([
-    args.ffmpeg,'-v','error','-y','-i',str(output / 'room-ambient.mp4'),'-an',
+    args.ffmpeg,'-v','error','-y','-i',str(destination),'-an',
     '-vf','scale=960:540','-c:v','libx264','-threads','2','-preset','fast',
     '-crf','22','-pix_fmt','yuv420p','-movflags','+faststart',str(mobile),
 ],check=True)
-mobile.replace(output / 'room-ambient-mobile.mp4')
+mobile.replace(output / f'{args.output_stem}-mobile.mp4')
 Image.open(sources / 'room-landscape-window-video.png').save(output / 'room-poster.webp',quality=93)
 metadata = json.loads((sources / 'room-render.json').read_text())
 metadata.update({
     'frames':config['frames'],'duration':config['duration'],'window':config,
     'method':'FFmpeg masked window replacement over the approved looping ambient room; both sources at 1x',
     'ambient_source':'window/room-ambient-starry-base.mp4',
+    'file':destination.name,'mobile_file':f'{args.output_stem}-mobile.mp4',
 })
 (sources / 'room-render.json').write_text(json.dumps(metadata,indent=2))
-print(json.dumps({'duration':config['duration'],'frames':config['frames'],'audio':False,'file':str(output/'room-ambient.mp4')}))
+print(json.dumps({'duration':config['duration'],'frames':config['frames'],'audio':False,'file':str(destination)}))

@@ -29,6 +29,7 @@ html[data-intro-pending] .greeting-splash[open]{visibility:visible}
 <link rel="stylesheet" href="./greeting.css">
 <link rel="stylesheet" href="./retro-intro.css">
 <link rel="stylesheet" href="./pc-desktop.css">
+<link rel="stylesheet" href="./design-game.css">
 <link rel="preload" as="image" href="./intro/room-poster.webp" fetchpriority="high">
 <link rel="stylesheet" href="./cinema.css">
 <link rel="stylesheet" href="./project-showcases.css">
@@ -192,7 +193,7 @@ html[data-intro-pending] .greeting-splash[open]{visibility:visible}
 </main>
 <dialog class="greeting-splash retro-intro" aria-label="Prathamesh’s retro desktop" aria-description="Choose Enter portfolio on the computer screen, then open the Portfolio folder. The website opens inside this monitor. Escape returns to the desktop.">
   <div class="retro-world">
-    <video class="retro-video" muted loop playsinline preload="metadata" poster="./intro/room-poster.webp" width="1920" height="1080" aria-hidden="true"><source src="./intro/room-ambient.mp4" type="video/mp4"></video>
+    <video class="retro-video" muted loop playsinline preload="metadata" poster="./intro/room-poster.webp" width="1920" height="1080" aria-hidden="true"><source src="./intro/room-ambient-clean.mp4" type="video/mp4"></video>
     <div class="retro-frame-art" aria-hidden="true"><div class="retro-frame-print"><img src="./intro/tabletop-spiderman.webp" alt="" width="368" height="552"><span class="retro-frame-glass"></span></div></div>
     <img class="pc-hardware" src="./intro/room-hardware.webp" alt="" width="1920" height="1080" aria-hidden="true">
     <div class="retro-screen"><div class="retro-glass">
@@ -226,6 +227,10 @@ html[data-intro-pending] .greeting-splash[open]{visibility:visible}
             <svg viewBox="0 0 58 46" aria-hidden="true"><path d="M5 10V7q0-3 3-3h17l5 6h20q3 0 3 3v27H5z" fill="#d3a032" stroke="#966c20"/><path d="M19 7h21v29H19z" fill="#fffde8" stroke="#c6c7bb"/><path d="M23 14h13m-13 5h13m-13 5h10" stroke="#7b91a4" stroke-width="1.5"/><path d="M3 19h50q3 0 2.4 3L51 42H6L1 23q-.7-4 2-4" fill="url(#folder-gold)" stroke="#b78326"/><path d="M5 22h46" stroke="#fffbd3"/></svg>
             <span>Résumé</span>
           </button>
+          <button class="pc-app-game pc-desktop-icon" type="button" aria-label="Open Design Game">
+            <span class="pc-game-cover" aria-hidden="true"><img src="./game-assets/cover.webp" alt="" width="48" height="54"><b>design<br><i>city</i></b></span>
+            <span>Design Game</span>
+          </button>
           </div>
           <p class="pc-desktop-message" role="status"><b aria-hidden="true">i</b><span>Open a folder to get started.</span></p>
         </div>
@@ -237,6 +242,10 @@ html[data-intro-pending] .greeting-splash[open]{visibility:visible}
           <div class="pc-window-bar"><span>Résumé — Prathamesh Phadatare</span><button class="pc-window-close pc-resume-close" type="button" aria-label="Close résumé and return to desktop">×</button></div>
           <div class="pc-resume-toolbar"><span>2 pages</span><div class="pc-resume-tools"><button type="button" data-resume-zoom="-25" aria-label="Zoom résumé out" disabled>−</button><span class="pc-resume-zoom" aria-live="polite">100%</span><button type="button" data-resume-zoom="25" aria-label="Zoom résumé in">+</button></div><a class="pc-resume-download" href="./Prathamesh_Phadatare_Resume.pdf" download="Prathamesh_Phadatare_Resume.pdf">Download PDF ↓</a></div>
           <div class="pc-resume-pages" tabindex="0" role="document" aria-label="Résumé preview. Two pages; scroll to read."><div class="pc-resume-paper"><img src="./intro/resume-page-1.webp" alt="Résumé page 1: Prathamesh Phadatare, contact information, profile, professional experience and education." width="1240" height="1755" loading="lazy"><img src="./intro/resume-page-2.webp" alt="Résumé page 2: product strategy, fintech and SaaS, UX, platform design, design systems and software skills. Download the PDF for accessible text and links." width="1240" height="1755" loading="lazy"></div></div>
+        </section>
+        <section class="pc-game-window pc-window" aria-label="Design Game window" hidden>
+          <div class="pc-window-bar"><span>Design City — A Designer’s Game</span><button class="pc-window-close pc-game-close" type="button" aria-label="Close design game and return to desktop">×</button></div>
+          <div class="dg-content"><p class="dg-error" role="alert" hidden>The game couldn’t load. Close this window and refresh the desktop to try again.</p><div class="dg-layout"><p>Loading Design City…</p></div></div>
         </section>
         <div class="pc-boot" role="status" aria-live="polite" hidden><div class="pc-boot-flag" aria-hidden="true"><i></i><i></i><i></i><i></i></div><strong class="pc-boot-title">Opening Portfolio</strong><span>Please wait…</span><div class="pc-boot-progress" aria-hidden="true"><i></i></div></div>
         <div class="pc-start-menu" id="pc-start-menu" role="menu" aria-label="Start" hidden>

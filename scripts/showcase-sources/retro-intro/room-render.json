@@ -32,9 +32,11 @@
     "mask": "window/window-glass-mask.png",
     "audio": false,
     "playback_speed": 1,
-    "description": "User-supplied drifting clouds across a dark night sky, behind the indoor foliage and window sill"
+    "description": "User-supplied drifting clouds across a dark night sky, with clean glazing behind the indoor fern and sill plants"
   },
   "source": "room-landscape-window-video.png",
   "method": "FFmpeg masked window replacement over the approved looping ambient room; both sources at 1x",
-  "ambient_source": "window/room-ambient-starry-base.mp4"
+  "ambient_source": "window/room-ambient-starry-base.mp4",
+  "file": "room-ambient-clean.mp4",
+  "mobile_file": "room-ambient-clean-mobile.mp4"
 }

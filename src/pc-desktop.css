@@ -3,6 +3,8 @@
 .pc-os[hidden],.pc-os [hidden] { display: none !important; }
 .pc-desktop { position: absolute; inset: 0 0 29px; background: #3c9f25 url('./intro/desktop-wallpaper.webp') center/cover no-repeat; }
 .pc-desktop-icons { position: absolute; top: 18px; left: 16px; display: grid; grid-template-columns: repeat(2,92px); grid-auto-rows: 88px; gap: 8px; }
+.pc-desktop-icons .pc-folder { grid-row: 2; }
+.pc-desktop-icons .pc-app-game { grid-row: 3; grid-column: 1; }
 .pc-desktop-icon { box-sizing: border-box; display: grid; justify-items: center; align-items: center; align-content: start; grid-template-rows: 44px 18px; gap: 3px; width: 92px; height: 88px; padding: 7px 3px; border: 1px solid transparent; border-radius: 2px; background: transparent; color: white; font: 12px/18px Tahoma, Verdana, sans-serif; text-shadow: 1px 1px 2px #000; text-align: center; }
 .pc-desktop-icon>svg { display: block; width: 48px; height: 42px; filter: drop-shadow(1px 2px 1px #0005); }
 .pc-desktop-icon>span { line-height: 18px; white-space: nowrap; }
@@ -13,18 +15,20 @@
 .pc-short .pc-desktop-icon { width: 72px; height: 50px; grid-template-rows: 28px 14px; padding: 2px 3px; gap: 2px; font-size: 10px; }
 .pc-short .pc-desktop-icon>svg { width: 32px; height: 28px; }
 .pc-short .pc-desktop-icon>span { line-height: 14px; }
-.pc-mini .pc-desktop-icons { top: 5px; left: 6px; grid-template-columns: repeat(2,58px); grid-auto-rows: 40px; gap: 3px 7px; }
-.pc-mini .pc-desktop-icon { width: 58px; height: 40px; grid-template-rows: 23px 12px; padding: 1px 2px; gap: 1px; font-size: 9px; }
+.pc-mini .pc-desktop-icons { top: 5px; left: 6px; grid-template-columns: repeat(2,58px); grid-auto-rows: 44px; gap: 3px 7px; }
+.pc-mini .pc-desktop-icon { width: 58px; height: 44px; grid-template-rows: 23px 12px; padding: 1px 2px; gap: 1px; font-size: 9px; }
 .pc-mini .pc-desktop-icon>svg { width: 28px; height: 23px; }
 .pc-mini .pc-desktop-icon>span { line-height: 12px; }
-.pc-folder:hover { background: #3c77cd38; border-color: #d9efff99; }
-.pc-folder:focus-visible { outline: 1px dotted white; outline-offset: -2px; background: #174bae66; }
+.pc-desktop-icon:is(button):hover { background: #3c77cd38; border-color: #d9efff99; }
+.pc-desktop-icon:is(button):focus-visible { outline: 1px dotted white; outline-offset: -2px; background: #174bae66; }
 .pc-desktop-message { position: absolute; bottom: 12px; left: 12px; width: max-content; max-width: calc(100% - 24px); display: flex; align-items: center; gap: 8px; padding: 8px 10px; margin: 0; border: 1px solid #b8a87b; border-radius: 3px; background: #fffde7ec; color: #334050; box-shadow: 1px 2px 6px #0003; font-size: 11px; line-height: 1.4; }
 .pc-desktop-message>span { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .pc-compact .pc-desktop-message { left: 8px; bottom: 8px; max-width: calc(100% - 16px); gap: 6px; padding: 7px 8px; font-size: 10px; }
 .pc-compact .pc-desktop-message b { flex-basis: 14px; height: 14px; font-size: 10px; }
-.pc-mini .pc-desktop-message { left: 6px; bottom: 6px; max-width: calc(100% - 12px); padding: 4px 6px; gap: 5px; font-size: 9px; }
+.pc-mini .pc-desktop-message { left: 6px; bottom: 4px; max-width: calc(100% - 12px); padding: 2px 5px; gap: 5px; font-size: 9px; }
 .pc-mini .pc-desktop-message b { flex-basis: 12px; height: 12px; font-size: 9px; }
+.pc-tiny .pc-desktop-message { display: none; }
+.pc-tiny .pc-desktop-icons { top: 3px; row-gap: 2px; max-height: calc(100% - 6px); overflow-y: auto; scrollbar-width: thin; }
 .pc-desktop-message b { flex: 0 0 17px; height: 17px; display: grid; place-items: center; border-radius: 50%; background: #3273bc; color: white; font: 700 12px Georgia,serif; }
 .pc-taskbar { position: absolute; z-index: 5; inset: auto 0 0; height: 29px; display: flex; align-items: center; background: linear-gradient(#5397ef 0%, #1c62d1 12%, #1c5ac3 88%, #17488f); border-top: 1px solid #8ec5ff; color: white; box-shadow: 0 -1px 0 #153c77; }
 .pc-start { align-self: stretch; display: flex; align-items: center; gap: 4px; padding: 0 14px 0 7px; border: 0; color: white; border-radius: 0 11px 11px 0; background: linear-gradient(#5baf57,#287e2c 80%); box-shadow: inset 0 1px 3px #b6ef9d, 2px 0 2px #17488f; font: italic 700 13px Tahoma,Verdana,sans-serif; text-shadow: 1px 1px 1px #285526; user-select: none; }
@@ -106,7 +110,7 @@
 .pc-embedded [data-r] { display: none !important; }
 .pc-embedded .hero-details .btns { display: none !important; }
 .retro-intro[data-retro-phase="desktop"] .retro-glass::after { opacity: .1; }
-.retro-intro:is([data-retro-phase="portfolio"],[data-retro-phase="resume"]) .retro-glass::after { opacity: 0; }
+.retro-intro:is([data-retro-phase="portfolio"],[data-retro-phase="resume"],[data-retro-phase="game"]) .retro-glass::after { opacity: 0; }
 .pc-embedded .greeting-splash { display: none !important; }
 @media(max-width:430px) {
   .pc-resume-toolbar { padding-inline: 6px; gap: 5px; font-size: 10px; }
@@ -132,3 +136,9 @@
   .pc-embedded .hero-scene { bottom: 67px; }
   .pc-embedded .hero { min-height: 370px; }
 }
+.pc-game-cover{position:relative;display:block!important;width:36px;height:42px;background:#13121a;border:1px solid #d9d1d9;border-left:4px solid #32303c;box-shadow:2px 2px 2px #0007;overflow:hidden;transform:rotate(-3deg)}
+.pc-game-cover img{width:100%;height:100%;object-fit:cover;filter:brightness(.76)}
+.pc-game-cover b{position:absolute;left:3px;top:5px;color:white;font:13px/.8 DCBlock,Impact,sans-serif;text-align:left;text-shadow:1px 1px #14111b,-1px -1px #14111b}
+.pc-game-cover i{font:17px/.8 DCScript,cursive;color:#ffc2e4}
+.pc-compact .pc-game-cover{width:30px;height:34px}.pc-short .pc-game-cover{width:25px;height:28px}.pc-mini .pc-game-cover{width:21px;height:23px}
+.pc-short .pc-game-cover b,.pc-mini .pc-game-cover b{font-size:8px;left:1px;top:3px}.pc-short .pc-game-cover i,.pc-mini .pc-game-cover i{font-size:11px}

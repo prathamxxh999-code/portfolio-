@@ -14,7 +14,7 @@ export function createRetroIntro(splash,{onEnter,onRestart,motion}={}){
   const welcome=splash.querySelector('.retro-welcome'),typed=splash.querySelector('.retro-typed');
   const button=splash.querySelector('.retro-enter');
   if(!world||!video||!screen||!welcome||!button)return null;
-  if(matchMedia('(max-width:650px)').matches||navigator.connection?.saveData){video.src='./intro/room-ambient-mobile.mp4';video.load();}
+  if(matchMedia('(max-width:650px)').matches||navigator.connection?.saveData){video.src='./intro/room-ambient-clean-mobile.mp4';video.load();}
   const message='Welcome to my\nportfolio.';
   let width=1,height=1,worldWidth=1,worldHeight=1,centerX=0,centerY=0,heldX=0,heldY=0;
   let closeScale=1.3,cameraScale=1.02,count=-1,phase='',failed=false;

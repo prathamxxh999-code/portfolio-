@@ -43,7 +43,10 @@ pixels = np.asarray(room, dtype=np.float32)
 maximum = np.maximum(pixels[...,0], pixels[...,1])
 chroma = (maximum-pixels[...,2])/np.maximum(1,maximum)
 yy,xx = np.mgrid[0:room.height,0:room.width]
-zones = ((xx<285)&(yy<275)) | ((xx<158)&(yy>=260)&(yy<620))
+# Preserve the actual hanging fern and the small plant on the sill. The old
+# full-height left strip also retained outdoor branches and warm reflections,
+# leaving a patchwork of the previous sky down the side of the window.
+zones = ((xx<285)&(yy<275)) | ((xx<160)&(yy>=520)&(yy<620))
 alpha = np.clip((chroma-.08)/.22,0,1)*np.clip((maximum-12)/18,0,1)*zones
 foreground = Image.fromarray((alpha*255).astype(np.uint8))
 foreground = foreground.filter(ImageFilter.MaxFilter(3)).filter(ImageFilter.GaussianBlur(.5))

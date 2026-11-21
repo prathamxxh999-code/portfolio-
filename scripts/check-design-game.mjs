@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {createRecords,cleanName} from '../src/design-game-records.js';
+let raw=null;const storage={getItem:()=>raw,setItem:(_,v)=>{raw=v;}};
+let db=createRecords(storage);const ada=db.create('  Ada   Studio  ');assert.equal(ada.name,'Ada Studio');assert.equal(db.create('ada studio').id,ada.id);
+db.addRun('colour',9);db.addRun('alignment',12);db.rename(ada.id,'Ada');
+const pat=db.create('Pat');db.addRun('colour',10);assert.equal(db.rankings('colour')[0].name,'Pat');
+db=createRecords(storage);assert.equal(db.active.name,'Pat');assert.equal(db.history().length,1);db.select(ada.id);assert.equal(db.history().length,2);
+assert.throws(()=>db.rename(ada.id,'Pat'));db.deleteRun(db.history()[0].id,pat.id);assert.equal(db.history().length,2);db.deleteRun(db.history()[0].id,ada.id);assert.equal(db.history().length,1);
+db.remove(ada.id);assert.equal(db.history(ada.id).length,0);assert.equal(db.active,null);assert.equal(db.stats().players,1);
+assert.equal(cleanName('<b>\u0000a'), 'b>a'.replace('>',''));assert.throws(()=>db.create(' '));
+raw='{invalid';assert.equal(createRecords(storage).players.length,0);
+const denied=createRecords({getItem(){throw Error('denied');},setItem(){throw Error('denied');}});denied.create('Temporary');denied.addRun('colour',2);assert.equal(denied.persistent,false);assert.equal(denied.rankings('colour')[0].best,2);
+console.log('Player creation, duplicate handling, persistence, ranking, rename, scoped deletion, validation and denied-storage fallback passed.');

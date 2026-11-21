@@ -347,6 +347,14 @@ import { createRetroIntro } from './retro-intro.js';
     if (retro) { stopClock(); playback.waiting = true; playback.entering = false; retro.escape(); }
     else closeSplash(false);
   });
+  splash.addEventListener('keydown', event => {
+    if(event.key!=='Escape'||!retro||event.defaultPrevented)return;
+    // Escape is an in-app navigation shortcut, including on a fresh visit
+    // before the browser has granted modal close-watcher cancellation.
+    event.preventDefault();event.stopPropagation();stopClock();
+    if(playback){playback.waiting=true;playback.entering=false;}
+    retro.escape();
+  });
   motion.addEventListener('change', () => {
     if (splash.open && retro && motion.matches) { stopClock(); playback.waiting = true; playback.entering = false; retro.showDesktop(); }
     else if (splash.open && !retro) closeSplash(false);

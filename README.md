@@ -53,3 +53,7 @@ node scripts/check-assets.mjs
 ```
 
 The asset check runs against `dist/`, so build before running it.
+
+## Design City desktop game
+
+The retro desktop includes a Design Game shortcut directly below Portfolio. It opens an original Vice City-inspired visual arcade with a 3.8-second mission intro, Colour and Alignment challenges, sound on/off, and keyboard/touch support. Scores and player CRUD are browser-local, as requested; they are not global rankings or sitewide traffic analytics. Clear storage to remove local records. See `scripts/showcase-sources/design-city/BRIEF.md` for assets, licensing and behavior.

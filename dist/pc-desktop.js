@@ -2,6 +2,9 @@ export function createDesktop(splash, { onModeChange, onOpen, onClose, onRestart
   const root=splash.querySelector('.pc-os'), desktop=splash.querySelector('.pc-desktop');
   const folder=splash.querySelector('.pc-folder'), app=splash.querySelector('.pc-window');
   const resumeFolder=splash.querySelector('.pc-folder--resume'),resume=splash.querySelector('.pc-resume-window');
+  const gameButton=splash.querySelector('.pc-app-game'),gameWindow=splash.querySelector('.pc-game-window');
+  const launchers=[folder,resumeFolder,gameButton];
+  let gameController=null;
   const frame=splash.querySelector('.pc-portfolio-frame'), loading=splash.querySelector('.pc-loading');
   const task=splash.querySelector('.pc-task'), clock=splash.querySelector('.pc-clock');
   const boot=splash.querySelector('.pc-boot'),bootTitle=splash.querySelector('.pc-boot-title');
@@ -11,7 +14,7 @@ export function createDesktop(splash, { onModeChange, onOpen, onClose, onRestart
   let clockTimer=0;
   function showBoot(visible){
     boot.hidden=!visible;
-    for(const node of [desktop,app,resume,taskbar])node.style.visibility=visible?'hidden':'';
+    for(const node of [desktop,app,resume,gameWindow,taskbar])node.style.visibility=visible?'hidden':'';
   }
   function updateClock(){
     clearTimeout(clockTimer);const now=new Date();
@@ -39,11 +42,12 @@ export function createDesktop(splash, { onModeChange, onOpen, onClose, onRestart
   function setMode(next){mode=next;root.dataset.mode=next;onModeChange?.(next);}
   function show(){
     closeMenu();start.disabled=false;
-    const returning=(['portfolio','resume'].includes(mode)||opening)?onClose?.():null;
-    const run=++openRun;opening=false;folder.disabled=Boolean(returning);resumeFolder.disabled=Boolean(returning);
-    root.hidden=false;desktop.hidden=false;app.hidden=true;resume.hidden=true;task.hidden=true;showBoot(false);
+    const returning=(['portfolio','resume','game'].includes(mode)||opening)?onClose?.():null;
+    gameController?.hide();
+    const run=++openRun;opening=false;launchers.forEach(node=>node.disabled=Boolean(returning));
+    root.hidden=false;desktop.hidden=false;app.hidden=true;resume.hidden=true;gameWindow.hidden=true;task.hidden=true;showBoot(false);
     setMode('desktop');
-    Promise.resolve(returning).then(()=>{if(run===openRun&&mode==='desktop'){folder.disabled=false;resumeFolder.disabled=false;folder.focus({preventScroll:true});}});
+    Promise.resolve(returning).then(()=>{if(run===openRun&&mode==='desktop'){launchers.forEach(node=>node.disabled=false);folder.focus({preventScroll:true});}});
     updateClock();
   }
   function ready(){
@@ -54,28 +58,42 @@ export function createDesktop(splash, { onModeChange, onOpen, onClose, onRestart
   async function open(kind='portfolio'){
     if(opening||mode===kind)return;
     closeMenu();start.disabled=true;
-    opening=true;folder.disabled=true;resumeFolder.disabled=true;const run=++openRun;
-    bootTitle.textContent=kind==='resume'?'Opening Résumé':'Opening Portfolio';showBoot(true);
+    opening=true;launchers.forEach(node=>node.disabled=true);const run=++openRun;
+    bootTitle.textContent=kind==='game'?'Opening Design Game':kind==='resume'?'Opening Résumé':'Opening Portfolio';showBoot(true);
     // Keep app initialization and iframe layout off the zoom's critical path.
     const completed=await onOpen?.();
     if(run!==openRun||completed===false)return;
+    if(kind==='game'&&!gameController){
+      try{
+        const {createDesignGame}=await import('./design-game.js');
+        if(run!==openRun)return;
+        gameController=createDesignGame(gameWindow,{onQuit:show});
+      }catch{
+        if(run!==openRun)return;
+        gameWindow.querySelector('.dg-layout').hidden=true;
+        gameWindow.querySelector('.dg-error').hidden=false;
+      }
+    }
     if(kind==='portfolio'&&!started){
       loading.hidden=false;frame.setAttribute('aria-busy','true');started=true;
       const destination=new URL(location.href);destination.search='?pc-screen=1';destination.hash=/^#\/p\/\d+$/.test(location.hash)?location.hash:'';
       frame.src=destination.href;
     }
-    root.hidden=false;desktop.hidden=true;app.hidden=kind!=='portfolio';resume.hidden=kind!=='resume';task.hidden=false;task.querySelector('span').textContent=kind==='resume'?'Résumé':'Portfolio';setMode(kind);
+    root.hidden=false;desktop.hidden=true;app.hidden=kind!=='portfolio';resume.hidden=kind!=='resume';gameWindow.hidden=kind!=='game';task.hidden=false;task.querySelector('span').textContent=kind==='game'?'Design Game':kind==='resume'?'Résumé':'Portfolio';setMode(kind);
     showBoot(kind==='portfolio'&&!loaded);
     start.disabled=kind==='portfolio'&&!loaded;
-    opening=false;folder.disabled=false;resumeFolder.disabled=false;
+    opening=false;launchers.forEach(node=>node.disabled=false);
     if(kind==='portfolio'&&loaded)frame.focus({preventScroll:true});
     if(kind==='resume')resume.querySelector('.pc-resume-download').focus({preventScroll:true});
+    if(kind==='game')gameController?.show();
   }
   folder.addEventListener('click',()=>open('portfolio'));
   resumeFolder.addEventListener('click',()=>open('resume'));
-  task.addEventListener('click',()=>open(mode==='resume'?'resume':'portfolio'));
+  gameButton.addEventListener('click',()=>open('game'));
+  task.addEventListener('click',()=>open(mode==='game'?'game':mode==='resume'?'resume':'portfolio'));
   splash.querySelector('.pc-window-close').addEventListener('click',show);
   splash.querySelector('.pc-resume-close').addEventListener('click',show);
+  splash.querySelector('.pc-game-close').addEventListener('click',show);
   let zoom=100;
   splash.querySelectorAll('[data-resume-zoom]').forEach(button=>button.addEventListener('click',()=>{
     zoom=Math.max(100,Math.min(200,zoom+Number(button.dataset.resumeZoom)));
@@ -98,10 +116,11 @@ export function createDesktop(splash, { onModeChange, onOpen, onClose, onRestart
       width=Math.max(1,width);height=Math.max(1,height);
       root.classList.toggle('pc-compact',width<600||height<360);
       root.classList.toggle('pc-narrow',width<320);
-      root.classList.toggle('pc-short',height<250);
-      root.classList.toggle('pc-mini',height<180);
+      root.classList.toggle('pc-short',height<360);
+      root.classList.toggle('pc-mini',height<240);
+      root.classList.toggle('pc-tiny',height<190);
       root.style.width=`${width}px`;root.style.height=`${height}px`;
     },
-    hide(){closeMenu();openRun++;opening=false;loaded=false;started=false;root.hidden=true;mode='closed';showBoot(false);app.hidden=true;resume.hidden=true;frame.removeAttribute('src');start.disabled=false;},
+    hide(){closeMenu();gameController?.hide();gameController?.reset();openRun++;opening=false;loaded=false;started=false;root.hidden=true;mode='closed';showBoot(false);app.hidden=true;resume.hidden=true;gameWindow.hidden=true;frame.removeAttribute('src');start.disabled=false;},
   };
 }
