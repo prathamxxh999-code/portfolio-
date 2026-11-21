@@ -164,3 +164,17 @@
 @media(max-height:600px){.pc-mobile-layout .pc-tip-stack{width:min(230px,calc(100% - 24px));gap:6px;bottom:8px}.pc-mobile-layout .pc-desktop-tips{font-size:10px}.pc-mobile-layout .pc-tips-title{font-size:10px;min-height:28px}.pc-mobile-layout .pc-tips-body{padding:4px 7px}.pc-mobile-layout .pc-game-toast-action{min-height:38px}.pc-mobile-layout .pc-game-toast-action strong{font-size:11px}}
 @media(max-height:500px) and (min-width:520px){.pc-mobile-layout .pc-tip-stack{width:250px}.pc-mobile-layout .pc-desktop-icons{grid-auto-rows:66px}.pc-mobile-layout .pc-desktop-icon{height:66px;grid-template-rows:33px 16px}.pc-mobile-layout .pc-desktop-icon>svg{height:32px}.pc-mobile-layout .pc-desktop-icon>span{line-height:16px}}
 .pc-mobile-layout{--pc-mobile-bar:calc(42px + env(safe-area-inset-bottom));--pc-mobile-top:env(safe-area-inset-top)}.pc-mobile-layout .pc-taskbar{height:var(--pc-mobile-bar);padding-bottom:env(safe-area-inset-bottom);box-sizing:border-box}.pc-mobile-layout .pc-desktop,.pc-mobile-layout .pc-window{bottom:var(--pc-mobile-bar)}.pc-mobile-layout .pc-window{top:var(--pc-mobile-top);left:env(safe-area-inset-left);right:env(safe-area-inset-right)}.pc-mobile-layout .pc-start-menu{bottom:var(--pc-mobile-bar);max-height:calc(100% - var(--pc-mobile-bar) - var(--pc-mobile-top));left:env(safe-area-inset-left)}.pc-mobile-layout .pc-desktop-icons{top:calc(14px + var(--pc-mobile-top));left:calc(12px + env(safe-area-inset-left))}.pc-mobile-layout .pc-tip-stack{right:calc(12px + env(safe-area-inset-right))}
+
+/* Separate columns keep short portrait screens clear of the toast stack. */
+@media(max-width:519px) and (max-height:520px){
+.pc-mobile-layout .pc-desktop-icons{grid-template-columns:82px;grid-auto-rows:62px;gap:3px;top:calc(8px + var(--pc-mobile-top))}
+.pc-mobile-layout .pc-desktop-icons .pc-folder,.pc-mobile-layout .pc-desktop-icons .pc-app-game{grid-row:auto;grid-column:1}
+.pc-mobile-layout .pc-desktop-icon{height:62px;grid-template-rows:31px 17px;padding:3px;gap:2px;font-size:10px}.pc-mobile-layout .pc-desktop-icon>svg{width:36px;height:31px}.pc-mobile-layout .pc-game-cover{width:26px;height:31px}.pc-mobile-layout .pc-desktop-icon>span{line-height:17px}
+.pc-mobile-layout .pc-tip-stack{width:calc(100% - 122px);max-width:230px}
+}
+@media(max-width:519px) and (max-height:400px){
+.pc-mobile-layout .pc-desktop-icons{grid-auto-rows:50px;gap:2px}.pc-mobile-layout .pc-desktop-icon{height:50px;grid-template-rows:25px 14px;padding:2px;gap:1px;font-size:9px}.pc-mobile-layout .pc-desktop-icon>svg{height:25px;width:30px}.pc-mobile-layout .pc-game-cover{height:25px;width:21px}.pc-mobile-layout .pc-desktop-icon>span{line-height:14px}
+}
+@keyframes pc-desktop-fade{from{opacity:0}to{opacity:1}}
+.pc-os[data-mode="desktop"] .pc-desktop{animation:pc-desktop-fade .18s ease-out both}
+@media(prefers-reduced-motion:reduce){.pc-os[data-mode="desktop"] .pc-desktop{animation:none}}
