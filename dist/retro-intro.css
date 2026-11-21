@@ -44,3 +44,14 @@
 .retro-unavailable :is(.retro-video,.retro-vignette,.retro-frame-art) { display: none; }
 .retro-unavailable :is(.retro-screen,.retro-glass) { inset: 0 !important; width: 100% !important; height: 100% !important; border-radius: 0; transform: none; opacity: 1; }
 @media(prefers-reduced-motion:reduce) { .retro-world { will-change: auto; } .retro-caret { animation: none; } }
+
+/* Status LEDs stay attached to the photographed CPU as the room scales. */
+.retro-cpu-indicators{position:absolute;z-index:2;left:73.21%;top:54.63%;width:.94%;height:3.34%;pointer-events:none}
+.retro-cpu-indicators i{position:absolute;left:38%;top:0;width:25%;height:12.5%;border-radius:50%;background:#dcff9a;box-shadow:0 0 3px #c3ff71,0 0 7px #b1f95b88}
+.retro-cpu-indicators .retro-cpu-activity{top:50%;background:#fff0af;box-shadow:0 0 3px #ffbb55,0 0 8px #ff8024cc;animation:cpu-disk-activity 5.7s steps(1,end) infinite}
+@keyframes cpu-disk-activity{0%,9%,15%,19%,38%,42%,70%,76%,82%,100%{opacity:.12}6%,12%,17%,34%,40%,44%,65%,73%,79%{opacity:1}}
+.retro-intro:not([open]) .retro-cpu-activity{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.retro-cpu-indicators .retro-cpu-activity{animation:none;opacity:.65}}
+
+.retro-desktop-hint{display:none;position:absolute;z-index:6;bottom:3%;left:5%;width:90%;margin:0;text-align:center;font:400 11px/1.4 'Lucida Console',Consolas,'Courier New',monospace;color:#c8e2b7;pointer-events:none}
+@media(max-width:760px){.retro-intro[data-retro-phase="waiting"] .retro-desktop-hint{display:block}}

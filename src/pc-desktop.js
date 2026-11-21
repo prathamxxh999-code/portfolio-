@@ -90,6 +90,7 @@ export function createDesktop(splash, { onModeChange, onOpen, onClose, onRestart
   folder.addEventListener('click',()=>open('portfolio'));
   resumeFolder.addEventListener('click',()=>open('resume'));
   gameButton.addEventListener('click',()=>open('game'));
+  splash.querySelectorAll('[data-open-game]').forEach(button=>button.addEventListener('click',()=>open('game')));
   task.addEventListener('click',()=>open(mode==='game'?'game':mode==='resume'?'resume':'portfolio'));
   splash.querySelector('.pc-window-close').addEventListener('click',show);
   splash.querySelector('.pc-resume-close').addEventListener('click',show);

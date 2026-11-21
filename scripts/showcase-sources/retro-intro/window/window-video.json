@@ -14,7 +14,12 @@
     0.35
   ],
   "mask": "window/window-glass-mask.png",
+  "frame": "window/window-centred-frame.png",
+  "divider_center": [
+    351,
+    354
+  ],
   "audio": false,
   "playback_speed": 1,
-  "description": "User-supplied drifting clouds across a dark night sky, with clean glazing behind the indoor fern and sill plants"
+  "description": "Clean night sky, isolated indoor fern and centred window crossbar"
 }

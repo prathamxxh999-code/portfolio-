@@ -17,7 +17,7 @@ async function walk(folder){
     const content=await readFile(file,'utf8');
     const patterns=extension==='.html'?[/\b(?:src|href|poster)=["']([^"']+)["']/g]:
       extension==='.css'?[/url\(\s*["']?([^\s"')]+)["']?\s*\)/g]:
-      [/(?:from\s*|import\s*)["'](\.\.?\/[^"']+)["']/g,/import\(\s*["'](\.\.?\/[^"']+)["']/g,/["'](\.\/[^"']+\.(?:webp|png|jpg|mp4|pdf|ttf))["']/g];
+      [/(?:from\s*|import\s*)["'](\.\.?\/[^"']+)["']/g,/import\(\s*["'](\.\.?\/[^"']+)["']/g,/["'](\.\/[^"']+\.(?:webp|png|jpg|mp4|mp3|pdf|ttf))["']/g];
     for(const pattern of patterns)for(const match of content.matchAll(pattern))await verify(file,match[1]);
   }
 }

@@ -1,0 +1,25 @@
+{
+  "fileKey": "EHTtPQR6gj7jrmAtzUdiNZ",
+  "screens": [
+    "home",
+    "entry",
+    "entry-vip",
+    "parking-details",
+    "parking-progress",
+    "parked",
+    "retrieval-progress",
+    "retrieval-details",
+    "retrieval-queue",
+    "queue-details",
+    "guest-pickup",
+    "pickup-status",
+    "handover",
+    "handover-submit",
+    "driver-profile",
+    "account-settings",
+    "analytics"
+  ],
+  "hardware": "Same photographic iPhone 15 Pro template used for CashBell. See ../devices/SOURCES.md.",
+  "source": "Original Figma frame exports. Configured PDF exports rasterized at 2x with pdfplumber; home/account PNGs exported at native size.",
+  "hero": "2400x1200 desktop / 1600x1350 mobile static hero, three exact screens on photographic hardware in a valet arrival environment. No video. Long screen content is scrollable in the gallery; full PNGs linked."
+}

@@ -109,7 +109,7 @@ function jumpTo(id){
 }
 function go(id){closeNav();if(!$('#pv').hidden){pendingAnchor=id;location.hash=''}else jumpTo(id)}
 function pv(i){var p=P[i],t=TX[p[4]],n=cardOrder[(cardOrder.indexOf(i)+1)%cardOrder.length],h=$('#pv');
-if((i===4||i===12)&&window.projectShowcase){
+if((i===4||i===7||i===12)&&window.projectShowcase){
   h.innerHTML=window.projectShowcase(i,p[0],n,P[n][0]);window.initProjectShowcase(h);rv(h);return
 }
 if(p[6]){

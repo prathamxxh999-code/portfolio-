@@ -32,7 +32,8 @@ graph = (
     f'crop={width}:{height}:(iw-ow)*{cx}:(ih-oh)*{cy},setsar=1,format=rgb24[sky];'
     '[2:v]format=gray,setsar=1[mask];'
     '[sky][mask]alphamerge=shortest=1[window];'
-    f'[0:v][window]overlay={x}:{y}:shortest=1:format=auto,format=yuv420p[v]'
+    f'[0:v][window]overlay={x}:{y}:shortest=1:format=auto[room];'
+    f'[room][3:v]overlay={x}:{y}:shortest=1:format=auto,format=yuv420p[v]'
 )
 destination = output / f'{args.output_stem}.mp4'
 pending = output / f'{args.output_stem}.pending.mp4'
@@ -41,6 +42,7 @@ subprocess.run([
     '-stream_loop','-1','-i',str(base),
     '-i',str(sources / config['source']),
     '-loop','1','-i',str(sources / config['mask']),
+    '-loop','1','-i',str(sources / config['frame']),
     '-filter_complex',graph,'-map','[v]','-an','-frames:v',str(config['frames']),
     '-c:v','libx264','-threads','2','-preset','fast','-crf','19',
     '-color_primaries','bt709','-color_trc','bt709','-colorspace','bt709',

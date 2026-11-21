@@ -234,7 +234,9 @@ import { createRetroIntro } from './retro-intro.js';
   function tick(now) {
     nextFrame = 0;
     if (!playback || playback.leaving) return;
-    const delta = playback.previous === null ? 0 : Math.min(80, now - playback.previous);
+    // Follow active elapsed time on slower phones as well as fast desktops.
+    // visibilitychange resets previous, so a hidden tab cannot skip the intro.
+    const delta = playback.previous === null ? 0 : Math.max(0, now - playback.previous);
     playback.previous = now;
     if (playback.entering) {
       playback.entryElapsed += delta;

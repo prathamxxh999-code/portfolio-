@@ -190,4 +190,8 @@ two wall prints, globe, radio, coffee, plants and furniture. Full landscape
 
 ### November 21 cleanup
 
-Active ambient assets are `src/intro/room-ambient-clean.mp4` and `room-ambient-clean-mobile.mp4`. The window matte preserves the actual upper fern and bottom sill plant; old sky branches and bokeh in the middle left glazing have been removed. New filenames avoid replacing video files locked by an active Windows preview. Both silent files decode in full. The older room-ambient files remain historical sources and are not loaded by the page.
+Active ambient assets are `src/intro/room-ambient-centred.mp4` and `room-ambient-centred-mobile.mp4`. The window matte preserves the actual upper fern and bottom sill plant; old sky branches and bokeh in the middle left glazing have been removed. New filenames avoid replacing video files locked by an active Windows preview. Both silent files decode in full. The older room-ambient files remain historical sources and are not loaded by the page.
+
+The final matte excludes dim outdoor branches from the foreground. Both old panes, including the off-centre divider, are replaced by the moving sky. A photographed timber layer creates a centred crossbar at room coordinates (351, 354). Indoor fern, globe, radio and sill objects stay in front. New CPU LEDs are CSS overlays anchored to the room master: steady green power and irregular amber disk activity; animation stops for reduced motion. A mobile-only terminal hint reads “For the best experience, view on desktop.”
+
+The desktop also includes a compact XP-style tip panel with a Design Game launch action and visible Start → Restart guidance. It moves alongside the icons in the small monitor view and returns to the lower-left in the expanded desktop.

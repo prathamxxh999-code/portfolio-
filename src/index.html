@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
 <style id="intro-first-paint">
 html[data-intro-pending]{background:#08100b;overflow:hidden}
 html[data-intro-pending] body{visibility:hidden}
@@ -34,6 +34,7 @@ html[data-intro-pending] .greeting-splash[open]{visibility:visible}
 <link rel="stylesheet" href="./cinema.css">
 <link rel="stylesheet" href="./project-showcases.css">
 <link rel="stylesheet" href="./project-folders.css">
+<script src="./valet-showcase.js" defer></script>
 <script src="./project-showcases.js" defer></script>
 <script src="./greeting.js" type="module"></script>
 <script src="./cinema.js" type="module"></script>
@@ -193,7 +194,8 @@ html[data-intro-pending] .greeting-splash[open]{visibility:visible}
 </main>
 <dialog class="greeting-splash retro-intro" aria-label="Prathamesh’s retro desktop" aria-description="Choose Enter portfolio on the computer screen, then open the Portfolio folder. The website opens inside this monitor. Escape returns to the desktop.">
   <div class="retro-world">
-    <video class="retro-video" muted loop playsinline preload="metadata" poster="./intro/room-poster.webp" width="1920" height="1080" aria-hidden="true"><source src="./intro/room-ambient-clean.mp4" type="video/mp4"></video>
+    <video class="retro-video" muted loop playsinline preload="metadata" poster="./intro/room-poster.webp" width="1920" height="1080" aria-hidden="true"><source src="./intro/room-ambient-centred.mp4" type="video/mp4"></video>
+    <div class="retro-cpu-indicators" aria-hidden="true"><i class="retro-cpu-power"></i><i class="retro-cpu-activity"></i></div>
     <div class="retro-frame-art" aria-hidden="true"><div class="retro-frame-print"><img src="./intro/tabletop-spiderman.webp" alt="" width="368" height="552"><span class="retro-frame-glass"></span></div></div>
     <img class="pc-hardware" src="./intro/room-hardware.webp" alt="" width="1920" height="1080" aria-hidden="true">
     <div class="retro-screen"><div class="retro-glass">
@@ -208,6 +210,7 @@ html[data-intro-pending] .greeting-splash[open]{visibility:visible}
   </div>
       <div class="retro-welcome" aria-hidden="true"><span class="retro-line"><span class="retro-typed"></span><span class="retro-caret">_</span></span></div>
       <button class="retro-enter" type="button" aria-label="Enter portfolio" disabled hidden>Enter portfolio</button>
+      <p class="retro-desktop-hint">For the best experience, view on desktop.</p>
       <div class="pc-os" hidden>
         <div class="pc-desktop">
           <div class="pc-desktop-icons" aria-label="Desktop icons">
@@ -232,7 +235,7 @@ html[data-intro-pending] .greeting-splash[open]{visibility:visible}
             <span>Design Game</span>
           </button>
           </div>
-          <p class="pc-desktop-message" role="status"><b aria-hidden="true">i</b><span>Open a folder to get started.</span></p>
+          <aside class="pc-desktop-tips" aria-label="Desktop tips"><div class="pc-tips-title"><b aria-hidden="true">i</b> A little design break?</div><div class="pc-tips-body"><button type="button" data-open-game>Play Design Game</button><p>Sharpen your eye for layout, colour and usability.</p><p class="pc-restart-tip" id="pc-restart-tip">Replay the intro: <strong>Start → Restart</strong></p></div></aside>
         </div>
         <section class="pc-window" aria-label="Portfolio window" hidden>
           <div class="pc-window-bar"><span>Portfolio — Prathamesh Phadatare</span><button class="pc-window-close" type="button" aria-label="Close portfolio and return to desktop">×</button></div>
@@ -253,7 +256,7 @@ html[data-intro-pending] .greeting-splash[open]{visibility:visible}
           <div class="pc-menu-system" aria-hidden="true"><div class="pc-menu-left"><span><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#2681ca" stroke="#155192"/><path d="M4 16h24M16 3c-9 8-9 18 0 26M16 3c9 8 9 18 0 26M7 8q9 6 18 0M7 24q9-6 18 0" fill="none" stroke="#b8e3fd" stroke-width="1.3"/></svg><b>Internet<small>Web browser</small></b></span><span><svg viewBox="0 0 32 28"><path d="M2 4h28v21H2z" fill="#f9fbeb" stroke="#7894ad"/><path d="m2 4 14 12L30 4M2 25l11-11m17 11L19 14" fill="none" stroke="#7894ad"/></svg><b>E-mail<small>Mail program</small></b></span><span class="pc-all-programs">All Programs <b>▶</b></span></div><div class="pc-menu-right"><span>My Documents</span><span>My Computer</span><span>Control Panel</span><span>Help and Support</span></div></div>
           <div class="pc-menu-footer"><button type="button" role="menuitem" class="pc-restart" title="Restart portfolio from the beginning"><span class="pc-restart-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M20.1 15a8 8 0 1 1-2.1-8.3L21 8"/></svg></span><span class="pc-restart-label">Restart</span></button></div>
         </div>
-        <div class="pc-taskbar"><button class="pc-start" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="pc-start-menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#f15a32" d="m1 3 9-2v9l-9 1z"/><path fill="#7ab544" d="m12 1 10 2v8l-10-1z"/><path fill="#368acc" d="m1 13 9-1v10l-9-2z"/><path fill="#ecc744" d="m12 12 10 1v8l-10 1z"/></svg>start</button><button class="pc-task" type="button" hidden><svg viewBox="0 0 58 46" aria-hidden="true"><path d="M5 10V5h20l5 6h23v29H5z" fill="#d7a232" stroke="#946b1b"/><path d="M2 16h53l-5 25H6z" fill="#ffe58b" stroke="#b78326"/></svg><span>Portfolio</span></button><time class="pc-clock"><span class="pc-clock-time"></span><span class="pc-clock-date"></span></time></div>
+        <div class="pc-taskbar"><button class="pc-start" title="Open Start, then Restart to replay the intro" aria-describedby="pc-restart-tip" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="pc-start-menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#f15a32" d="m1 3 9-2v9l-9 1z"/><path fill="#7ab544" d="m12 1 10 2v8l-10-1z"/><path fill="#368acc" d="m1 13 9-1v10l-9-2z"/><path fill="#ecc744" d="m12 12 10 1v8l-10 1z"/></svg>start</button><button class="pc-task" type="button" hidden><svg viewBox="0 0 58 46" aria-hidden="true"><path d="M5 10V5h20l5 6h23v29H5z" fill="#d7a232" stroke="#946b1b"/><path d="M2 16h53l-5 25H6z" fill="#ffe58b" stroke="#b78326"/></svg><span>Portfolio</span></button><time class="pc-clock"><span class="pc-clock-time"></span><span class="pc-clock-date"></span></time></div>
       </div>
     </div></div>
   </div>

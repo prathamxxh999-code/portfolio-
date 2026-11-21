@@ -56,4 +56,8 @@ The asset check runs against `dist/`, so build before running it.
 
 ## Design City desktop game
 
-The retro desktop includes a Design Game shortcut directly below Portfolio. It opens an original Vice City-inspired visual arcade with a 3.8-second mission intro, Colour and Alignment challenges, sound on/off, and keyboard/touch support. Scores and player CRUD are browser-local, as requested; they are not global rankings or sitewide traffic analytics. Clear storage to remove local records. See `scripts/showcase-sources/design-city/BRIEF.md` for assets, licensing and behavior.
+The retro desktop includes a Design Game shortcut directly below Portfolio. It opens an original Vice City-inspired visual arcade: separate name and mission screens, looping setup video, a short road-video intro, three design missions, original synthwave BGM, sound on/off, and local player records. UI repair, layout parking and dark-pattern patrol use six wanted stars as design debt. Gameplay fits the app surface without page scrolling. Scores are local to this browser, as requested; they are not sitewide footfall analytics. See scripts/showcase-sources/design-city/BRIEF.md for sources and behavior.
+
+## Valet Parking
+
+Project 7 uses all 17 original Figma screens. A static hero uses the same photographic phone hardware as CashBell. The grouped gallery explains each screen, supports scrolling through long forms inside each phone, and links to full-resolution images. No video or generated interfaces. Source exports and the reproducible renderer are included.
