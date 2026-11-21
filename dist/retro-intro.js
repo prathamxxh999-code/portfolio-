@@ -119,6 +119,7 @@ export function createRetroIntro(splash,{onEnter,onRestart,motion}={}){
     welcome.style.fontSize=`${Math.min(29,Math.max(18,physicalWidth*.045))}px`;
     Object.assign(button.style,{fontSize:`${Math.min(23,Math.max(16,physicalWidth*.036))}px`,minHeight:'44px',width:'auto',padding:'8px 0'});
     if(welcomeMotion)welcomeMotion.finish();
+    if(phase==='desktop'&&(width<=650||(width<=950&&height<=500)))expanded=true;
     camera(closeScale);
   }
   function update(milliseconds){
@@ -131,6 +132,8 @@ export function createRetroIntro(splash,{onEnter,onRestart,motion}={}){
   function enter(milliseconds){welcome.style.opacity=1-between(milliseconds,0,260);camera(closeScale);}
   function showDesktop(){
     cancelEntry();cancelWelcome();
+    // On phones, keep the room for the intro and give the desktop native space.
+    if(width<=650||(width<=950&&height<=500))expanded=true;
     camera(closeScale);greeting.hidden=true;welcome.hidden=true;button.hidden=true;
     screen.style.setProperty('--crt-power','1');splash.removeAttribute('aria-busy');desktop.show();play();
   }

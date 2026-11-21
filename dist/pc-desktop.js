@@ -91,6 +91,8 @@ export function createDesktop(splash, { onModeChange, onOpen, onClose, onRestart
   resumeFolder.addEventListener('click',()=>open('resume'));
   gameButton.addEventListener('click',()=>open('game'));
   splash.querySelectorAll('[data-open-game]').forEach(button=>button.addEventListener('click',()=>open('game')));
+  const tips=[...splash.querySelectorAll('.pc-desktop-tips')];
+  splash.querySelectorAll('[data-dismiss-tip]').forEach(button=>button.addEventListener('click',()=>{button.closest('.pc-desktop-tips').hidden=true;folder.focus({preventScroll:true});}));
   task.addEventListener('click',()=>open(mode==='game'?'game':mode==='resume'?'resume':'portfolio'));
   splash.querySelector('.pc-window-close').addEventListener('click',show);
   splash.querySelector('.pc-resume-close').addEventListener('click',show);
@@ -115,6 +117,7 @@ export function createDesktop(splash, { onModeChange, onOpen, onClose, onRestart
     resize(width,height){
       // Match the glass in CSS pixels, without a second nested scale.
       width=Math.max(1,width);height=Math.max(1,height);
+      root.classList.toggle('pc-mobile-layout',Math.abs(width-(window.innerWidth||0))<3&&(width<=650||(width<=950&&height<=500)));
       root.classList.toggle('pc-compact',width<600||height<360);
       root.classList.toggle('pc-narrow',width<320);
       root.classList.toggle('pc-short',height<360);
@@ -122,6 +125,6 @@ export function createDesktop(splash, { onModeChange, onOpen, onClose, onRestart
       root.classList.toggle('pc-tiny',height<190);
       root.style.width=`${width}px`;root.style.height=`${height}px`;
     },
-    hide(){closeMenu();gameController?.hide();gameController?.reset();openRun++;opening=false;loaded=false;started=false;root.hidden=true;mode='closed';showBoot(false);app.hidden=true;resume.hidden=true;gameWindow.hidden=true;frame.removeAttribute('src');start.disabled=false;},
+    hide(){tips.forEach(tip=>tip.hidden=false);closeMenu();gameController?.hide();gameController?.reset();openRun++;opening=false;loaded=false;started=false;root.hidden=true;mode='closed';showBoot(false);app.hidden=true;resume.hidden=true;gameWindow.hidden=true;frame.removeAttribute('src');start.disabled=false;},
   };
 }

@@ -21,5 +21,35 @@
   ],
   "hardware": "Same photographic iPhone 15 Pro template used for CashBell. See ../devices/SOURCES.md.",
   "source": "Original Figma frame exports. Configured PDF exports rasterized at 2x with pdfplumber; home/account PNGs exported at native size.",
-  "hero": "2400x1200 desktop / 1600x1350 mobile static hero, three exact screens on photographic hardware in a valet arrival environment. No video. Long screen content is scrollable in the gallery; full PNGs linked."
+  "hero": "2400x1200 desktop / 1600x1350 mobile static hero, exactly two original screens in straight, front-facing photographic phone plates. Uniform scaling only: no rotation, perspective, generated hardware or screen distortion. Parking arrival background retained. No video.",
+  "hero_devices": {
+    "desktop": [
+      [
+        "parking-progress",
+        1280,
+        1100,
+        840
+      ],
+      [
+        "home",
+        1770,
+        1100,
+        920
+      ]
+    ],
+    "mobile": [
+      [
+        "parking-progress",
+        490,
+        1230,
+        970
+      ],
+      [
+        "home",
+        1040,
+        1230,
+        1090
+      ]
+    ]
+  }
 }

@@ -193,6 +193,7 @@ html[data-intro-pending] .greeting-splash[open]{visibility:visible}
 <div id="pv" class="wrap pv" hidden></div>
 </main>
 <dialog class="greeting-splash retro-intro" aria-label="Prathamesh’s retro desktop" aria-description="Choose Enter portfolio on the computer screen, then open the Portfolio folder. The website opens inside this monitor. Escape returns to the desktop.">
+  <p class="retro-desktop-hint" role="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M8 21h8m-4-5v5"/></svg><span>For the best experience, view on desktop.</span></p>
   <div class="retro-world">
     <video class="retro-video" muted loop playsinline preload="metadata" poster="./intro/room-poster.webp" width="1920" height="1080" aria-hidden="true"><source src="./intro/room-ambient-centred.mp4" type="video/mp4"></video>
     <div class="retro-cpu-indicators" aria-hidden="true"><i class="retro-cpu-power"></i><i class="retro-cpu-activity"></i></div>
@@ -210,7 +211,6 @@ html[data-intro-pending] .greeting-splash[open]{visibility:visible}
   </div>
       <div class="retro-welcome" aria-hidden="true"><span class="retro-line"><span class="retro-typed"></span><span class="retro-caret">_</span></span></div>
       <button class="retro-enter" type="button" aria-label="Enter portfolio" disabled hidden>Enter portfolio</button>
-      <p class="retro-desktop-hint">For the best experience, view on desktop.</p>
       <div class="pc-os" hidden>
         <div class="pc-desktop">
           <div class="pc-desktop-icons" aria-label="Desktop icons">
@@ -235,7 +235,10 @@ html[data-intro-pending] .greeting-splash[open]{visibility:visible}
             <span>Design Game</span>
           </button>
           </div>
-          <aside class="pc-desktop-tips" aria-label="Desktop tips"><div class="pc-tips-title"><b aria-hidden="true">i</b> A little design break?</div><div class="pc-tips-body"><button type="button" data-open-game>Play Design Game</button><p>Sharpen your eye for layout, colour and usability.</p><p class="pc-restart-tip" id="pc-restart-tip">Replay the intro: <strong>Start → Restart</strong></p></div></aside>
+          <div class="pc-tip-stack" aria-label="Desktop tips">
+            <aside class="pc-desktop-tips pc-folder-tip" aria-label="Portfolio and résumé tip"><div class="pc-tips-title"><b aria-hidden="true">i</b><span class="pc-tip-full-title">Explore my work</span><span class="pc-tip-short-title">Your folders</span><button class="pc-tip-close" type="button" data-dismiss-tip aria-label="Dismiss portfolio and résumé tip">×</button></div><div class="pc-tips-body"><p><strong>Portfolio</strong><span class="pc-tip-long-copy"> — explore my projects.</span><span class="pc-tip-tiny-copy">: projects</span></p><p><strong>Résumé</strong><span class="pc-tip-long-copy"> — view or download my CV.</span><span class="pc-tip-tiny-copy">: my CV</span></p></div></aside>
+            <aside class="pc-desktop-tips pc-game-tip" aria-label="Design game tip"><div class="pc-tips-title"><svg class="pc-tip-console" viewBox="0 0 32 24" aria-hidden="true"><path d="M8 4h16c3 0 5 3 6 8l1 6c0 3-4 4-6 1l-4-4H11l-4 4c-2 3-6 2-6-1l1-6c1-5 3-8 6-8z" fill="#d7dde1" stroke="#36546c"/><path d="M8 7v7M4.5 10.5h7" stroke="#485764" stroke-width="2.5"/><circle cx="24" cy="8" r="2" fill="#dd4a45"/><circle cx="27" cy="12" r="2" fill="#e6bf46"/><path d="M14 11h4" stroke="#7b8891" stroke-width="2"/></svg><span class="pc-tip-full-title">A little design break?</span><span class="pc-tip-short-title">Design break</span><button class="pc-tip-close" type="button" data-dismiss-tip aria-label="Dismiss design game tip">×</button></div><div class="pc-tips-body"><button class="pc-game-toast-action" type="button" data-open-game aria-label="Play Design Game"><strong>Play Design Game</strong><span>Practise your design eye.</span></button><p class="pc-restart-tip" id="pc-restart-tip"><span class="pc-replay-label">Replay the intro: </span><strong>Start → Restart</strong></p></div></aside>
+          </div>
         </div>
         <section class="pc-window" aria-label="Portfolio window" hidden>
           <div class="pc-window-bar"><span>Portfolio — Prathamesh Phadatare</span><button class="pc-window-close" type="button" aria-label="Close portfolio and return to desktop">×</button></div>

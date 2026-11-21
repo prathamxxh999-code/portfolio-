@@ -195,3 +195,7 @@ Active ambient assets are `src/intro/room-ambient-centred.mp4` and `room-ambient
 The final matte excludes dim outdoor branches from the foreground. Both old panes, including the off-centre divider, are replaced by the moving sky. A photographed timber layer creates a centred crossbar at room coordinates (351, 354). Indoor fern, globe, radio and sill objects stay in front. New CPU LEDs are CSS overlays anchored to the room master: steady green power and irregular amber disk activity; animation stops for reduced motion. A mobile-only terminal hint reads “For the best experience, view on desktop.”
 
 The desktop also includes a compact XP-style tip panel with a Design Game launch action and visible Start → Restart guidance. It moves alongside the icons in the small monitor view and returns to the lower-left in the expanded desktop.
+
+Current desktop tips are two dismissible XP panels at the right: Portfolio/Résumé guidance and a plain-text Design Game action with a controller icon. Their dimensions follow the actual monitor size, and dismissals last until Restart. The desktop recommendation is a floating room overlay outside the monitor, visible at the welcome stage on all viewport sizes.
+
+For phone-sized viewports, Enter now opens the Windows desktop at the native viewport size, with larger folders, taskbar and title-bar controls. The room remains the intro. Desktop-size layouts retain the room monitor until a folder is opened. Desktop-site mode follows viewport width instead of user-agent detection.

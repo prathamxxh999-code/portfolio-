@@ -53,5 +53,5 @@
 .retro-intro:not([open]) .retro-cpu-activity{animation-play-state:paused}
 @media(prefers-reduced-motion:reduce){.retro-cpu-indicators .retro-cpu-activity{animation:none;opacity:.65}}
 
-.retro-desktop-hint{display:none;position:absolute;z-index:6;bottom:3%;left:5%;width:90%;margin:0;text-align:center;font:400 11px/1.4 'Lucida Console',Consolas,'Courier New',monospace;color:#c8e2b7;pointer-events:none}
-@media(max-width:760px){.retro-intro[data-retro-phase="waiting"] .retro-desktop-hint{display:block}}
+.retro-desktop-hint{display:none;position:absolute;z-index:9;bottom:max(20px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);align-items:center;gap:9px;width:max-content;max-width:calc(100% - 32px);margin:0;padding:10px 14px;border:1px solid #d5efbb45;border-radius:8px;background:#0b1712ed;box-shadow:0 6px 24px #0006;color:#e6efdc;text-align:left;font:12px/1.45 Tahoma,Verdana,sans-serif;pointer-events:none}.retro-desktop-hint svg{width:20px;height:20px;flex:none;color:#c6ee97}.retro-intro[data-retro-phase="waiting"] .retro-desktop-hint{display:flex}
+@media(max-width:400px){.retro-desktop-hint{font-size:11px;padding:9px 11px;gap:8px}.retro-desktop-hint svg{width:18px;height:18px}}
