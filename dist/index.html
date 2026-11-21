@@ -3,6 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style id="intro-first-paint">
+html[data-intro-pending]{background:#08100b;overflow:hidden}
+html[data-intro-pending] body{visibility:hidden}
+html[data-intro-pending] .greeting-splash[open]{visibility:visible}
+</style>
+<script id="intro-boot">
+(()=>{
+  const root=document.documentElement;
+  if(new URLSearchParams(location.search).get('pc-screen')==='1'){
+    root.classList.add('pc-embedded');return;
+  }
+  if(typeof HTMLDialogElement==='undefined'||typeof HTMLDialogElement.prototype.showModal!=='function')return;
+  root.dataset.introPending='';
+  const finish=()=>{clearTimeout(fallback);delete root.dataset.introPending;};
+  const fallback=setTimeout(finish,10000);
+  document.addEventListener('portfolio:intro-ready',finish,{once:true});
+})();
+</script>
 <title>Prathamesh Phadatare | Product Designer</title>
 <meta name="description" content="Prathamesh Phadatare designs products for fintech and enterprise SaaS, from digital banking and lending to business operations."><meta property="og:title" content="Prathamesh Phadatare | Product Designer"><meta property="og:description" content="Product designer and design team lead with experience in fintech and enterprise SaaS."><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

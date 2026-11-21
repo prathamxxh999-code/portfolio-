@@ -2,9 +2,10 @@ import { cursorColors, cursorSprite, paintCommentCursor } from './cursor-frames.
 import { createRetroIntro } from './retro-intro.js';
 
 (() => {
+  const finishBoot = () => document.dispatchEvent(new Event('portfolio:intro-ready'));
   const splash = document.querySelector('.greeting-splash');
   const hero = document.querySelector('.hero');
-  if (!splash || !hero) return;
+  if (!splash || !hero) { finishBoot(); return; }
   if (new URLSearchParams(location.search).get('pc-screen') === '1') {
     document.documentElement.classList.add('pc-embedded');
     splash.remove();
@@ -303,6 +304,9 @@ import { createRetroIntro } from './retro-intro.js';
     document.documentElement.classList.add('greeting-lock');
     resize();
     paint(0);
+    // Reveal the document only after the modal is open and laid out. The
+    // inline head guard prevents the homepage from painting before this.
+    finishBoot();
     if (retro) retro.ready.then(loaded => {
       if (!playback) return;
       if (!loaded) resize();
@@ -357,5 +361,5 @@ import { createRetroIntro } from './retro-intro.js';
   if (supportsSplash && (atHome() || retro?.persistent)) {
     window.scrollTo({ top: 0, behavior: 'instant' });
     openSplash();
-  }
+  } else finishBoot();
 })();

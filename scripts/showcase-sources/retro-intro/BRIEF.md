@@ -48,6 +48,11 @@ No generative edits were applied to the user's original portrait.
 
 ## Sequence
 
+- An inline head guard hides the underlying homepage before any external
+  styles or scripts load. It releases only after the intro modal is open and
+  laid out, preventing the homepage flash on fresh visits. Embedded pc-screen
+  pages skip this guard. A 10-second fallback reveals the normal site if the
+  intro module cannot load; browsers without dialog support remain usable.
 - 0.0-0.55 s: room and CRT power-up.
 - 0.55-5.3 s: existing multilingual cursor greeting inside the CRT.
 - The room camera stays fixed through the entire greeting and desktop entry.
