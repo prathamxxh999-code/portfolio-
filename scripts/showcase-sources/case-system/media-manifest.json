@@ -343,21 +343,27 @@
           "title": "Your money, at a glance",
           "description": "An overview of the loan balance, upcoming EMI and next actions.",
           "src": "./showcases/screens/cashbell-home.png",
-          "mockup": "./showcases/case-media/cashbell-home.webp"
+          "mockup": "./showcases/case-media/cashbell-home.webp",
+          "mobile": true,
+          "display": "./showcases/screens/cashbell-home.png"
         },
         {
           "key": "cashbell-offers",
           "title": "Compare before you commit",
           "description": "Loan options with their estimated repayments and costs in one view.",
           "src": "./showcases/screens/cashbell-offers.png",
-          "mockup": "./showcases/case-media/cashbell-offers.webp"
+          "mockup": "./showcases/case-media/cashbell-offers.webp",
+          "mobile": true,
+          "display": "./showcases/screens/cashbell-offers.png"
         },
         {
           "key": "cashbell-loan",
           "title": "Stay in control",
           "description": "A dedicated loan account with the repayment schedule and amount breakdown.",
           "src": "./showcases/screens/cashbell-loan.png",
-          "mockup": "./showcases/case-media/cashbell-loan.webp"
+          "mockup": "./showcases/case-media/cashbell-loan.webp",
+          "mobile": true,
+          "display": "./showcases/screens/cashbell-loan.png"
         }
       ],
       "chapters": [
@@ -367,6 +373,8 @@
           "description": "An overview of the loan balance, upcoming EMI and next actions.",
           "src": "./showcases/screens/cashbell-home.png",
           "mockup": "./showcases/case-media/cashbell-home.webp",
+          "mobile": true,
+          "display": "./showcases/screens/cashbell-home.png",
           "front": "./showcases/case-media/chapter-4-0.webp"
         },
         {
@@ -375,6 +383,8 @@
           "description": "Loan options with their estimated repayments and costs in one view.",
           "src": "./showcases/screens/cashbell-offers.png",
           "mockup": "./showcases/case-media/cashbell-offers.webp",
+          "mobile": true,
+          "display": "./showcases/screens/cashbell-offers.png",
           "front": "./showcases/case-media/chapter-4-1.webp"
         },
         {
@@ -383,6 +393,8 @@
           "description": "A dedicated loan account with the repayment schedule and amount breakdown.",
           "src": "./showcases/screens/cashbell-loan.png",
           "mockup": "./showcases/case-media/cashbell-loan.webp",
+          "mobile": true,
+          "display": "./showcases/screens/cashbell-loan.png",
           "front": "./showcases/case-media/chapter-4-2.webp"
         },
         {
@@ -391,6 +403,8 @@
           "description": "A closer detail view of the same original interface. This crop highlights the layout without presenting it as an additional production screen.",
           "src": "./showcases/screens/cashbell-loan.png",
           "mockup": "./showcases/case-media/cashbell-loan.webp",
+          "mobile": true,
+          "display": "./showcases/screens/cashbell-loan.png",
           "detail": true,
           "front": "./showcases/case-media/chapter-4-3.webp"
         }
@@ -701,28 +715,36 @@
           "title": "The bigger picture",
           "description": "A shared overview of clients, billing and the team’s next actions.",
           "src": "./showcases/screens/crm-overview.png",
-          "mockup": "./showcases/case-media/crm-overview.webp"
+          "mockup": "./showcases/case-media/crm-overview.webp",
+          "mobile": false,
+          "display": null
         },
         {
           "key": "crm-clients",
           "title": "A connected client workspace",
           "description": "Customer records and account context, organized for everyday work.",
           "src": "./showcases/screens/crm-clients.png",
-          "mockup": "./showcases/case-media/crm-clients.webp"
+          "mockup": "./showcases/case-media/crm-clients.webp",
+          "mobile": false,
+          "display": null
         },
         {
           "key": "crm-tasks",
           "title": "Keep the work moving",
           "description": "Task ownership, priorities and follow-ups in one workspace.",
           "src": "./showcases/screens/crm-tasks.png",
-          "mockup": "./showcases/case-media/crm-tasks.webp"
+          "mockup": "./showcases/case-media/crm-tasks.webp",
+          "mobile": false,
+          "display": null
         },
         {
           "key": "crm-reports",
           "title": "See what needs attention",
           "description": "Reporting views that bring account and operational activity together.",
           "src": "./showcases/screens/crm-reports.png",
-          "mockup": "./showcases/case-media/crm-reports.webp"
+          "mockup": "./showcases/case-media/crm-reports.webp",
+          "mobile": false,
+          "display": null
         }
       ],
       "chapters": [
@@ -732,6 +754,8 @@
           "description": "A shared overview of clients, billing and the team’s next actions.",
           "src": "./showcases/screens/crm-overview.png",
           "mockup": "./showcases/case-media/crm-overview.webp",
+          "mobile": false,
+          "display": null,
           "front": "./showcases/case-media/chapter-12-0.webp"
         },
         {
@@ -740,6 +764,8 @@
           "description": "Customer records and account context, organized for everyday work.",
           "src": "./showcases/screens/crm-clients.png",
           "mockup": "./showcases/case-media/crm-clients.webp",
+          "mobile": false,
+          "display": null,
           "front": "./showcases/case-media/chapter-12-1.webp"
         },
         {
@@ -748,6 +774,8 @@
           "description": "Task ownership, priorities and follow-ups in one workspace.",
           "src": "./showcases/screens/crm-tasks.png",
           "mockup": "./showcases/case-media/crm-tasks.webp",
+          "mobile": false,
+          "display": null,
           "front": "./showcases/case-media/chapter-12-2.webp"
         },
         {
@@ -756,6 +784,8 @@
           "description": "Reporting views that bring account and operational activity together.",
           "src": "./showcases/screens/crm-reports.png",
           "mockup": "./showcases/case-media/crm-reports.webp",
+          "mobile": false,
+          "display": null,
           "front": "./showcases/case-media/chapter-12-3.webp"
         }
       ]
@@ -1213,181 +1243,6 @@
           "height": 960,
           "mockup": "./showcases/case-media/approval-review.webp",
           "front": "./showcases/case-media/chapter-13-3.webp"
-        }
-      ]
-    },
-    {
-      "id": 14,
-      "key": "banners-posters",
-      "processOnly": false,
-      "mobile": false,
-      "artwork": true,
-      "screens": [
-        {
-          "key": "g-cbs1",
-          "title": "Core banking campaign",
-          "description": "Wide campaign banner for a core banking product.",
-          "src": "./showcases/references/banners-posters/g-cbs1.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1600,
-          "height": 900
-        },
-        {
-          "key": "g-cbs2",
-          "title": "Core banking campaign — alternate",
-          "description": "An alternate wide-format banking composition.",
-          "src": "./showcases/references/banners-posters/g-cbs2.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1600,
-          "height": 900
-        },
-        {
-          "key": "g-cbs3",
-          "title": "Core banking campaign — product story",
-          "description": "A third banking campaign banner.",
-          "src": "./showcases/references/banners-posters/g-cbs3.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1600,
-          "height": 900
-        },
-        {
-          "key": "g-post1",
-          "title": "Business finance",
-          "description": "A portrait-format business finance campaign.",
-          "src": "./showcases/references/banners-posters/g-post1.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1080,
-          "height": 1350
-        },
-        {
-          "key": "g-post2",
-          "title": "Growth campaign",
-          "description": "A visual campaign built around a growth message.",
-          "src": "./showcases/references/banners-posters/g-post2.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1080,
-          "height": 1350
-        },
-        {
-          "key": "g-post4",
-          "title": "Vendor loans",
-          "description": "A poster focused on vendor lending.",
-          "src": "./showcases/references/banners-posters/g-post4.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1080,
-          "height": 1350
-        },
-        {
-          "key": "g-post7",
-          "title": "Corporate banking",
-          "description": "A portrait-format corporate banking campaign.",
-          "src": "./showcases/references/banners-posters/g-post7.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1080,
-          "height": 1350
-        },
-        {
-          "key": "g-kerala",
-          "title": "Kerala travel",
-          "description": "A destination-led travel poster.",
-          "src": "./showcases/references/banners-posters/g-kerala.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1080,
-          "height": 1350
-        },
-        {
-          "key": "g-post10",
-          "title": "Maharashtra travel",
-          "description": "A travel composition centered on Maharashtra.",
-          "src": "./showcases/references/banners-posters/g-post10.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1080,
-          "height": 1350
-        },
-        {
-          "key": "g-post5",
-          "title": "Automotive",
-          "description": "An automotive-themed visual poster.",
-          "src": "./showcases/references/banners-posters/g-post5.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1080,
-          "height": 1350
-        },
-        {
-          "key": "g-post6",
-          "title": "Motivational poster",
-          "description": "A typography and imagery-led motivational composition.",
-          "src": "./showcases/references/banners-posters/g-post6.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1080,
-          "height": 1350
-        },
-        {
-          "key": "g-post8",
-          "title": "Product poster",
-          "description": "A product-focused portrait composition.",
-          "src": "./showcases/references/banners-posters/g-post8.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1080,
-          "height": 1350
-        }
-      ],
-      "chapters": [
-        {
-          "key": "g-cbs1",
-          "title": "Core banking campaign",
-          "description": "Wide campaign banner for a core banking product.",
-          "src": "./showcases/references/banners-posters/g-cbs1.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1600,
-          "height": 900,
-          "front": "./showcases/case-media/chapter-14-0.webp"
-        },
-        {
-          "key": "g-cbs2",
-          "title": "Core banking campaign — alternate",
-          "description": "An alternate wide-format banking composition.",
-          "src": "./showcases/references/banners-posters/g-cbs2.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1600,
-          "height": 900,
-          "front": "./showcases/case-media/chapter-14-1.webp"
-        },
-        {
-          "key": "g-cbs3",
-          "title": "Core banking campaign — product story",
-          "description": "A third banking campaign banner.",
-          "src": "./showcases/references/banners-posters/g-cbs3.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1600,
-          "height": 900,
-          "front": "./showcases/case-media/chapter-14-2.webp"
-        },
-        {
-          "key": "g-post1",
-          "title": "Business finance",
-          "description": "A portrait-format business finance campaign.",
-          "src": "./showcases/references/banners-posters/g-post1.webp",
-          "mockup": null,
-          "artwork": true,
-          "width": 1080,
-          "height": 1350,
-          "front": "./showcases/case-media/chapter-14-3.webp"
         }
       ]
     },

@@ -18,6 +18,11 @@ def device(image,mobile=False):
     image=image.convert('RGBA')
     fitted=image.resize((w,round(image.height*w/image.width)),Image.Resampling.LANCZOS)
     display=Image.new('RGBA',(w,h),'#0c1310')
+    if not mobile and fitted.height < h:
+        # Continue the original interface's edge colors through unused display
+        # height. Preserve every original pixel and avoid a foreign green band.
+        edge=fitted.crop((0,fitted.height-1,w,fitted.height))
+        display.alpha_composite(edge.resize((w,h-fitted.height)),(0,fitted.height))
     display.alpha_composite(fitted,(0,0))
     if mobile:
         mask=Image.new('L',(w,h))

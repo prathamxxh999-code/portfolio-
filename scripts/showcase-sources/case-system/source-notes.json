@@ -9,6 +9,7 @@
     "https://www.wallofportfolios.in/?company=All"
   ],
   "referenceUse": "Presentation patterns only. No third-party portfolio artwork, code, claims or personal achievements copied into the new case-study layout.",
+  "followUpCorrections": "Removed Banner & Poster Design from the public catalog and route, preserving stable IDs for the other 15 projects. Folder status badges sit inside the raised tab with higher contrast. Short desktop screenshot edges continue their own interface colors, avoiding the foreign green padding band without stretching interface text or controls.",
   "pigmy": "Actual Pigmy Agent App design is supplied in Figma. Original file linked; no replacement app created. Project currently presents original workflow context and the professional contribution.",
   "manoeuvre": {
     "name": "Manoeuvre Infra Pvt. Ltd.",

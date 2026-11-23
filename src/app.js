@@ -18,7 +18,7 @@ var P=[['Core Banking System','A staff-facing workspace for core banking operati
 ['Pigmy Banking','Recurring deposits, field collections and end-of-day cash reconciliation for agents.','Deposit banking · Mobile & Web','m',0,150],
 ['IDSSPL CRM','A connected workspace for customer records, team follow-ups, tasks and reporting.','Customer management · Web','w',0,270],
 ['Merchant Management Portal','Design work for managing merchant accounts, onboarding and operational reviews.','Merchant operations · Web','w',0,35],
-['Banner & Poster Design','A credited visual reference collection of campaign banners and posters across banking, travel and product themes.','Visual collection · Reference','w',1,140],
+null, // Removed project; keep the remaining public project IDs stable.
 ['Manoeuvre Infra','A distinctive digital presence for an infrastructure company, from its identity to its project portfolio.','Live website · Web','w',1,195,'https://manoeuvre-infra.vercel.app/']];
 var idssplProjects=[0,1,2,3,4,11,12,13];
 var TX=[['Dense, regulated workflows with many roles, strict approvals and no room for ambiguity.','Mapped journeys by role, simplified the flows, then built a consistent component library in Figma and prototyped the critical paths.','A clean, scannable interface with clear hierarchy, predictable patterns and states designed for every edge case.'],
@@ -52,7 +52,7 @@ $('#svc').innerHTML=SV.map(function(s){return'<div class="gl rv"><div class="i3"
 $('#pg').innerHTML=[['Discover','Understand users, roles and business goals through stakeholder talks and workflow audits.'],['Define','Map journeys, rank the problems and agree on scope before opening Figma.'],['Design','Wireframes to polished, prototyped screens on a reusable component system.'],['Deliver','Developer-ready handoff and specs, with follow-up so what ships matches the design.']].map(function(s,i){return'<div class="gl pr rv"><b>0'+(i+1)+'</b><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join('');
 var tr=$('#tr'),featuredProjects=[10,4,12,13,7,15];
 var cardOrder=featuredProjects.concat(idssplProjects.filter(function(i){return !featuredProjects.includes(i)}));
-cardOrder=cardOrder.concat(P.map(function(_,i){return i}).filter(function(i){return !cardOrder.includes(i)}));
+cardOrder=cardOrder.concat(P.map(function(_,i){return i}).filter(function(i){return P[i]&&!cardOrder.includes(i)}));
 var posterFiles=[
   'core-banking','internet-banking','corporate-banking','mobile-banking','lending',
   'gate-pass','visitor-management','valet-parking','asset-management','helpdesk',
@@ -63,7 +63,7 @@ function renderCard(i){
   var words=p[0].split(' '),first=words.shift(),rest=words.join(' ');
   return '<a href="#/p/'+i+'" class="card gl folder-card" data-p="'+i+'" aria-labelledby="work-title-'+i+'">'+
     '<div class="card-visual project-poster folder-visual">'+
-    '<div class="folder-surface"><span class="folder-status'+([5,6,8,9,11].includes(i)?' folder-status--delivery':'')+'">'+([5,6,8,9,11].includes(i)?'Module delivery':[10,15].includes(i)?'Live website':i===14?'Visual collection':'Interface showcase')+'</span>'+
+    '<div class="folder-surface"><span class="folder-status'+([5,6,8,9,11].includes(i)?' folder-status--delivery':'')+'">'+([5,6,8,9,11].includes(i)?'Module delivery':[10,15].includes(i)?'Live website':'Interface showcase')+'</span>'+
     '<div class="folder-cover-copy"><em>'+p[2]+'</em><div class="folder-title-frame"><h3 id="work-title-'+i+'"><span>'+first+'</span> <span class="folder-name-accent">'+rest+'</span></h3><i></i><i></i><i></i><i></i><span class="folder-size" aria-hidden="true"></span><span class="folder-frame-cursor" aria-hidden="true"><svg viewBox="0 0 24 28"><path d="M2 2v22l6-7 7 9 4-3-7-8 9-2z" fill="#c6ff3d" stroke="#0b160b" stroke-width="1.5"/></svg><b>Designer</b></span></div></div>'+
     '<span class="folder-open">Open project <span aria-hidden="true">↗</span></span></div></div>'+
     '<div class="card-copy"><p>'+p[1]+'</p></div></a>';
@@ -76,7 +76,7 @@ if(window.ResizeObserver){
 }
 document.addEventListener('click',function(event){
   var button=event.target.closest('[data-work-filter]');if(!button||button.getAttribute('aria-pressed')==='true')return;
-  var filter=button.dataset.workFilter,ids=filter==='featured'?featuredProjects:cardOrder.filter(function(i){return filter==='all'||(filter==='website'&&[10,15].includes(i))||(filter==='visual'&&i===14)||(filter==='product'&&![10,14,15].includes(i))});
+  var filter=button.dataset.workFilter,ids=filter==='featured'?featuredProjects:cardOrder.filter(function(i){return filter==='all'||(filter==='website'&&[10,15].includes(i))||(filter==='product'&&![10,14,15].includes(i))});
   $$('[data-work-filter]').forEach(function(b){b.setAttribute('aria-pressed',String(b===button))});
   if(titleFrames)titleFrames.disconnect();
   tr.innerHTML=ids.map(renderCard).join('');

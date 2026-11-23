@@ -9,7 +9,8 @@ const context={window:{},document:{addEventListener(){}},matchMedia(){return {ma
 vm.createContext(context);
 for(const file of ['reference-assets.js','reference-showcase.js','merchant-assets.js','merchant-showcase.js','valet-showcase.js','project-showcases.js','project-cases.js'])vm.runInContext(await readFile(resolve(site,file),'utf8'),context,{filename:file});
 const records=context.window.projectCaseRecords;
-assert.equal(Object.keys(records).length,16);
+assert.equal(Object.keys(records).length,15);
+assert.equal(records[14],undefined,'The removed poster project must not have a case route.');
 const expected=[3,4,3,3,3,0,0,17,0,0,3,0,4,45,12,3];
 const paths=new Set();let total=0;
 for(const [id,p] of Object.entries(records)){
@@ -31,7 +32,7 @@ for(const [id,p] of Object.entries(records)){
   for(const s of screens){paths.add(s.src);if(s.mockup)paths.add(s.mockup)}
   total+=screens.length;
 }
-assert.equal(total,100);
+assert.equal(total,88);
 for(const path of paths){const info=await stat(resolve(site,path));assert(info.isFile()&&info.size>0,`Missing asset ${path}`)}
 const app=await readFile(resolve(site,'app.js'),'utf8');
 assert.match(app,/featuredProjects=\[10,4,12,13,7,15\]/);
@@ -41,6 +42,8 @@ const cinema=await readFile(resolve(site,'cinema.js'),'utf8');
 assert.match(cinema,/portfolio:work-filter/);
 assert.match(cinema,/cards = \[\.\.\.track\.querySelectorAll/);
 const index=await readFile(resolve(site,'index.html'),'utf8');
-assert.equal((index.match(/data-work-filter=/g)||[]).length,5);
-assert.match(index,/data-n="16"/);
-console.log(`Passed: 16 case studies, 64 scroll chapters, ${total} original views, ${paths.size} local media assets, professional contribution stories, silent films, live website embeds and dynamic horizontal categories.`);
+assert.equal((index.match(/data-work-filter=/g)||[]).length,4);
+assert(!index.includes('data-work-filter="visual"'));
+assert.match(index,/data-n="15"/);
+assert(!app.includes("['Banner & Poster Design'"));
+console.log(`Passed: 15 case studies, 60 scroll chapters, ${total} original views, ${paths.size} local media assets, removed poster route, professional contribution stories, silent films, live website embeds and dynamic horizontal categories.`);
