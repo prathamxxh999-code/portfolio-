@@ -13,25 +13,26 @@ OUT.mkdir(parents=True,exist_ok=True)
 WEB.mkdir(exist_ok=True)
 
 def device(image,mobile=False):
-    hardware=Image.open(DEV/('iphone-15-pro.png' if mobile else 'macbook-pro-14.png')).convert('RGBA')
-    x,y,w,h=(120,120,1179,2556) if mobile else (459,299,3024,1964)
+    wide=not mobile and image.width/image.height>1.7
+    plate='iphone-15-pro.png' if mobile else 'imac-retina-front.png' if wide else 'macbook-pro-14.png'
+    hardware=Image.open(DEV/plate).convert('RGBA')
+    x,y,w,h=(120,120,1179,2556) if mobile else (154,318,1691,952) if wide else (459,299,3024,1964)
     image=image.convert('RGBA')
-    fitted=image.resize((w,round(image.height*w/image.width)),Image.Resampling.LANCZOS)
-    display=Image.new('RGBA',(w,h),'#0c1310')
-    if not mobile and fitted.height < h:
-        # Continue the original interface's edge colors through unused display
-        # height. Preserve every original pixel and avoid a foreign green band.
-        edge=fitted.crop((0,fitted.height-1,w,fitted.height))
-        display.alpha_composite(edge.resize((w,h-fitted.height)),(0,fitted.height))
-    display.alpha_composite(fitted,(0,0))
+    # Scale uniformly and crop only the viewport. Never stretch text, append
+    # repeated pixels, or add a contrasting band beneath an interface.
+    display=ImageOps.fit(image,(w,h),Image.Resampling.LANCZOS,centering=(0,0))
     if mobile:
         mask=Image.new('L',(w,h))
         ImageDraw.Draw(mask).rounded_rectangle((0,0,w-1,h-1),int(w*.08),fill=255)
         display.putalpha(mask)
     result=Image.new('RGBA',hardware.size)
-    result.alpha_composite(display,(x,y))
-    result.alpha_composite(hardware)
-    return result
+    if wide:
+        result.alpha_composite(hardware)
+        result.alpha_composite(display,(x,y))
+    else:
+        result.alpha_composite(display,(x,y))
+        result.alpha_composite(hardware)
+    return result.crop(result.getbbox())
 
 def place(canvas,image,box):
     image=ImageOps.contain(image,(box[2],box[3]),Image.Resampling.LANCZOS)

@@ -9,7 +9,7 @@
     "https://www.wallofportfolios.in/?company=All"
   ],
   "referenceUse": "Presentation patterns only. No third-party portfolio artwork, code, claims or personal achievements copied into the new case-study layout.",
-  "followUpCorrections": "Removed Banner & Poster Design from the public catalog and route, preserving stable IDs for the other 15 projects. Folder status badges sit inside the raised tab with higher contrast. Short desktop screenshot edges continue their own interface colors, avoiding the foreign green padding band without stretching interface text or controls.",
+  "followUpCorrections": "Removed Banner & Poster Design from the public catalog and route, preserving stable IDs for the other 15 projects. Folder status badges sit inside the raised tab with higher contrast. Desktop screens use real hardware matched to their aspect ratio, uniform scaling and viewport cropping; no pixel repetition or generated padding. Valet uses its native 2:1 desktop hero and 32:27 mobile hero without letterboxing.",
   "pigmy": "Actual Pigmy Agent App design is supplied in Figma. Original file linked; no replacement app created. Project currently presents original workflow context and the professional contribution.",
   "manoeuvre": {
     "name": "Manoeuvre Infra Pvt. Ltd.",
@@ -24,7 +24,7 @@
     ],
     "captureNote": "Existing actual website browser captures; original files contain JPEG bytes despite PNG extensions. Converted to public WebP copies without changing the originals. Live root, About and Projects URLs verified HTTP 200."
   },
-  "hardware": "Reuses the existing licensed photographic MacBook and iPhone templates from scripts/showcase-sources/devices and the Teddy GR / Unsplash monitor photograph already used in CRM and PaySphere. No devices generated. See existing source and license files.",
+  "hardware": "Reuses the existing licensed photographic MacBook, iMac and iPhone templates from scripts/showcase-sources/devices and the Teddy GR / Unsplash monitor photograph already used in CRM and PaySphere. No devices generated. See existing source and license files.",
   "retainedMedia": "CashBell, CRM and PaySphere films unchanged. Existing actual interface originals and Ashlesh Gavas screen/artwork credits retained.",
   "motion": "Four natural, alternating screen or contribution scenes per project. Each scene owns document space; no pinned stack, crossfade overlap or forced scroll snapping. Passive, requestAnimationFrame-batched shallow image depth; one-time text reveals; reduced-motion fallback. Native horizontal home project carousel retained.",
   "artwork": "Nine built-in image_gen physical-object illustrations. These are clearly labelled illustrative 3D visuals, never production screens or device mockups. WebP delivery copies total approximately 1.3 MB. Original PNGs and normalized prompt set are documented in artwork.json.",
