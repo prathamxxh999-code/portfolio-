@@ -17,7 +17,8 @@ var P=[['Core Banking System','A staff-facing workspace for core banking operati
 ['IDSSPL Website','A bold digital home for IDSSPL’s core banking, payments and digital banking ecosystem.','Live website · Web','w',0,205,'https://idsspl.com/'],
 ['Pigmy Banking','Design work for a banking product that handles small recurring deposits and collections.','Deposit banking · Web','w',0,150],
 ['IDSSPL CRM','A connected workspace for customer records, team follow-ups, tasks and reporting.','Customer management · Web','w',0,270],
-['Merchant Management Portal','Design work for managing merchant accounts, onboarding and operational reviews.','Merchant operations · Web','w',0,35]];
+['Merchant Management Portal','Design work for managing merchant accounts, onboarding and operational reviews.','Merchant operations · Web','w',0,35],
+['Banner & Poster Design','A credited visual reference collection of campaign banners and posters across banking, travel and product themes.','Visual collection · Reference','w',1,140]];
 var idssplProjects=[0,1,2,3,4,11,12,13];
 var TX=[['Dense, regulated workflows with many roles, strict approvals and no room for ambiguity.','Mapped journeys by role, simplified the flows, then built a consistent component library in Figma and prototyped the critical paths.','A clean, scannable interface with clear hierarchy, predictable patterns and states designed for every edge case.'],
 ['Teams relying on registers, calls and spreadsheets, with little visibility into what was happening on the ground.','Studied the on-site routine, cut the steps to the essentials and designed fast flows for both desk staff and admins.','A focused product that is quick to use at the counter and gives managers a clear live picture.']];
@@ -109,6 +110,9 @@ function jumpTo(id){
 }
 function go(id){closeNav();if(!$('#pv').hidden){pendingAnchor=id;location.hash=''}else jumpTo(id)}
 function pv(i){var p=P[i],t=TX[p[4]],n=cardOrder[(cardOrder.indexOf(i)+1)%cardOrder.length],h=$('#pv');
+if(window.referenceCollections&&window.referenceCollections[i]&&window.renderReferenceShowcase){
+  h.innerHTML=window.renderReferenceShowcase(i,p[0],n,P[n][0]);rv(h);return
+}
 if((i===4||i===7||i===12)&&window.projectShowcase){
   h.innerHTML=window.projectShowcase(i,p[0],n,P[n][0]);window.initProjectShowcase(h);rv(h);return
 }
