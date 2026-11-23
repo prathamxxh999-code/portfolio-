@@ -25,6 +25,7 @@
   };
   window.projectShowcase = function (id, title, nextId, nextTitle) {
     if(id===7&&window.renderValetShowcase)return window.renderValetShowcase(title,nextId,nextTitle);
+    if(id===13&&window.renderMerchantShowcase)return window.renderMerchantShowcase(title,nextId,nextTitle);
     var p = projects[id];
     if (!p) return '';
     var film = p.key === 'crm' ? 'crm-reference-mint-film' : 'cashbell-motion-film';

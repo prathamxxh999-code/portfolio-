@@ -1,0 +1,18 @@
+{
+  "key": "merchant-self-service",
+  "group": "Merchant view",
+  "description": "A merchant-scoped workspace limited to the selected business.",
+  "page": {
+    "height": 1564,
+    "width": 1440
+  },
+  "role": "merchant",
+  "route": "#/profile/M-102",
+  "title": "Urban Store",
+  "viewport": {
+    "height": 960,
+    "width": 1440
+  },
+  "file": "merchant-self-service.jpg",
+  "bytes": 149017
+}

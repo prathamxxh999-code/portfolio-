@@ -1,0 +1,13 @@
+{
+  "width": 1440,
+  "height": 1080,
+  "fps": 60,
+  "frames": 1581,
+  "duration": 26.35,
+  "audio": false,
+  "style": "Native dark PaySphere palette, CRM motion structure",
+  "screens": 45,
+  "hardware": "Teddy GR / Unsplash photograph",
+  "source": "Original PaySphere local interface captures",
+  "loop": "First and last authored RGB frames are identical"
+}

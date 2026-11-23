@@ -1,0 +1,18 @@
+{
+  "key": "approval-review",
+  "group": "Verification & control",
+  "description": "Independent checker controls for approving or rejecting a prepared request.",
+  "page": {
+    "height": 960,
+    "width": 1440
+  },
+  "role": "review",
+  "route": "#/request/REQ-601",
+  "title": "REQ-601 · Pricing change",
+  "viewport": {
+    "height": 960,
+    "width": 1440
+  },
+  "file": "approval-review.jpg",
+  "bytes": 61631
+}

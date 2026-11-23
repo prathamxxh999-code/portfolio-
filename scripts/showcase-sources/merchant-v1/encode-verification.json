@@ -1,0 +1,8 @@
+{
+  "decode": "passed",
+  "duration": 26.35,
+  "frames": 1581,
+  "audioStreams": 0,
+  "video": "Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1440x1080, 2216 kb/s, 60 fps, 60 tbr, 15360 tbn (default)",
+  "bytes": 7314634
+}

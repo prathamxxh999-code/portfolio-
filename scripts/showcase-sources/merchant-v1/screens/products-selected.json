@@ -1,0 +1,18 @@
+{
+  "key": "products-selected",
+  "group": "Product setup",
+  "description": "A native selection state with Smart POS featured and QR also selected.",
+  "page": {
+    "height": 1207,
+    "width": 1440
+  },
+  "role": "ops",
+  "route": "#/profile/M-102/products",
+  "title": "Urban Store",
+  "viewport": {
+    "height": 960,
+    "width": 1440
+  },
+  "file": "products-selected.jpg",
+  "bytes": 134494
+}

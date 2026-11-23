@@ -1,0 +1,18 @@
+{
+  "key": "merchant-payments",
+  "group": "Merchant view",
+  "description": "The merchant sees only its own payment records.",
+  "page": {
+    "height": 960,
+    "width": 1440
+  },
+  "role": "merchant",
+  "route": "#/payments",
+  "title": "Payments",
+  "viewport": {
+    "height": 960,
+    "width": 1440
+  },
+  "file": "merchant-payments.jpg",
+  "bytes": 54663
+}

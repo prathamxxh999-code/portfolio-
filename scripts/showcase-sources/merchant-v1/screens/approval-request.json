@@ -1,0 +1,18 @@
+{
+  "key": "approval-request",
+  "group": "Verification & control",
+  "description": "A pending pricing change that requires a different checker.",
+  "page": {
+    "height": 960,
+    "width": 1440
+  },
+  "role": "ops",
+  "route": "#/request/REQ-601",
+  "title": "REQ-601 · Pricing change",
+  "viewport": {
+    "height": 960,
+    "width": 1440
+  },
+  "file": "approval-request.jpg",
+  "bytes": 61979
+}

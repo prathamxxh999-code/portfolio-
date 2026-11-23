@@ -1,0 +1,18 @@
+{
+  "key": "verification-review",
+  "group": "Verification & control",
+  "description": "Record an independent verification outcome with evidence and a review reason.",
+  "page": {
+    "height": 960,
+    "width": 1440
+  },
+  "role": "review",
+  "route": "#/verification/M-102/check~business",
+  "title": "Review verification check",
+  "viewport": {
+    "height": 960,
+    "width": 1440
+  },
+  "file": "verification-review.jpg",
+  "bytes": 55717
+}

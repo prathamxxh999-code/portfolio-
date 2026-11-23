@@ -113,7 +113,7 @@ function pv(i){var p=P[i],t=TX[p[4]],n=cardOrder[(cardOrder.indexOf(i)+1)%cardOr
 if(window.referenceCollections&&window.referenceCollections[i]&&window.renderReferenceShowcase){
   h.innerHTML=window.renderReferenceShowcase(i,p[0],n,P[n][0]);rv(h);return
 }
-if((i===4||i===7||i===12)&&window.projectShowcase){
+if((i===4||i===7||i===12||i===13)&&window.projectShowcase){
   h.innerHTML=window.projectShowcase(i,p[0],n,P[n][0]);window.initProjectShowcase(h);rv(h);return
 }
 if(p[6]){
@@ -134,6 +134,7 @@ function route(){
   var match=location.hash.match(/^#\/p\/(\d+)/),home=$('#home'),project=$('#pv');
   document.body.classList.toggle('crm-project-view',Boolean(match&&+match[1]===12));
   document.body.classList.toggle('cashbell-project-view',Boolean(match&&+match[1]===4));
+  document.body.classList.toggle('merchant-project-view',Boolean(match&&+match[1]===13));
   $$('video',project).forEach(function(video){video.pause()});
   if(match&&P[+match[1]]){
     home.hidden=true;

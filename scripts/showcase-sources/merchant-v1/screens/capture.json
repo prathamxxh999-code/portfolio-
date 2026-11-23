@@ -1,0 +1,1049 @@
+{
+  "source": "PaySphere local prototype",
+  "sourceUrl": "http://127.0.0.1:8792/",
+  "sourceWorkspace": "C:/Users/Prathamesh Phadatare/Documents/Codex/2026-10-17/x20-i/outputs/PaySphere",
+  "captured": "2026-11-23",
+  "screens": [
+    {
+      "key": "overview",
+      "group": "Command centre",
+      "description": "Merchant, payment and action-queue overview using sample records.",
+      "page": {
+        "height": 975,
+        "width": 1425
+      },
+      "role": "ops",
+      "route": "",
+      "title": "Command centre.",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "overview.jpg",
+      "bytes": 115382,
+      "raster": {
+        "width": 1425,
+        "height": 975
+      },
+      "sha256": "6d7b15d64de60afec877aa84e2fdeefa61b6462deea061bd1379f19ad8e9e0db"
+    },
+    {
+      "key": "merchant-profile",
+      "group": "Merchant workspace",
+      "description": "The merchant profile with readiness, financial context and connected products.",
+      "page": {
+        "height": 1567,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/profile/M-102/overview",
+      "title": "Urban Store",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "merchant-profile.jpg",
+      "bytes": 148905,
+      "raster": {
+        "width": 1440,
+        "height": 1567
+      },
+      "sha256": "31ced7f18d3bc52d233eda659558235b790975e8298f3b2d965e0bbcee787e7e"
+    },
+    {
+      "key": "merchant-products",
+      "group": "Product setup",
+      "description": "QR, Soundbox and Smart POS product selection.",
+      "page": {
+        "height": 1207,
+        "width": 1425
+      },
+      "role": "ops",
+      "route": "#/profile/M-102/products",
+      "title": "Urban Store",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "merchant-products.jpg",
+      "bytes": 132412,
+      "raster": {
+        "width": 1425,
+        "height": 1207
+      },
+      "sha256": "e2715b1a9b173484cb8fda424fd44dbc0cba5f5f32926ee8fc852d2f5696e96c"
+    },
+    {
+      "key": "merchant-kyc",
+      "group": "Verification & control",
+      "description": "Business, owner, bank and document verification in one view.",
+      "page": {
+        "height": 1022,
+        "width": 1425
+      },
+      "role": "ops",
+      "route": "#/profile/M-102/business",
+      "title": "Urban Store",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "merchant-kyc.jpg",
+      "bytes": 102601,
+      "raster": {
+        "width": 1425,
+        "height": 1022
+      },
+      "sha256": "07660507c4749ae0a68f9e0c38793cf1088dfdc37c58a2bba3d9454cce3abc03"
+    },
+    {
+      "key": "merchant-money",
+      "group": "Merchant workspace",
+      "description": "Merchant-scoped payments and settlement records.",
+      "page": {
+        "height": 1295,
+        "width": 1425
+      },
+      "role": "ops",
+      "route": "#/profile/M-102/money",
+      "title": "Urban Store",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "merchant-money.jpg",
+      "bytes": 103007,
+      "raster": {
+        "width": 1425,
+        "height": 1295
+      },
+      "sha256": "1e60f0c420258792595456e882db7e6d2b242642e6e06265a9bc1e439639ff8e"
+    },
+    {
+      "key": "merchant-team",
+      "group": "Merchant workspace",
+      "description": "Merchant team members, roles and owner access.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/profile/M-102/team",
+      "title": "Urban Store",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "merchant-team.jpg",
+      "bytes": 68131,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "0c28cf5413f2c4ae1836c69ead1bf387db5a3989d31c3499253be6ff1b63b3da"
+    },
+    {
+      "key": "merchant-cases",
+      "group": "Service & audit",
+      "description": "Merchant support cases with status and ownership.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/profile/M-102/cases",
+      "title": "Urban Store",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "merchant-cases.jpg",
+      "bytes": 79921,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "354c6cf2a08bab76ecbb203312115b9b0ce48ae0f1cf025c4572e874c5aaf53f"
+    },
+    {
+      "key": "merchant-activity",
+      "group": "Service & audit",
+      "description": "A chronological audit trail of merchant changes.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/profile/M-102/activity",
+      "title": "Urban Store",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "merchant-activity.jpg",
+      "bytes": 65587,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "7a41988d1cdbc3aa3387985011f9615bfbfb2075f7adc5c70102e947071dbdf8"
+    },
+    {
+      "key": "merchant-edit",
+      "group": "Merchant onboarding",
+      "description": "Edit the existing merchant identity, business details and payment channels.",
+      "page": {
+        "height": 1114,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/edit/M-102",
+      "title": "Edit merchant",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "merchant-edit.jpg",
+      "bytes": 88451,
+      "raster": {
+        "width": 1440,
+        "height": 1114
+      },
+      "sha256": "1dde480b0e3379293ddc4a385c1cdd1cf5115c0c3689e360e1be60499647dadb"
+    },
+    {
+      "key": "document-upload",
+      "group": "Verification & control",
+      "description": "Document details, attachment upload and expiry capture before review.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/entity/M-102/document",
+      "title": "Add document",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "document-upload.jpg",
+      "bytes": 66508,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "d2d070a4c26b24372dece8a8112d70ec9674ac701c8c9af117973cd73e3f8017"
+    },
+    {
+      "key": "document-detail",
+      "group": "Verification & control",
+      "description": "Document version, verification status and evidence reference.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/document/DOC-1-0",
+      "title": "Business registration",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "document-detail.jpg",
+      "bytes": 99213,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "d9db2ca7edf91011cdc4317295609db9256f0e748b4e90f259a90c012a99b337"
+    },
+    {
+      "key": "outlet-create",
+      "group": "Merchant onboarding",
+      "description": "Add an outlet with location and merchant association.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/entity/M-102/outlet",
+      "title": "Add outlet",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "outlet-create.jpg",
+      "bytes": 51242,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "bc3fee34b89f05077e5c6e0ac7643fd40662c793fb33950f0143cf0346b79b8a"
+    },
+    {
+      "key": "device-create",
+      "group": "Product setup",
+      "description": "Register a payment device against the correct outlet.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/entity/M-102/device",
+      "title": "Add device",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "device-create.jpg",
+      "bytes": 53521,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "2ac37be013a7126d44e82faa63611b6fc073787f40d1fecb73d1d1c6aeb04406"
+    },
+    {
+      "key": "team-create",
+      "group": "Merchant onboarding",
+      "description": "Add a merchant team member with an explicit role and status.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/entity/M-102/member",
+      "title": "Add member",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "team-create.jpg",
+      "bytes": 51469,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "8179864bb9306a8136a6b14739f530afd1c3f09bfe59968b8914e752bb01eee7"
+    },
+    {
+      "key": "case-create",
+      "group": "Service & audit",
+      "description": "Create a merchant-linked support case with category and priority.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/entity/M-102/case",
+      "title": "Add case",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "case-create.jpg",
+      "bytes": 55663,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "1f63a6b173b8b775175dc39cf4c19049dfbadcd16e722c33501308885606d4c9"
+    },
+    {
+      "key": "case-detail",
+      "group": "Service & audit",
+      "description": "A support case with its linked merchant, payout context and status.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/case/CASE-041",
+      "title": "CASE-041",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "case-detail.jpg",
+      "bytes": 64125,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "6f413beafa45497ee0c17c928d120218fb286b6d4af7a48201e3df2fb4cbd4db"
+    },
+    {
+      "key": "payments",
+      "group": "Payment operations",
+      "description": "A searchable payment ledger with settlement eligibility and refund context.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/payments",
+      "title": "Payments",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "payments.jpg",
+      "bytes": 83644,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "9e965a4fd5ea351ff6d0eb77565ed08b8f35cce1f5f3cbd22b5cc3e6f866f0a5"
+    },
+    {
+      "key": "payment-detail",
+      "group": "Payment operations",
+      "description": "Payment status, fees, refund reservations and linked settlement evidence.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/payment/TXN-7841",
+      "title": "TXN-7841",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "payment-detail.jpg",
+      "bytes": 71655,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "91a3838353d8242b8928e9a2b89ceb5e0b6eefd87067da36901aa4da4cd44df5"
+    },
+    {
+      "key": "refund-request",
+      "group": "Payment operations",
+      "description": "A refund request with the remaining refundable balance and independent review.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/refund/M-102/TXN-7841",
+      "title": "Request refund",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "refund-request.jpg",
+      "bytes": 63354,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "01496212aef7c3272dfecde4e850be836c434122f2816d2a2605c5c7dd7bc4ff"
+    },
+    {
+      "key": "settlements",
+      "group": "Settlement & reconciliation",
+      "description": "Payout status, beneficiary context and reconciliation state in one ledger.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/payouts",
+      "title": "Settlements",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "settlements.jpg",
+      "bytes": 65802,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "c82d370e5a2c191bf392e7cb68b51d0dc3cb93c68454e3edcab52e60a7122a02"
+    },
+    {
+      "key": "payout-detail",
+      "group": "Settlement & reconciliation",
+      "description": "A payout investigation separating the payment calculation from bank transfer evidence.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/payout/PO-9102",
+      "title": "PO-9102",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "payout-detail.jpg",
+      "bytes": 91900,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "ec808352242172fab7efa105ddc543c9b4b316a4de76736ef4fdfe258066582f"
+    },
+    {
+      "key": "payout-evidence",
+      "group": "Settlement & reconciliation",
+      "description": "Record evidence for the original instruction before any retry can be considered.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/payout/PO-9102",
+      "title": "PO-9102",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "payout-evidence.jpg",
+      "bytes": 96621,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "f9d7b3b759955762ca3105295f7a07f17bd983684ac457d3a2cd74619ff45b17"
+    },
+    {
+      "key": "failed-payout",
+      "group": "Settlement & reconciliation",
+      "description": "A confirmed failed payout with the controlled retry path available.",
+      "page": {
+        "height": 964,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/payout/PO-9204",
+      "title": "PO-9204",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "failed-payout.jpg",
+      "bytes": 98005,
+      "raster": {
+        "width": 1440,
+        "height": 964
+      },
+      "sha256": "25c9a1ef3d09ea31c3ef4c3b816af3f930e905166bbcaa451bcc806c4bcd9a39"
+    },
+    {
+      "key": "retry-review",
+      "group": "Settlement & reconciliation",
+      "description": "Prepare an independently reviewed retry request for a confirmed failed payout.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/retry/M-204/PO-9204",
+      "title": "Request payout retry",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "retry-review.jpg",
+      "bytes": 56958,
+      "raster": {
+        "width": 1434,
+        "height": 960
+      },
+      "sha256": "c68c8f21439723ca134cd34f9942e1fb24ce09ad30fc43526af3fcd7f6805da6"
+    },
+    {
+      "key": "reconciliation",
+      "group": "Settlement & reconciliation",
+      "description": "A reconciliation workspace separating completed transfers from unresolved bank evidence.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/reconcile",
+      "title": "Reconciliation",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "reconciliation.jpg",
+      "bytes": 62430,
+      "raster": {
+        "width": 1434,
+        "height": 960
+      },
+      "sha256": "747edeb3dcf333b859a71c7f6b505213f2c565eb1b47c220b3f7c670f49c200c"
+    },
+    {
+      "key": "onboarding-queue",
+      "group": "Merchant onboarding",
+      "description": "An onboarding queue for drafts and pending-verification merchants.",
+      "page": {
+        "height": 1021,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/queue",
+      "title": "Work queue",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "onboarding-queue.jpg",
+      "bytes": 62557,
+      "raster": {
+        "width": 1440,
+        "height": 1021
+      },
+      "sha256": "e6f2c1042f3181f460bd6d6e2495cc2dcf379ae34abffbc882e8ceaa750e6ae4"
+    },
+    {
+      "key": "case-queue",
+      "group": "Service & audit",
+      "description": "Cross-merchant service cases that need review or follow-up.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/queue",
+      "title": "Work queue",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "case-queue.jpg",
+      "bytes": 54182,
+      "raster": {
+        "width": 1434,
+        "height": 960
+      },
+      "sha256": "f2702ccd359d3992042c70236b0cddbb94d91c217f87db8a580459020013ea94"
+    },
+    {
+      "key": "operations-audit",
+      "group": "Service & audit",
+      "description": "An institution-level audit trail of recorded changes.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/queue",
+      "title": "Work queue",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "operations-audit.jpg",
+      "bytes": 49395,
+      "raster": {
+        "width": 1434,
+        "height": 960
+      },
+      "sha256": "4bd15af333a0cd20eb3b8c0f16096cfba650c85cc8cdab1a3145a065320f2432"
+    },
+    {
+      "key": "copilot-welcome",
+      "group": "Operations Copilot",
+      "description": "The assistant workspace with scoped merchant operations prompts.",
+      "page": {
+        "height": 1000,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/copilot",
+      "title": "PaySphere Assistant",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "copilot-welcome.jpg",
+      "bytes": 74632,
+      "raster": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "e75e6c0cf65dae9902eb80da8ad263144be24ec0fa33c633cc2254d66256a613"
+    },
+    {
+      "key": "copilot-answer",
+      "group": "Operations Copilot",
+      "description": "A scoped operations summary derived from the local sample records.",
+      "page": {
+        "height": 1000,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/copilot",
+      "title": "PaySphere Assistant",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "copilot-answer.jpg",
+      "bytes": 83076,
+      "raster": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "74578993f12e5eb68c81ec1364fc41cd09a0b011e828731435f66bfec982943c"
+    },
+    {
+      "key": "copilot-trace",
+      "group": "Operations Copilot",
+      "description": "A payout trace with the actual sample outcome and suggested next steps.",
+      "page": {
+        "height": 1000,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/copilot",
+      "title": "PaySphere Assistant",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "copilot-trace.jpg",
+      "bytes": 92930,
+      "raster": {
+        "width": 1440,
+        "height": 1000
+      },
+      "sha256": "0badcd1b1e4bdde5f9d1b3e7fef943cede4f25a34ed0a00854eed029e1f12ae3"
+    },
+    {
+      "key": "approval-request",
+      "group": "Verification & control",
+      "description": "A pending pricing change that requires a different checker.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/request/REQ-601",
+      "title": "REQ-601 Â· Pricing change",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "approval-request.jpg",
+      "bytes": 61979,
+      "raster": {
+        "width": 1434,
+        "height": 960
+      },
+      "sha256": "0198060e91e548ffd537f8d5310c6a1c2bd3662950b86c470321189c3ecd5894"
+    },
+    {
+      "key": "work-queue",
+      "group": "Service & audit",
+      "description": "A review queue with a native sample pricing request awaiting an independent checker.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "review",
+      "route": "#/queue",
+      "title": "Work queue",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "work-queue.jpg",
+      "bytes": 51644,
+      "raster": {
+        "width": 1434,
+        "height": 960
+      },
+      "sha256": "1be0068b0f120228bcfb9868ab4214165a39c1ea1975a620836670a762058ca2"
+    },
+    {
+      "key": "approval-review",
+      "group": "Verification & control",
+      "description": "Independent checker controls for approving or rejecting a prepared request.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "review",
+      "route": "#/request/REQ-601",
+      "title": "REQ-601 Â· Pricing change",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "approval-review.jpg",
+      "bytes": 61631,
+      "raster": {
+        "width": 1434,
+        "height": 960
+      },
+      "sha256": "c9f1b1509009dc2b8b76e7e1b77c07a6d8172d6d0ab7fcf1ee7ec9fd3a66768c"
+    },
+    {
+      "key": "verification-review",
+      "group": "Verification & control",
+      "description": "Record an independent verification outcome with evidence and a review reason.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "review",
+      "route": "#/verification/M-102/check~business",
+      "title": "Review verification check",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "verification-review.jpg",
+      "bytes": 55717,
+      "raster": {
+        "width": 1434,
+        "height": 960
+      },
+      "sha256": "dfa0b0c11b1de3079db84cb9c462486a5e8c4684e8a573bd870c00d0951abe73"
+    },
+    {
+      "key": "merchant-self-service",
+      "group": "Merchant view",
+      "description": "A merchant-scoped workspace limited to the selected business.",
+      "page": {
+        "height": 1564,
+        "width": 1440
+      },
+      "role": "merchant",
+      "route": "#/profile/M-102",
+      "title": "Urban Store",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "merchant-self-service.jpg",
+      "bytes": 149017,
+      "raster": {
+        "width": 1440,
+        "height": 1564
+      },
+      "sha256": "eabbd13af42e401c8553b32daa803fd39c6164ef44653d0e77619be6d1b6fbe7"
+    },
+    {
+      "key": "merchant-payments",
+      "group": "Merchant view",
+      "description": "The merchant sees only its own payment records.",
+      "page": {
+        "height": 960,
+        "width": 1440
+      },
+      "role": "merchant",
+      "route": "#/payments",
+      "title": "Payments",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "merchant-payments.jpg",
+      "bytes": 54663,
+      "raster": {
+        "width": 1434,
+        "height": 960
+      },
+      "sha256": "3cffabbffad104a38020997226f906bed5c912d0dc09ca4bf4decd36a4637cfc"
+    },
+    {
+      "key": "profile-product-configured",
+      "group": "Product setup",
+      "description": "The merchant overview after saving the selected product setup in the local demo.",
+      "page": {
+        "height": 1546,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/profile/M-102/overview",
+      "title": "Urban Store",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "profile-product-configured.jpg",
+      "bytes": 144483,
+      "raster": {
+        "width": 1440,
+        "height": 1546
+      },
+      "sha256": "2bcefb232e52d184a35ce43c74ca3c455c490442a76b1ae973c9d63f4323ae3f"
+    },
+    {
+      "key": "bank-change",
+      "group": "Verification & control",
+      "description": "A beneficiary-change request with independent approval and payout safeguards.",
+      "route": "#/bank/M-102",
+      "title": "Request bank change",
+      "viewport": {
+        "width": 1440,
+        "height": 960
+      },
+      "page": {
+        "width": 1440,
+        "height": 960
+      },
+      "role": "ops",
+      "file": "bank-change.jpg",
+      "bytes": 66097,
+      "metadata_reconciled_from_capture_log": true,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "1ce81b452d3b3d2b8f5f8d420a2df054ba5fd7e2b49af31953253f468c5b15c7"
+    },
+    {
+      "key": "merchant-create",
+      "group": "Merchant onboarding",
+      "description": "A structured form for merchant business, owner and location details.",
+      "route": "#/new",
+      "title": "Add merchant",
+      "viewport": {
+        "width": 1440,
+        "height": 960
+      },
+      "page": {
+        "width": 1425,
+        "height": 1114
+      },
+      "role": "ops",
+      "file": "merchant-create.jpg",
+      "bytes": 79983,
+      "metadata_reconciled_from_capture_log": true,
+      "raster": {
+        "width": 1425,
+        "height": 1114
+      },
+      "sha256": "e88ca96b849dd8b50d4de47e012e5fea68f5ab248ff789972568779c116130e8"
+    },
+    {
+      "key": "merchant-directory",
+      "group": "Merchant network",
+      "description": "Searchable merchant records with status, readiness and row actions.",
+      "route": "#/list",
+      "title": "Merchants",
+      "viewport": {
+        "width": 1440,
+        "height": 960
+      },
+      "page": {
+        "width": 1425,
+        "height": 1018
+      },
+      "role": "ops",
+      "file": "merchant-directory.jpg",
+      "bytes": 91109,
+      "metadata_reconciled_from_capture_log": true,
+      "raster": {
+        "width": 1425,
+        "height": 1018
+      },
+      "sha256": "88676c6a6e6025e8751854c7bbaf3bfdc03e8ed393b2bda09ecfad66680614e6"
+    },
+    {
+      "key": "merchant-outlets",
+      "group": "Merchant workspace",
+      "description": "Outlet locations and their connected payment devices.",
+      "route": "#/profile/M-102/outlets",
+      "title": "Urban Store",
+      "viewport": {
+        "width": 1440,
+        "height": 960
+      },
+      "page": {
+        "width": 1440,
+        "height": 960
+      },
+      "role": "ops",
+      "file": "merchant-outlets.jpg",
+      "bytes": 76908,
+      "metadata_reconciled_from_capture_log": true,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "42408f8210fd1316086ad4cd5288b60ab9477fa103c0fb74a5978aca28fe24ae"
+    },
+    {
+      "key": "merchant-status",
+      "group": "Verification & control",
+      "description": "Status-change request with eligibility checks and a recorded reason.",
+      "route": "#/status/M-102",
+      "title": "Request status change",
+      "viewport": {
+        "width": 1440,
+        "height": 960
+      },
+      "page": {
+        "width": 1440,
+        "height": 960
+      },
+      "role": "ops",
+      "file": "merchant-status.jpg",
+      "bytes": 57344,
+      "metadata_reconciled_from_capture_log": true,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "9a75b422b1fa06e0ce0df2286f664998fbcc42f81a3884909347d919ad6d30eb"
+    },
+    {
+      "key": "pricing-change",
+      "group": "Merchant onboarding",
+      "description": "Preview a versioned pricing change and its effective date.",
+      "route": "#/pricing/M-102",
+      "title": "Request pricing change",
+      "viewport": {
+        "width": 1440,
+        "height": 960
+      },
+      "page": {
+        "width": 1440,
+        "height": 960
+      },
+      "role": "ops",
+      "file": "pricing-change.jpg",
+      "bytes": 69488,
+      "metadata_reconciled_from_capture_log": true,
+      "raster": {
+        "width": 1440,
+        "height": 960
+      },
+      "sha256": "3c181acefeef410f9074c20442aefc24571b6dce378f50e9112c9934cbd55954"
+    },
+    {
+      "key": "products-selected",
+      "group": "Product setup",
+      "description": "A native selection state with Smart POS featured and QR also selected.",
+      "page": {
+        "height": 1207,
+        "width": 1440
+      },
+      "role": "ops",
+      "route": "#/profile/M-102/products",
+      "title": "Urban Store",
+      "viewport": {
+        "height": 960,
+        "width": 1440
+      },
+      "file": "products-selected.jpg",
+      "bytes": 134494,
+      "raster": {
+        "width": 1440,
+        "height": 1207
+      },
+      "sha256": "68c1cfa33e580c31352f5448c53e2444b3395549ae4f840a7cc8f120fd65bacb"
+    }
+  ]
+}

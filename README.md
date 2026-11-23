@@ -13,6 +13,7 @@ Source code for [Prathamesh's product design portfolio](https://prathameshux.ver
 - `src/hero-original-clean.webp` — original photo with the repaired hair matte
 - `src/project-showcases.js` and `.css` — CashBell and CRM project presentations
 - `src/reference-showcase.js`, `.css` and `reference-assets.js` — four banking galleries and the credited banner/poster reference collection
+- `src/merchant-showcase.js`, `.css` and `merchant-assets.js` — PaySphere film and 45 native merchant workflow captures in eight expandable groups
 - `src/retro-intro.js` and `.css` — room greeting and black-screen entry transition
 - `src/pc-desktop.js` and `.css` — classic desktop, folders, résumé viewer and restart
 - `src/project-folders.css` — horizontal gallery with framed folder titles
@@ -21,6 +22,7 @@ Source code for [Prathamesh's product design portfolio](https://prathameshux.ver
 - `scripts/showcase-sources/` — source clips, assets, licensing and reproduction notes
 - `scripts/render-cashbell-motion.py` and `render-crm-reference.py` — editable film timelines
 - `scripts/render-reference-heroes.py` — photographic device compositions using the original banking screens
+- `scripts/render-merchant-showcase.py` and `merchant_media.py` — editable PaySphere film, native capture inventory and photographed monitor composites
 - `scripts/render-pc-room.py` and `install-room-art.py` — editable room motion and framed wall art
 - `scripts/prepare-window-video.py` and `replace-window-video.py` — masked outside-window video updates
 - `src/mini-pratham.png` — bot artwork

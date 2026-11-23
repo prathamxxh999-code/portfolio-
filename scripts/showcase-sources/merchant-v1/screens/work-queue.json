@@ -1,0 +1,18 @@
+{
+  "key": "work-queue",
+  "group": "Service & audit",
+  "description": "A review queue with a native sample pricing request awaiting an independent checker.",
+  "page": {
+    "height": 960,
+    "width": 1440
+  },
+  "role": "review",
+  "route": "#/queue",
+  "title": "Work queue",
+  "viewport": {
+    "height": 960,
+    "width": 1440
+  },
+  "file": "work-queue.jpg",
+  "bytes": 51644
+}
