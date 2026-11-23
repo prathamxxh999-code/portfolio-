@@ -15,8 +15,8 @@ function startCinema() {
   const deck = work.querySelector('.work-deck');
   const view = work.querySelector('.work-window');
   const track = work.querySelector('.work-track');
-  const cards = [...track.querySelectorAll('.card')];
-  const covers = cards.map(card => card.querySelector('.project-poster img'));
+  let cards = [...track.querySelectorAll('.card')];
+  let covers = cards.map(card => card.querySelector('.project-poster img'));
   const controls = work.querySelector('.work-controls');
   const previous = controls.querySelector('[data-step="-1"]');
   const next = controls.querySelector('[data-step="1"]');
@@ -249,6 +249,19 @@ function startCinema() {
     if (changed) requestLayout();
   }, { passive: true });
   window.addEventListener('hashchange', requestLayout);
+  window.addEventListener('portfolio:work-filter', () => {
+    cards[active]?.removeAttribute('aria-current');
+    cards = [...track.querySelectorAll('.card')];
+    covers = cards.map(card => card.querySelector('.project-poster img'));
+    active = -1;
+    resizedProject = null;
+    travelFromControl = null;
+    view.scrollLeft = 0;
+    track.style.setProperty('--work-offset', '0px');
+    const top = work.getBoundingClientRect().top + scrollY;
+    if (scrollY > top) window.scrollTo({top,behavior:'instant'});
+    requestLayout();
+  });
   motion.addEventListener('change', requestLayout);
   pinQuery.addEventListener('change', requestLayout);
   curveQuery.addEventListener('change', requestLayout);

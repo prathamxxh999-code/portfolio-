@@ -1,0 +1,1460 @@
+{
+  "projects": [
+    {
+      "id": 0,
+      "key": "core-banking",
+      "processOnly": false,
+      "mobile": false,
+      "artwork": false,
+      "screens": [
+        {
+          "key": "cbs-dash",
+          "title": "Banking dashboard",
+          "description": "A shared overview of assets, deposits, advances and service activity.",
+          "src": "./showcases/references/core-banking/cbs-dash.webp",
+          "mockup": "./showcases/case-media/cbs-dash.webp",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "key": "cbs-branch",
+          "title": "Branch master",
+          "description": "A structured table for reviewing branch records and their details.",
+          "src": "./showcases/references/core-banking/cbs-branch.webp",
+          "mockup": "./showcases/case-media/cbs-branch.webp",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "key": "cbs-industry",
+          "title": "Industry master",
+          "description": "A consistent master-data workspace for industry records.",
+          "src": "./showcases/references/core-banking/cbs-industry.webp",
+          "mockup": "./showcases/case-media/cbs-industry.webp",
+          "width": 1920,
+          "height": 1080
+        }
+      ],
+      "chapters": [
+        {
+          "key": "cbs-dash",
+          "title": "Banking dashboard",
+          "description": "A shared overview of assets, deposits, advances and service activity.",
+          "src": "./showcases/references/core-banking/cbs-dash.webp",
+          "mockup": "./showcases/case-media/cbs-dash.webp",
+          "width": 1920,
+          "height": 1080,
+          "front": "./showcases/case-media/chapter-0-0.webp"
+        },
+        {
+          "key": "cbs-branch",
+          "title": "Branch master",
+          "description": "A structured table for reviewing branch records and their details.",
+          "src": "./showcases/references/core-banking/cbs-branch.webp",
+          "mockup": "./showcases/case-media/cbs-branch.webp",
+          "width": 1920,
+          "height": 1080,
+          "front": "./showcases/case-media/chapter-0-1.webp"
+        },
+        {
+          "key": "cbs-industry",
+          "title": "Industry master",
+          "description": "A consistent master-data workspace for industry records.",
+          "src": "./showcases/references/core-banking/cbs-industry.webp",
+          "mockup": "./showcases/case-media/cbs-industry.webp",
+          "width": 1920,
+          "height": 1080,
+          "front": "./showcases/case-media/chapter-0-2.webp"
+        },
+        {
+          "key": "cbs-industry-detail",
+          "title": "Industry master — detail",
+          "description": "A closer detail view of the same original interface. This crop highlights the layout without presenting it as an additional production screen.",
+          "src": "./showcases/references/core-banking/cbs-industry.webp",
+          "mockup": "./showcases/case-media/cbs-industry.webp",
+          "width": 1920,
+          "height": 1080,
+          "detail": true,
+          "front": "./showcases/case-media/chapter-0-3.webp"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "key": "internet-banking",
+      "processOnly": false,
+      "mobile": false,
+      "artwork": false,
+      "screens": [
+        {
+          "key": "net-dash",
+          "title": "Account dashboard",
+          "description": "Account context, spending summaries and everyday banking actions.",
+          "src": "./showcases/references/internet-banking/net-dash.webp",
+          "mockup": "./showcases/case-media/net-dash.webp",
+          "width": 1440,
+          "height": 2250
+        },
+        {
+          "key": "net-cards",
+          "title": "Card management",
+          "description": "A dedicated workspace for reviewing cards and their controls.",
+          "src": "./showcases/references/internet-banking/net-cards.webp",
+          "mockup": "./showcases/case-media/net-cards.webp",
+          "width": 1440,
+          "height": 1721
+        },
+        {
+          "key": "net-stmt1",
+          "title": "Card statement",
+          "description": "A statement view organized around transactions and account details.",
+          "src": "./showcases/references/internet-banking/net-stmt1.webp",
+          "mockup": "./showcases/case-media/net-stmt1.webp",
+          "width": 1440,
+          "height": 1076
+        },
+        {
+          "key": "net-stmt2",
+          "title": "Statement details",
+          "description": "A second statement view with additional transaction information.",
+          "src": "./showcases/references/internet-banking/net-stmt2.webp",
+          "mockup": "./showcases/case-media/net-stmt2.webp",
+          "width": 1440,
+          "height": 1124
+        }
+      ],
+      "chapters": [
+        {
+          "key": "net-dash",
+          "title": "Account dashboard",
+          "description": "Account context, spending summaries and everyday banking actions.",
+          "src": "./showcases/references/internet-banking/net-dash.webp",
+          "mockup": "./showcases/case-media/net-dash.webp",
+          "width": 1440,
+          "height": 2250,
+          "front": "./showcases/case-media/chapter-1-0.webp"
+        },
+        {
+          "key": "net-cards",
+          "title": "Card management",
+          "description": "A dedicated workspace for reviewing cards and their controls.",
+          "src": "./showcases/references/internet-banking/net-cards.webp",
+          "mockup": "./showcases/case-media/net-cards.webp",
+          "width": 1440,
+          "height": 1721,
+          "front": "./showcases/case-media/chapter-1-1.webp"
+        },
+        {
+          "key": "net-stmt1",
+          "title": "Card statement",
+          "description": "A statement view organized around transactions and account details.",
+          "src": "./showcases/references/internet-banking/net-stmt1.webp",
+          "mockup": "./showcases/case-media/net-stmt1.webp",
+          "width": 1440,
+          "height": 1076,
+          "front": "./showcases/case-media/chapter-1-2.webp"
+        },
+        {
+          "key": "net-stmt2",
+          "title": "Statement details",
+          "description": "A second statement view with additional transaction information.",
+          "src": "./showcases/references/internet-banking/net-stmt2.webp",
+          "mockup": "./showcases/case-media/net-stmt2.webp",
+          "width": 1440,
+          "height": 1124,
+          "front": "./showcases/case-media/chapter-1-3.webp"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "key": "corporate-banking",
+      "processOnly": false,
+      "mobile": false,
+      "artwork": false,
+      "screens": [
+        {
+          "key": "corp-dash",
+          "title": "Corporate dashboard",
+          "description": "A business banking overview with account balances and alerts.",
+          "src": "./showcases/references/corporate-banking/corp-dash.webp",
+          "mockup": "./showcases/case-media/corp-dash.webp",
+          "width": 1920,
+          "height": 1709
+        },
+        {
+          "key": "corp-acc",
+          "title": "Accounts overview",
+          "description": "An organized view of the business’s banking accounts.",
+          "src": "./showcases/references/corporate-banking/corp-acc.webp",
+          "mockup": "./showcases/case-media/corp-acc.webp",
+          "width": 1920,
+          "height": 1250
+        },
+        {
+          "key": "corp-stmt",
+          "title": "Account statement",
+          "description": "Transaction details presented in a dedicated account statement.",
+          "src": "./showcases/references/corporate-banking/corp-stmt.webp",
+          "mockup": "./showcases/case-media/corp-stmt.webp",
+          "width": 1920,
+          "height": 1201
+        }
+      ],
+      "chapters": [
+        {
+          "key": "corp-dash",
+          "title": "Corporate dashboard",
+          "description": "A business banking overview with account balances and alerts.",
+          "src": "./showcases/references/corporate-banking/corp-dash.webp",
+          "mockup": "./showcases/case-media/corp-dash.webp",
+          "width": 1920,
+          "height": 1709,
+          "front": "./showcases/case-media/chapter-2-0.webp"
+        },
+        {
+          "key": "corp-acc",
+          "title": "Accounts overview",
+          "description": "An organized view of the business’s banking accounts.",
+          "src": "./showcases/references/corporate-banking/corp-acc.webp",
+          "mockup": "./showcases/case-media/corp-acc.webp",
+          "width": 1920,
+          "height": 1250,
+          "front": "./showcases/case-media/chapter-2-1.webp"
+        },
+        {
+          "key": "corp-stmt",
+          "title": "Account statement",
+          "description": "Transaction details presented in a dedicated account statement.",
+          "src": "./showcases/references/corporate-banking/corp-stmt.webp",
+          "mockup": "./showcases/case-media/corp-stmt.webp",
+          "width": 1920,
+          "height": 1201,
+          "front": "./showcases/case-media/chapter-2-2.webp"
+        },
+        {
+          "key": "corp-stmt-detail",
+          "title": "Account statement — detail",
+          "description": "A closer detail view of the same original interface. This crop highlights the layout without presenting it as an additional production screen.",
+          "src": "./showcases/references/corporate-banking/corp-stmt.webp",
+          "mockup": "./showcases/case-media/corp-stmt.webp",
+          "width": 1920,
+          "height": 1201,
+          "detail": true,
+          "front": "./showcases/case-media/chapter-2-3.webp"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "key": "mobile-banking",
+      "processOnly": false,
+      "mobile": true,
+      "artwork": false,
+      "screens": [
+        {
+          "key": "m-home",
+          "title": "Mobile banking home",
+          "description": "Balance, payment shortcuts and recent transactions in one continuous view.",
+          "src": "./showcases/references/mobile-banking/m-home.webp",
+          "mockup": null,
+          "mobile": true,
+          "width": 402,
+          "height": 1242
+        },
+        {
+          "key": "m-quick",
+          "title": "Quick actions",
+          "description": "A mobile workspace for reaching common banking and payment actions.",
+          "src": "./showcases/references/mobile-banking/m-quick.webp",
+          "mockup": null,
+          "mobile": true,
+          "width": 402,
+          "height": 1624
+        },
+        {
+          "key": "m-period",
+          "title": "Select a statement period",
+          "description": "A focused period picker for reviewing account activity.",
+          "src": "./showcases/references/mobile-banking/m-period.webp",
+          "mockup": null,
+          "mobile": true,
+          "width": 402,
+          "height": 874
+        }
+      ],
+      "chapters": [
+        {
+          "key": "m-home",
+          "title": "Mobile banking home",
+          "description": "Balance, payment shortcuts and recent transactions in one continuous view.",
+          "src": "./showcases/references/mobile-banking/m-home.webp",
+          "mockup": null,
+          "mobile": true,
+          "width": 402,
+          "height": 1242,
+          "front": "./showcases/case-media/chapter-3-0.webp"
+        },
+        {
+          "key": "m-quick",
+          "title": "Quick actions",
+          "description": "A mobile workspace for reaching common banking and payment actions.",
+          "src": "./showcases/references/mobile-banking/m-quick.webp",
+          "mockup": null,
+          "mobile": true,
+          "width": 402,
+          "height": 1624,
+          "front": "./showcases/case-media/chapter-3-1.webp"
+        },
+        {
+          "key": "m-period",
+          "title": "Select a statement period",
+          "description": "A focused period picker for reviewing account activity.",
+          "src": "./showcases/references/mobile-banking/m-period.webp",
+          "mockup": null,
+          "mobile": true,
+          "width": 402,
+          "height": 874,
+          "front": "./showcases/case-media/chapter-3-2.webp"
+        },
+        {
+          "key": "m-period-detail",
+          "title": "Select a statement period — detail",
+          "description": "A closer detail view of the same original interface. This crop highlights the layout without presenting it as an additional production screen.",
+          "src": "./showcases/references/mobile-banking/m-period.webp",
+          "mockup": null,
+          "mobile": true,
+          "width": 402,
+          "height": 874,
+          "detail": true,
+          "front": "./showcases/case-media/chapter-3-3.webp"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "key": "cashbell",
+      "processOnly": false,
+      "mobile": true,
+      "artwork": false,
+      "screens": [
+        {
+          "key": "cashbell-home",
+          "title": "Your money, at a glance",
+          "description": "An overview of the loan balance, upcoming EMI and next actions.",
+          "src": "./showcases/screens/cashbell-home.png",
+          "mockup": "./showcases/case-media/cashbell-home.webp"
+        },
+        {
+          "key": "cashbell-offers",
+          "title": "Compare before you commit",
+          "description": "Loan options with their estimated repayments and costs in one view.",
+          "src": "./showcases/screens/cashbell-offers.png",
+          "mockup": "./showcases/case-media/cashbell-offers.webp"
+        },
+        {
+          "key": "cashbell-loan",
+          "title": "Stay in control",
+          "description": "A dedicated loan account with the repayment schedule and amount breakdown.",
+          "src": "./showcases/screens/cashbell-loan.png",
+          "mockup": "./showcases/case-media/cashbell-loan.webp"
+        }
+      ],
+      "chapters": [
+        {
+          "key": "cashbell-home",
+          "title": "Your money, at a glance",
+          "description": "An overview of the loan balance, upcoming EMI and next actions.",
+          "src": "./showcases/screens/cashbell-home.png",
+          "mockup": "./showcases/case-media/cashbell-home.webp",
+          "front": "./showcases/case-media/chapter-4-0.webp"
+        },
+        {
+          "key": "cashbell-offers",
+          "title": "Compare before you commit",
+          "description": "Loan options with their estimated repayments and costs in one view.",
+          "src": "./showcases/screens/cashbell-offers.png",
+          "mockup": "./showcases/case-media/cashbell-offers.webp",
+          "front": "./showcases/case-media/chapter-4-1.webp"
+        },
+        {
+          "key": "cashbell-loan",
+          "title": "Stay in control",
+          "description": "A dedicated loan account with the repayment schedule and amount breakdown.",
+          "src": "./showcases/screens/cashbell-loan.png",
+          "mockup": "./showcases/case-media/cashbell-loan.webp",
+          "front": "./showcases/case-media/chapter-4-2.webp"
+        },
+        {
+          "key": "cashbell-loan-detail",
+          "title": "Stay in control — detail",
+          "description": "A closer detail view of the same original interface. This crop highlights the layout without presenting it as an additional production screen.",
+          "src": "./showcases/screens/cashbell-loan.png",
+          "mockup": "./showcases/case-media/cashbell-loan.webp",
+          "detail": true,
+          "front": "./showcases/case-media/chapter-4-3.webp"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "key": "gate",
+      "processOnly": true,
+      "mobile": false,
+      "artwork": false,
+      "screens": [],
+      "chapters": []
+    },
+    {
+      "id": 6,
+      "key": "visitor",
+      "processOnly": true,
+      "mobile": false,
+      "artwork": false,
+      "screens": [],
+      "chapters": []
+    },
+    {
+      "id": 7,
+      "key": "valet",
+      "processOnly": false,
+      "mobile": true,
+      "artwork": false,
+      "screens": [
+        {
+          "key": "valet-home",
+          "title": "A clear starting point",
+          "description": "One overview for new parking entries, active sessions, retrieval and the queue.",
+          "src": "./showcases/screens/valet-home.png",
+          "mockup": "./showcases/valet-home.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-entry",
+          "title": "Register the vehicle",
+          "description": "Record guest details, the number plate, vehicle attributes and supporting images.",
+          "src": "./showcases/screens/valet-entry.png",
+          "mockup": "./showcases/valet-entry.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-entry-vip",
+          "title": "Handle VIP arrivals",
+          "description": "The VIP state explains the chargeable setting and queue bypass before parking.",
+          "src": "./showcases/screens/valet-entry-vip.png",
+          "mockup": "./showcases/valet-entry-vip.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-parking-details",
+          "title": "Keep the car and keys connected",
+          "description": "Record floor, zone, parking number, key box and key slot, with supporting photos.",
+          "src": "./showcases/screens/valet-parking-details.png",
+          "mockup": "./showcases/valet-parking-details.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-parking-progress",
+          "title": "Track parking in progress",
+          "description": "See the vehicle, gate, assigned driver and elapsed time while parking is underway.",
+          "src": "./showcases/screens/valet-parking-progress.png",
+          "mockup": "./showcases/valet-parking-progress.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-parked",
+          "title": "Find a parked vehicle",
+          "description": "A parked record brings together the parking zone, slot, driver and key location.",
+          "src": "./showcases/screens/valet-parked.png",
+          "mockup": "./showcases/valet-parked.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-retrieval-progress",
+          "title": "Follow active retrievals",
+          "description": "A compact retrieval state keeps the current driver, vehicle and gate visible.",
+          "src": "./showcases/screens/valet-retrieval-progress.png",
+          "mockup": "./showcases/valet-retrieval-progress.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-retrieval-details",
+          "title": "Retain the full parking context",
+          "description": "The expanded retrieval record includes the parking and key details needed for collection.",
+          "src": "./showcases/screens/valet-retrieval-details.png",
+          "mockup": "./showcases/valet-retrieval-details.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-retrieval-queue",
+          "title": "Keep the queue moving",
+          "description": "Queue position and vehicle context help the team identify the next retrieval.",
+          "src": "./showcases/screens/valet-retrieval-queue.png",
+          "mockup": "./showcases/valet-retrieval-queue.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-queue-details",
+          "title": "Confirm the next retrieval",
+          "description": "The queue action stays beside the relevant vehicle and driver details.",
+          "src": "./showcases/screens/valet-queue-details.png",
+          "mockup": "./showcases/valet-queue-details.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-guest-pickup",
+          "title": "A useful digital receipt",
+          "description": "Show the vehicle, visit, parking location, duration, fee and receipt number.",
+          "src": "./showcases/screens/valet-guest-pickup.png",
+          "mockup": "./showcases/valet-guest-pickup.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-pickup-status",
+          "title": "Make waiting understandable",
+          "description": "The pickup state shows the gate, queue position and estimated arrival time.",
+          "src": "./showcases/screens/valet-pickup-status.png",
+          "mockup": "./showcases/valet-pickup-status.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-handover",
+          "title": "Verify before releasing the vehicle",
+          "description": "The receipt-number field supports the final handover check.",
+          "src": "./showcases/screens/valet-handover.png",
+          "mockup": "./showcases/valet-handover.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-handover-submit",
+          "title": "Complete the handover",
+          "description": "The submission state brings the receipt check and final action together.",
+          "src": "./showcases/screens/valet-handover-submit.png",
+          "mockup": "./showcases/valet-handover-submit.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-driver-profile",
+          "title": "Know the person behind the shift",
+          "description": "A driver profile combines identity, activity summaries and account shortcuts.",
+          "src": "./showcases/screens/valet-driver-profile.png",
+          "mockup": "./showcases/valet-driver-profile.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-account-settings",
+          "title": "Keep account tools within reach",
+          "description": "Profile editing, location setup, password and support appear in one place.",
+          "src": "./showcases/screens/valet-account-settings.png",
+          "mockup": "./showcases/valet-account-settings.webp",
+          "mobile": true
+        },
+        {
+          "key": "valet-analytics",
+          "title": "Review parking activity",
+          "description": "Reporting presents parked vehicles, current status, trends and billing summaries.",
+          "src": "./showcases/screens/valet-analytics.png",
+          "mockup": "./showcases/valet-analytics.webp",
+          "mobile": true
+        }
+      ],
+      "chapters": [
+        {
+          "key": "valet-home",
+          "title": "A clear starting point",
+          "description": "One overview for new parking entries, active sessions, retrieval and the queue.",
+          "src": "./showcases/screens/valet-home.png",
+          "mockup": "./showcases/valet-home.webp",
+          "mobile": true,
+          "front": "./showcases/case-media/chapter-7-0.webp"
+        },
+        {
+          "key": "valet-entry",
+          "title": "Register the vehicle",
+          "description": "Record guest details, the number plate, vehicle attributes and supporting images.",
+          "src": "./showcases/screens/valet-entry.png",
+          "mockup": "./showcases/valet-entry.webp",
+          "mobile": true,
+          "front": "./showcases/case-media/chapter-7-1.webp"
+        },
+        {
+          "key": "valet-parking-progress",
+          "title": "Track parking in progress",
+          "description": "See the vehicle, gate, assigned driver and elapsed time while parking is underway.",
+          "src": "./showcases/screens/valet-parking-progress.png",
+          "mockup": "./showcases/valet-parking-progress.webp",
+          "mobile": true,
+          "front": "./showcases/case-media/chapter-7-2.webp"
+        },
+        {
+          "key": "valet-guest-pickup",
+          "title": "A useful digital receipt",
+          "description": "Show the vehicle, visit, parking location, duration, fee and receipt number.",
+          "src": "./showcases/screens/valet-guest-pickup.png",
+          "mockup": "./showcases/valet-guest-pickup.webp",
+          "mobile": true,
+          "front": "./showcases/case-media/chapter-7-3.webp"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "key": "asset",
+      "processOnly": true,
+      "mobile": false,
+      "artwork": false,
+      "screens": [],
+      "chapters": []
+    },
+    {
+      "id": 9,
+      "key": "helpdesk",
+      "processOnly": true,
+      "mobile": false,
+      "artwork": false,
+      "screens": [],
+      "chapters": []
+    },
+    {
+      "id": 10,
+      "key": "idsspl",
+      "processOnly": false,
+      "mobile": false,
+      "artwork": false,
+      "screens": [
+        {
+          "key": "idsspl-home",
+          "title": "The digital front door",
+          "description": "Introduce the brand and provide a clear route into the website.",
+          "src": "./idsspl-home.png",
+          "mockup": "./showcases/case-media/idsspl-home.webp"
+        },
+        {
+          "key": "idsspl-products",
+          "title": "The product ecosystem",
+          "description": "Organize the detail without losing the wider story.",
+          "src": "./idsspl-products.png",
+          "mockup": "./showcases/case-media/idsspl-products.webp"
+        },
+        {
+          "key": "idsspl-flow",
+          "title": "Connected banking",
+          "description": "Let visitors explore the work and find a useful next step.",
+          "src": "./idsspl-flow.png",
+          "mockup": "./showcases/case-media/idsspl-flow.webp"
+        }
+      ],
+      "chapters": [
+        {
+          "key": "idsspl-home",
+          "title": "The digital front door",
+          "description": "Introduce the brand and provide a clear route into the website.",
+          "src": "./idsspl-home.png",
+          "mockup": "./showcases/case-media/idsspl-home.webp",
+          "front": "./showcases/case-media/chapter-10-0.webp"
+        },
+        {
+          "key": "idsspl-products",
+          "title": "The product ecosystem",
+          "description": "Organize the detail without losing the wider story.",
+          "src": "./idsspl-products.png",
+          "mockup": "./showcases/case-media/idsspl-products.webp",
+          "front": "./showcases/case-media/chapter-10-1.webp"
+        },
+        {
+          "key": "idsspl-flow",
+          "title": "Connected banking",
+          "description": "Let visitors explore the work and find a useful next step.",
+          "src": "./idsspl-flow.png",
+          "mockup": "./showcases/case-media/idsspl-flow.webp",
+          "front": "./showcases/case-media/chapter-10-2.webp"
+        },
+        {
+          "key": "idsspl-flow-detail",
+          "title": "Connected banking — detail",
+          "description": "A closer detail view of the same original interface. This crop highlights the layout without presenting it as an additional production screen.",
+          "src": "./idsspl-flow.png",
+          "mockup": "./showcases/case-media/idsspl-flow.webp",
+          "detail": true,
+          "front": "./showcases/case-media/chapter-10-3.webp"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "key": "pigmy",
+      "processOnly": true,
+      "mobile": false,
+      "artwork": false,
+      "screens": [],
+      "chapters": []
+    },
+    {
+      "id": 12,
+      "key": "crm",
+      "processOnly": false,
+      "mobile": false,
+      "artwork": false,
+      "screens": [
+        {
+          "key": "crm-overview",
+          "title": "The bigger picture",
+          "description": "A shared overview of clients, billing and the team’s next actions.",
+          "src": "./showcases/screens/crm-overview.png",
+          "mockup": "./showcases/case-media/crm-overview.webp"
+        },
+        {
+          "key": "crm-clients",
+          "title": "A connected client workspace",
+          "description": "Customer records and account context, organized for everyday work.",
+          "src": "./showcases/screens/crm-clients.png",
+          "mockup": "./showcases/case-media/crm-clients.webp"
+        },
+        {
+          "key": "crm-tasks",
+          "title": "Keep the work moving",
+          "description": "Task ownership, priorities and follow-ups in one workspace.",
+          "src": "./showcases/screens/crm-tasks.png",
+          "mockup": "./showcases/case-media/crm-tasks.webp"
+        },
+        {
+          "key": "crm-reports",
+          "title": "See what needs attention",
+          "description": "Reporting views that bring account and operational activity together.",
+          "src": "./showcases/screens/crm-reports.png",
+          "mockup": "./showcases/case-media/crm-reports.webp"
+        }
+      ],
+      "chapters": [
+        {
+          "key": "crm-overview",
+          "title": "The bigger picture",
+          "description": "A shared overview of clients, billing and the team’s next actions.",
+          "src": "./showcases/screens/crm-overview.png",
+          "mockup": "./showcases/case-media/crm-overview.webp",
+          "front": "./showcases/case-media/chapter-12-0.webp"
+        },
+        {
+          "key": "crm-clients",
+          "title": "A connected client workspace",
+          "description": "Customer records and account context, organized for everyday work.",
+          "src": "./showcases/screens/crm-clients.png",
+          "mockup": "./showcases/case-media/crm-clients.webp",
+          "front": "./showcases/case-media/chapter-12-1.webp"
+        },
+        {
+          "key": "crm-tasks",
+          "title": "Keep the work moving",
+          "description": "Task ownership, priorities and follow-ups in one workspace.",
+          "src": "./showcases/screens/crm-tasks.png",
+          "mockup": "./showcases/case-media/crm-tasks.webp",
+          "front": "./showcases/case-media/chapter-12-2.webp"
+        },
+        {
+          "key": "crm-reports",
+          "title": "See what needs attention",
+          "description": "Reporting views that bring account and operational activity together.",
+          "src": "./showcases/screens/crm-reports.png",
+          "mockup": "./showcases/case-media/crm-reports.webp",
+          "front": "./showcases/case-media/chapter-12-3.webp"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "key": "merchant",
+      "processOnly": false,
+      "mobile": false,
+      "artwork": false,
+      "screens": [
+        {
+          "key": "overview",
+          "title": "Command centre",
+          "description": "Merchant, payment and action-queue overview using sample records.",
+          "src": "./showcases/screens/merchant-overview.jpg",
+          "width": 1425,
+          "height": 975,
+          "mockup": "./showcases/case-media/overview.webp"
+        },
+        {
+          "key": "merchant-directory",
+          "title": "Merchant directory",
+          "description": "Searchable merchant records with status, readiness and row actions.",
+          "src": "./showcases/screens/merchant-merchant-directory.jpg",
+          "width": 1425,
+          "height": 1018,
+          "mockup": "./showcases/case-media/merchant-directory.webp"
+        },
+        {
+          "key": "merchant-self-service",
+          "title": "Merchant workspace",
+          "description": "A merchant-scoped workspace limited to the selected business.",
+          "src": "./showcases/screens/merchant-merchant-self-service.jpg",
+          "width": 1440,
+          "height": 1564,
+          "mockup": "./showcases/case-media/merchant-self-service.webp"
+        },
+        {
+          "key": "merchant-payments",
+          "title": "Merchant payment view",
+          "description": "The merchant sees only its own payment records.",
+          "src": "./showcases/screens/merchant-merchant-payments.jpg",
+          "width": 1434,
+          "height": 960,
+          "mockup": "./showcases/case-media/merchant-payments.webp"
+        },
+        {
+          "key": "merchant-create",
+          "title": "Add a merchant",
+          "description": "A structured form for merchant business, owner and location details.",
+          "src": "./showcases/screens/merchant-merchant-create.jpg",
+          "width": 1425,
+          "height": 1114,
+          "mockup": "./showcases/case-media/merchant-create.webp"
+        },
+        {
+          "key": "merchant-edit",
+          "title": "Edit a merchant",
+          "description": "Edit the existing merchant identity, business details and payment channels.",
+          "src": "./showcases/screens/merchant-merchant-edit.jpg",
+          "width": 1440,
+          "height": 1114,
+          "mockup": "./showcases/case-media/merchant-edit.webp"
+        },
+        {
+          "key": "merchant-products",
+          "title": "Choose payment products",
+          "description": "QR, Soundbox and Smart POS product selection.",
+          "src": "./showcases/screens/merchant-merchant-products.jpg",
+          "width": 1425,
+          "height": 1207,
+          "mockup": "./showcases/case-media/merchant-products.webp"
+        },
+        {
+          "key": "products-selected",
+          "title": "Select and feature products",
+          "description": "A native selection state with Smart POS featured and QR also selected.",
+          "src": "./showcases/screens/merchant-products-selected.jpg",
+          "width": 1440,
+          "height": 1207,
+          "mockup": "./showcases/case-media/products-selected.webp"
+        },
+        {
+          "key": "profile-product-configured",
+          "title": "The configured merchant overview",
+          "description": "The merchant overview after saving the selected product setup in the local demo.",
+          "src": "./showcases/screens/merchant-profile-product-configured.jpg",
+          "width": 1440,
+          "height": 1546,
+          "mockup": "./showcases/case-media/profile-product-configured.webp"
+        },
+        {
+          "key": "outlet-create",
+          "title": "Add an outlet",
+          "description": "Add an outlet with location and merchant association.",
+          "src": "./showcases/screens/merchant-outlet-create.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/outlet-create.webp"
+        },
+        {
+          "key": "device-create",
+          "title": "Register a payment device",
+          "description": "Register a payment device against the correct outlet.",
+          "src": "./showcases/screens/merchant-device-create.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/device-create.webp"
+        },
+        {
+          "key": "team-create",
+          "title": "Add a team member",
+          "description": "Add a merchant team member with an explicit role and status.",
+          "src": "./showcases/screens/merchant-team-create.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/team-create.webp"
+        },
+        {
+          "key": "merchant-profile",
+          "title": "Merchant overview",
+          "description": "The merchant profile with readiness, financial context and connected products.",
+          "src": "./showcases/screens/merchant-merchant-profile.jpg",
+          "width": 1440,
+          "height": 1567,
+          "mockup": "./showcases/case-media/merchant-profile.webp"
+        },
+        {
+          "key": "merchant-kyc",
+          "title": "Business & KYC",
+          "description": "Business, owner, bank and document verification in one view.",
+          "src": "./showcases/screens/merchant-merchant-kyc.jpg",
+          "width": 1425,
+          "height": 1022,
+          "mockup": "./showcases/case-media/merchant-kyc.webp"
+        },
+        {
+          "key": "merchant-money",
+          "title": "Merchant payments & settlements",
+          "description": "Merchant-scoped payments and settlement records.",
+          "src": "./showcases/screens/merchant-merchant-money.jpg",
+          "width": 1425,
+          "height": 1295,
+          "mockup": "./showcases/case-media/merchant-money.webp"
+        },
+        {
+          "key": "merchant-outlets",
+          "title": "Outlets & devices",
+          "description": "Outlet locations and their connected payment devices.",
+          "src": "./showcases/screens/merchant-merchant-outlets.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/merchant-outlets.webp"
+        },
+        {
+          "key": "merchant-team",
+          "title": "Merchant team",
+          "description": "Merchant team members, roles and owner access.",
+          "src": "./showcases/screens/merchant-merchant-team.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/merchant-team.webp"
+        },
+        {
+          "key": "merchant-cases",
+          "title": "Merchant cases",
+          "description": "Merchant support cases with status and ownership.",
+          "src": "./showcases/screens/merchant-merchant-cases.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/merchant-cases.webp"
+        },
+        {
+          "key": "merchant-activity",
+          "title": "Merchant activity",
+          "description": "A chronological audit trail of merchant changes.",
+          "src": "./showcases/screens/merchant-merchant-activity.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/merchant-activity.webp"
+        },
+        {
+          "key": "merchant-status",
+          "title": "Request a status change",
+          "description": "Status-change request with eligibility checks and a recorded reason.",
+          "src": "./showcases/screens/merchant-merchant-status.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/merchant-status.webp"
+        },
+        {
+          "key": "bank-change",
+          "title": "Request a bank change",
+          "description": "A beneficiary-change request with independent approval and payout safeguards.",
+          "src": "./showcases/screens/merchant-bank-change.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/bank-change.webp"
+        },
+        {
+          "key": "pricing-change",
+          "title": "Preview a pricing change",
+          "description": "Preview a versioned pricing change and its effective date.",
+          "src": "./showcases/screens/merchant-pricing-change.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/pricing-change.webp"
+        },
+        {
+          "key": "document-upload",
+          "title": "Add a document",
+          "description": "Document details, attachment upload and expiry capture before review.",
+          "src": "./showcases/screens/merchant-document-upload.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/document-upload.webp"
+        },
+        {
+          "key": "document-detail",
+          "title": "Document details & versions",
+          "description": "Document version, verification status and evidence reference.",
+          "src": "./showcases/screens/merchant-document-detail.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/document-detail.webp"
+        },
+        {
+          "key": "verification-review",
+          "title": "Verification review",
+          "description": "Record an independent verification outcome with evidence and a review reason.",
+          "src": "./showcases/screens/merchant-verification-review.jpg",
+          "width": 1434,
+          "height": 960,
+          "mockup": "./showcases/case-media/verification-review.webp"
+        },
+        {
+          "key": "approval-request",
+          "title": "Prepared change request",
+          "description": "A pending pricing change that requires a different checker.",
+          "src": "./showcases/screens/merchant-approval-request.jpg",
+          "width": 1434,
+          "height": 960,
+          "mockup": "./showcases/case-media/approval-request.webp"
+        },
+        {
+          "key": "approval-review",
+          "title": "Independent review decision",
+          "description": "Independent checker controls for approving or rejecting a prepared request.",
+          "src": "./showcases/screens/merchant-approval-review.jpg",
+          "width": 1434,
+          "height": 960,
+          "mockup": "./showcases/case-media/approval-review.webp"
+        },
+        {
+          "key": "payments",
+          "title": "Payment ledger",
+          "description": "A searchable payment ledger with settlement eligibility and refund context.",
+          "src": "./showcases/screens/merchant-payments.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/payments.webp"
+        },
+        {
+          "key": "payment-detail",
+          "title": "Payment trace",
+          "description": "Payment status, fees, refund reservations and linked settlement evidence.",
+          "src": "./showcases/screens/merchant-payment-detail.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/payment-detail.webp"
+        },
+        {
+          "key": "refund-request",
+          "title": "Request a refund",
+          "description": "A refund request with the remaining refundable balance and independent review.",
+          "src": "./showcases/screens/merchant-refund-request.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/refund-request.webp"
+        },
+        {
+          "key": "settlements",
+          "title": "Settlement ledger",
+          "description": "Payout status, beneficiary context and reconciliation state in one ledger.",
+          "src": "./showcases/screens/merchant-settlements.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/settlements.webp"
+        },
+        {
+          "key": "payout-detail",
+          "title": "Unknown transfer outcome",
+          "description": "A payout investigation separating the payment calculation from bank transfer evidence.",
+          "src": "./showcases/screens/merchant-payout-detail.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/payout-detail.webp"
+        },
+        {
+          "key": "payout-evidence",
+          "title": "Check the original instruction",
+          "description": "Record evidence for the original instruction before any retry can be considered.",
+          "src": "./showcases/screens/merchant-payout-evidence.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/payout-evidence.webp"
+        },
+        {
+          "key": "failed-payout",
+          "title": "Confirmed failed payout",
+          "description": "A confirmed failed payout with the controlled retry path available.",
+          "src": "./showcases/screens/merchant-failed-payout.jpg",
+          "width": 1440,
+          "height": 964,
+          "mockup": "./showcases/case-media/failed-payout.webp"
+        },
+        {
+          "key": "retry-review",
+          "title": "Controlled retry review",
+          "description": "Prepare an independently reviewed retry request for a confirmed failed payout.",
+          "src": "./showcases/screens/merchant-retry-review.jpg",
+          "width": 1434,
+          "height": 960,
+          "mockup": "./showcases/case-media/retry-review.webp"
+        },
+        {
+          "key": "reconciliation",
+          "title": "Reconciliation workbench",
+          "description": "A reconciliation workspace separating completed transfers from unresolved bank evidence.",
+          "src": "./showcases/screens/merchant-reconciliation.jpg",
+          "width": 1434,
+          "height": 960,
+          "mockup": "./showcases/case-media/reconciliation.webp"
+        },
+        {
+          "key": "work-queue",
+          "title": "Independent review queue",
+          "description": "A review queue with a native sample pricing request awaiting an independent checker.",
+          "src": "./showcases/screens/merchant-work-queue.jpg",
+          "width": 1434,
+          "height": 960,
+          "mockup": "./showcases/case-media/work-queue.webp"
+        },
+        {
+          "key": "onboarding-queue",
+          "title": "Onboarding queue",
+          "description": "An onboarding queue for drafts and pending-verification merchants.",
+          "src": "./showcases/screens/merchant-onboarding-queue.jpg",
+          "width": 1440,
+          "height": 1021,
+          "mockup": "./showcases/case-media/onboarding-queue.webp"
+        },
+        {
+          "key": "case-queue",
+          "title": "Cross-merchant case queue",
+          "description": "Cross-merchant service cases that need review or follow-up.",
+          "src": "./showcases/screens/merchant-case-queue.jpg",
+          "width": 1434,
+          "height": 960,
+          "mockup": "./showcases/case-media/case-queue.webp"
+        },
+        {
+          "key": "operations-audit",
+          "title": "Operations audit trail",
+          "description": "An institution-level audit trail of recorded changes.",
+          "src": "./showcases/screens/merchant-operations-audit.jpg",
+          "width": 1434,
+          "height": 960,
+          "mockup": "./showcases/case-media/operations-audit.webp"
+        },
+        {
+          "key": "case-create",
+          "title": "Create a support case",
+          "description": "Create a merchant-linked support case with category and priority.",
+          "src": "./showcases/screens/merchant-case-create.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/case-create.webp"
+        },
+        {
+          "key": "case-detail",
+          "title": "Case investigation",
+          "description": "A support case with its linked merchant, payout context and status.",
+          "src": "./showcases/screens/merchant-case-detail.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/case-detail.webp"
+        },
+        {
+          "key": "copilot-welcome",
+          "title": "Meet the operations assistant",
+          "description": "The assistant workspace with scoped merchant operations prompts.",
+          "src": "./showcases/screens/merchant-copilot-welcome.jpg",
+          "width": 1440,
+          "height": 1000,
+          "mockup": "./showcases/case-media/copilot-welcome.webp"
+        },
+        {
+          "key": "copilot-answer",
+          "title": "An evidence-led summary",
+          "description": "A scoped operations summary derived from the local sample records.",
+          "src": "./showcases/screens/merchant-copilot-answer.jpg",
+          "width": 1440,
+          "height": 1000,
+          "mockup": "./showcases/case-media/copilot-answer.webp"
+        },
+        {
+          "key": "copilot-trace",
+          "title": "Trace a payout with context",
+          "description": "A payout trace with the actual sample outcome and suggested next steps.",
+          "src": "./showcases/screens/merchant-copilot-trace.jpg",
+          "width": 1440,
+          "height": 1000,
+          "mockup": "./showcases/case-media/copilot-trace.webp"
+        }
+      ],
+      "chapters": [
+        {
+          "key": "overview",
+          "title": "Command centre",
+          "description": "Merchant, payment and action-queue overview using sample records.",
+          "src": "./showcases/screens/merchant-overview.jpg",
+          "width": 1425,
+          "height": 975,
+          "mockup": "./showcases/case-media/overview.webp",
+          "front": "./showcases/case-media/chapter-13-0.webp"
+        },
+        {
+          "key": "merchant-products",
+          "title": "Choose payment products",
+          "description": "QR, Soundbox and Smart POS product selection.",
+          "src": "./showcases/screens/merchant-merchant-products.jpg",
+          "width": 1425,
+          "height": 1207,
+          "mockup": "./showcases/case-media/merchant-products.webp",
+          "front": "./showcases/case-media/chapter-13-1.webp"
+        },
+        {
+          "key": "payout-detail",
+          "title": "Unknown transfer outcome",
+          "description": "A payout investigation separating the payment calculation from bank transfer evidence.",
+          "src": "./showcases/screens/merchant-payout-detail.jpg",
+          "width": 1440,
+          "height": 960,
+          "mockup": "./showcases/case-media/payout-detail.webp",
+          "front": "./showcases/case-media/chapter-13-2.webp"
+        },
+        {
+          "key": "approval-review",
+          "title": "Independent review decision",
+          "description": "Independent checker controls for approving or rejecting a prepared request.",
+          "src": "./showcases/screens/merchant-approval-review.jpg",
+          "width": 1434,
+          "height": 960,
+          "mockup": "./showcases/case-media/approval-review.webp",
+          "front": "./showcases/case-media/chapter-13-3.webp"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "key": "banners-posters",
+      "processOnly": false,
+      "mobile": false,
+      "artwork": true,
+      "screens": [
+        {
+          "key": "g-cbs1",
+          "title": "Core banking campaign",
+          "description": "Wide campaign banner for a core banking product.",
+          "src": "./showcases/references/banners-posters/g-cbs1.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "key": "g-cbs2",
+          "title": "Core banking campaign — alternate",
+          "description": "An alternate wide-format banking composition.",
+          "src": "./showcases/references/banners-posters/g-cbs2.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "key": "g-cbs3",
+          "title": "Core banking campaign — product story",
+          "description": "A third banking campaign banner.",
+          "src": "./showcases/references/banners-posters/g-cbs3.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1600,
+          "height": 900
+        },
+        {
+          "key": "g-post1",
+          "title": "Business finance",
+          "description": "A portrait-format business finance campaign.",
+          "src": "./showcases/references/banners-posters/g-post1.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "key": "g-post2",
+          "title": "Growth campaign",
+          "description": "A visual campaign built around a growth message.",
+          "src": "./showcases/references/banners-posters/g-post2.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "key": "g-post4",
+          "title": "Vendor loans",
+          "description": "A poster focused on vendor lending.",
+          "src": "./showcases/references/banners-posters/g-post4.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "key": "g-post7",
+          "title": "Corporate banking",
+          "description": "A portrait-format corporate banking campaign.",
+          "src": "./showcases/references/banners-posters/g-post7.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "key": "g-kerala",
+          "title": "Kerala travel",
+          "description": "A destination-led travel poster.",
+          "src": "./showcases/references/banners-posters/g-kerala.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "key": "g-post10",
+          "title": "Maharashtra travel",
+          "description": "A travel composition centered on Maharashtra.",
+          "src": "./showcases/references/banners-posters/g-post10.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "key": "g-post5",
+          "title": "Automotive",
+          "description": "An automotive-themed visual poster.",
+          "src": "./showcases/references/banners-posters/g-post5.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "key": "g-post6",
+          "title": "Motivational poster",
+          "description": "A typography and imagery-led motivational composition.",
+          "src": "./showcases/references/banners-posters/g-post6.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "key": "g-post8",
+          "title": "Product poster",
+          "description": "A product-focused portrait composition.",
+          "src": "./showcases/references/banners-posters/g-post8.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1080,
+          "height": 1350
+        }
+      ],
+      "chapters": [
+        {
+          "key": "g-cbs1",
+          "title": "Core banking campaign",
+          "description": "Wide campaign banner for a core banking product.",
+          "src": "./showcases/references/banners-posters/g-cbs1.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1600,
+          "height": 900,
+          "front": "./showcases/case-media/chapter-14-0.webp"
+        },
+        {
+          "key": "g-cbs2",
+          "title": "Core banking campaign — alternate",
+          "description": "An alternate wide-format banking composition.",
+          "src": "./showcases/references/banners-posters/g-cbs2.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1600,
+          "height": 900,
+          "front": "./showcases/case-media/chapter-14-1.webp"
+        },
+        {
+          "key": "g-cbs3",
+          "title": "Core banking campaign — product story",
+          "description": "A third banking campaign banner.",
+          "src": "./showcases/references/banners-posters/g-cbs3.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1600,
+          "height": 900,
+          "front": "./showcases/case-media/chapter-14-2.webp"
+        },
+        {
+          "key": "g-post1",
+          "title": "Business finance",
+          "description": "A portrait-format business finance campaign.",
+          "src": "./showcases/references/banners-posters/g-post1.webp",
+          "mockup": null,
+          "artwork": true,
+          "width": 1080,
+          "height": 1350,
+          "front": "./showcases/case-media/chapter-14-3.webp"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "key": "manoeuvre",
+      "processOnly": false,
+      "mobile": false,
+      "artwork": false,
+      "screens": [
+        {
+          "key": "manoeuvre-home",
+          "title": "A bold first impression",
+          "description": "Introduce the brand and provide a clear route into the website.",
+          "src": "./showcases/websites/manoeuvre-home.webp",
+          "mockup": "./showcases/case-media/manoeuvre-home.webp"
+        },
+        {
+          "key": "manoeuvre-about",
+          "title": "The company story",
+          "description": "Organize the detail without losing the wider story.",
+          "src": "./showcases/websites/manoeuvre-about.webp",
+          "mockup": "./showcases/case-media/manoeuvre-about.webp"
+        },
+        {
+          "key": "manoeuvre-projects",
+          "title": "The project portfolio",
+          "description": "Let visitors explore the work and find a useful next step.",
+          "src": "./showcases/websites/manoeuvre-projects.webp",
+          "mockup": "./showcases/case-media/manoeuvre-projects.webp"
+        }
+      ],
+      "chapters": [
+        {
+          "key": "manoeuvre-home",
+          "title": "A bold first impression",
+          "description": "Introduce the brand and provide a clear route into the website.",
+          "src": "./showcases/websites/manoeuvre-home.webp",
+          "mockup": "./showcases/case-media/manoeuvre-home.webp",
+          "front": "./showcases/case-media/chapter-15-0.webp"
+        },
+        {
+          "key": "manoeuvre-about",
+          "title": "The company story",
+          "description": "Organize the detail without losing the wider story.",
+          "src": "./showcases/websites/manoeuvre-about.webp",
+          "mockup": "./showcases/case-media/manoeuvre-about.webp",
+          "front": "./showcases/case-media/chapter-15-1.webp"
+        },
+        {
+          "key": "manoeuvre-projects",
+          "title": "The project portfolio",
+          "description": "Let visitors explore the work and find a useful next step.",
+          "src": "./showcases/websites/manoeuvre-projects.webp",
+          "mockup": "./showcases/case-media/manoeuvre-projects.webp",
+          "front": "./showcases/case-media/chapter-15-2.webp"
+        },
+        {
+          "key": "manoeuvre-projects-detail",
+          "title": "The project portfolio — detail",
+          "description": "A closer detail view of the same original interface. This crop highlights the layout without presenting it as an additional production screen.",
+          "src": "./showcases/websites/manoeuvre-projects.webp",
+          "mockup": "./showcases/case-media/manoeuvre-projects.webp",
+          "detail": true,
+          "front": "./showcases/case-media/chapter-15-3.webp"
+        }
+      ]
+    }
+  ]
+}

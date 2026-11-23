@@ -23,6 +23,7 @@
       details: [['Client context', 'A consistent workspace for customer records and the activity around them.'], ['Team coordination', 'Connected tasks and reports help teams see what to work on next.']]
     }
   };
+  window.showcaseProjectData = projects;
   window.projectShowcase = function (id, title, nextId, nextTitle) {
     if(id===7&&window.renderValetShowcase)return window.renderValetShowcase(title,nextId,nextTitle);
     if(id===13&&window.renderMerchantShowcase)return window.renderMerchantShowcase(title,nextId,nextTitle);

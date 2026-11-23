@@ -15,10 +15,11 @@ var P=[['Core Banking System','A staff-facing workspace for core banking operati
 ['Asset Management','Follow every asset from tagging and allocation through maintenance and retirement.','Operations · Web','w',1,120],
 ['Helpdesk','Ticketing and SLA workflows that keep requests moving and teams accountable.','Support · Web','w',1,265],
 ['IDSSPL Website','A bold digital home for IDSSPL’s core banking, payments and digital banking ecosystem.','Live website · Web','w',0,205,'https://idsspl.com/'],
-['Pigmy Banking','Design work for a banking product that handles small recurring deposits and collections.','Deposit banking · Web','w',0,150],
+['Pigmy Banking','Recurring deposits, field collections and end-of-day cash reconciliation for agents.','Deposit banking · Mobile & Web','m',0,150],
 ['IDSSPL CRM','A connected workspace for customer records, team follow-ups, tasks and reporting.','Customer management · Web','w',0,270],
 ['Merchant Management Portal','Design work for managing merchant accounts, onboarding and operational reviews.','Merchant operations · Web','w',0,35],
-['Banner & Poster Design','A credited visual reference collection of campaign banners and posters across banking, travel and product themes.','Visual collection · Reference','w',1,140]];
+['Banner & Poster Design','A credited visual reference collection of campaign banners and posters across banking, travel and product themes.','Visual collection · Reference','w',1,140],
+['Manoeuvre Infra','A distinctive digital presence for an infrastructure company, from its identity to its project portfolio.','Live website · Web','w',1,195,'https://manoeuvre-infra.vercel.app/']];
 var idssplProjects=[0,1,2,3,4,11,12,13];
 var TX=[['Dense, regulated workflows with many roles, strict approvals and no room for ambiguity.','Mapped journeys by role, simplified the flows, then built a consistent component library in Figma and prototyped the critical paths.','A clean, scannable interface with clear hierarchy, predictable patterns and states designed for every edge case.'],
 ['Teams relying on registers, calls and spreadsheets, with little visibility into what was happening on the ground.','Studied the on-site routine, cut the steps to the essentials and designed fast flows for both desk staff and admins.','A focused product that is quick to use at the counter and gives managers a clear live picture.']];
@@ -49,7 +50,7 @@ function coin(c){return'<path class="l" d="M10 '+c+' v14 a22 9 0 0 0 44 0 v-14z"
 var SV=[['Product design','Turning business requirements into flows and features users complete on the first try.',CB],['UI and UX design','Wireframes, prototypes and polished interfaces for web and mobile.',slab(28)+slab(16)+slab(4)],['Design systems','Reusable Figma component libraries that keep large products consistent as they grow.',cube(17,2,30)+cube(5,13,30)+cube(29,13,30)+cube(17,24,30)],['Fintech workflows','Dense, role-based screens for approvals, compliance and operations that stay readable.',coin(38)+coin(24)]];
 $('#svc').innerHTML=SV.map(function(s){return'<div class="gl rv"><div class="i3"><svg viewBox="0 0 64 64">'+s[2]+'</svg></div><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join('');
 $('#pg').innerHTML=[['Discover','Understand users, roles and business goals through stakeholder talks and workflow audits.'],['Define','Map journeys, rank the problems and agree on scope before opening Figma.'],['Design','Wireframes to polished, prototyped screens on a reusable component system.'],['Deliver','Developer-ready handoff and specs, with follow-up so what ships matches the design.']].map(function(s,i){return'<div class="gl pr rv"><b>0'+(i+1)+'</b><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join('');
-var tr=$('#tr'),featuredProjects=[10,4,12];
+var tr=$('#tr'),featuredProjects=[10,4,12,13,7,15];
 var cardOrder=featuredProjects.concat(idssplProjects.filter(function(i){return !featuredProjects.includes(i)}));
 cardOrder=cardOrder.concat(P.map(function(_,i){return i}).filter(function(i){return !cardOrder.includes(i)}));
 var posterFiles=[
@@ -62,16 +63,27 @@ function renderCard(i){
   var words=p[0].split(' '),first=words.shift(),rest=words.join(' ');
   return '<a href="#/p/'+i+'" class="card gl folder-card" data-p="'+i+'" aria-labelledby="work-title-'+i+'">'+
     '<div class="card-visual project-poster folder-visual">'+
-    '<div class="folder-surface">'+
+    '<div class="folder-surface"><span class="folder-status'+([5,6,8,9,11].includes(i)?' folder-status--delivery':'')+'">'+([5,6,8,9,11].includes(i)?'Module delivery':[10,15].includes(i)?'Live website':i===14?'Visual collection':'Interface showcase')+'</span>'+
     '<div class="folder-cover-copy"><em>'+p[2]+'</em><div class="folder-title-frame"><h3 id="work-title-'+i+'"><span>'+first+'</span> <span class="folder-name-accent">'+rest+'</span></h3><i></i><i></i><i></i><i></i><span class="folder-size" aria-hidden="true"></span><span class="folder-frame-cursor" aria-hidden="true"><svg viewBox="0 0 24 28"><path d="M2 2v22l6-7 7 9 4-3-7-8 9-2z" fill="#c6ff3d" stroke="#0b160b" stroke-width="1.5"/></svg><b>Designer</b></span></div></div>'+
     '<span class="folder-open">Open project <span aria-hidden="true">↗</span></span></div></div>'+
     '<div class="card-copy"><p>'+p[1]+'</p></div></a>';
 }
-tr.innerHTML=cardOrder.map(renderCard).join('');
+tr.innerHTML=featuredProjects.map(renderCard).join('');
+var titleFrames;
 if(window.ResizeObserver){
-  var titleFrames=new ResizeObserver(function(entries){entries.forEach(function(entry){var frame=entry.target;frame.querySelector('.folder-size').textContent=Math.round(frame.offsetWidth)+' × '+Math.round(frame.offsetHeight);});});
+  titleFrames=new ResizeObserver(function(entries){entries.forEach(function(entry){var frame=entry.target;frame.querySelector('.folder-size').textContent=Math.round(frame.offsetWidth)+' × '+Math.round(frame.offsetHeight);});});
   $$('.folder-title-frame',tr).forEach(function(frame){titleFrames.observe(frame)});
 }
+document.addEventListener('click',function(event){
+  var button=event.target.closest('[data-work-filter]');if(!button||button.getAttribute('aria-pressed')==='true')return;
+  var filter=button.dataset.workFilter,ids=filter==='featured'?featuredProjects:cardOrder.filter(function(i){return filter==='all'||(filter==='website'&&[10,15].includes(i))||(filter==='visual'&&i===14)||(filter==='product'&&![10,14,15].includes(i))});
+  $$('[data-work-filter]').forEach(function(b){b.setAttribute('aria-pressed',String(b===button))});
+  if(titleFrames)titleFrames.disconnect();
+  tr.innerHTML=ids.map(renderCard).join('');
+  if(titleFrames)$$('.folder-title-frame',tr).forEach(function(frame){titleFrames.observe(frame)});
+  $('.work-collection-note').textContent={featured:'Six complete showcases. Start here.',product:'Banking, mobile products and enterprise SaaS. Interfaces and delivery stories.',website:'Two live websites. Two different brand stories.',visual:'A credited collection of campaign banners and posters.',all:'The complete collection, with finished showcases first.'}[filter];
+  window.dispatchEvent(new Event('portfolio:work-filter'));
+});
 function animateStat(stat){
   if(!stat||red)return;
   var value=Number(stat.dataset.n);
@@ -110,6 +122,7 @@ function jumpTo(id){
 }
 function go(id){closeNav();if(!$('#pv').hidden){pendingAnchor=id;location.hash=''}else jumpTo(id)}
 function pv(i){var p=P[i],t=TX[p[4]],n=cardOrder[(cardOrder.indexOf(i)+1)%cardOrder.length],h=$('#pv');
+if(window.renderProjectCaseStudy){h.innerHTML=window.renderProjectCaseStudy(i,p[0],n,P[n][0]);window.initProjectCaseStudy(h);return}
 if(window.referenceCollections&&window.referenceCollections[i]&&window.renderReferenceShowcase){
   h.innerHTML=window.renderReferenceShowcase(i,p[0],n,P[n][0]);rv(h);return
 }
@@ -132,6 +145,8 @@ if(idssplProjects.includes(i)){
 h.innerHTML='<button class="btn back" data-b>← All projects</button><p class="eye">'+p[2]+'</p><h1>'+p[0]+'</h1><p class="lead" style="max-width:62ch">'+p[1]+'</p><div class="gl sh">'+art(i,0)+'</div><div class="meta"><div class="gl"><small>Role</small>Product Designer</div><div class="gl"><small>Focus</small>UI, UX and flows</div><div class="gl"><small>Platform</small>'+p[2].split(' · ')[1]+'</div><div class="gl"><small>Domain</small>'+(p[4]?'Enterprise SaaS':'Banking and lending')+'</div></div><div class="txt"><div class="gl rv"><h3>Challenge</h3><p>'+t[0]+'</p></div><div class="gl rv"><h3>Approach</h3><p>'+t[1]+'</p></div><div class="gl rv" style="grid-column:1/-1"><h3>Solution</h3><p>'+t[2]+'</p></div></div><h2 style="margin-top:56px">Design priorities</h2><div class="imp"><div class="gl rv"><b>01</b><span>Make dense tasks easy to scan</span></div><div class="gl rv"><b>02</b><span>Guide each role to its next action</span></div><div class="gl rv"><b>03</b><span>Keep patterns consistent across screens</span></div></div><h2 style="margin-top:56px">Key screens</h2><div class="gal"><div class="gl shot rv">'+art(i,1)+'</div><div class="gl shot rv">'+art(i,2)+'</div><div class="gl shot rv">'+art(i,3)+'</div></div><p class="note">Illustrative interface mockups with sample data.</p><div class="gl nx rv"><div><small style="color:var(--ac)">Next project</small><h3 style="font:700 28px var(--d);margin:0">'+P[n][0]+'</h3></div><button class="btn m" data-p="'+n+'">Open →</button></div>';rv(h)}
 function route(){
   var match=location.hash.match(/^#\/p\/(\d+)/),home=$('#home'),project=$('#pv');
+  if(window.disposeProjectCaseStudy)window.disposeProjectCaseStudy();
+  document.body.classList.toggle('case-study-view',Boolean(match&&P[+match[1]]));
   document.body.classList.toggle('crm-project-view',Boolean(match&&+match[1]===12));
   document.body.classList.toggle('cashbell-project-view',Boolean(match&&+match[1]===4));
   document.body.classList.toggle('merchant-project-view',Boolean(match&&+match[1]===13));

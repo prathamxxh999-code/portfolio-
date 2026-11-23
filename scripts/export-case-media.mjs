@@ -1,0 +1,11 @@
+import vm from 'node:vm';
+import {readFile,writeFile} from 'node:fs/promises';
+import {resolve,dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const context={window:{},document:{addEventListener(){}},URL};
+vm.createContext(context);
+for(const file of ['reference-assets.js','reference-showcase.js','merchant-assets.js','merchant-showcase.js','valet-showcase.js','project-showcases.js','project-cases.js'])vm.runInContext(await readFile(resolve(root,'src',file),'utf8'),context);
+const projects=Object.entries(context.window.projectCaseRecords).map(([id,p])=>({id:+id,key:p.key,processOnly:!!p.processOnly,mobile:[3,4,7].includes(+id),artwork:+id===14,screens:context.window.projectCaseGroups(+id).flatMap(g=>g.screens),chapters:p.processOnly?[]:context.window.projectCasePrimary(+id)}));
+await writeFile(resolve(root,'scripts/showcase-sources/case-system/media-manifest.json'),JSON.stringify({projects},null,2)+'\n');
+console.log('Exported original media inventory; no invented interface screens.');

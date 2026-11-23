@@ -14,6 +14,8 @@ Source code for [Prathamesh's product design portfolio](https://prathameshux.ver
 - `src/project-showcases.js` and `.css` — CashBell and CRM project presentations
 - `src/reference-showcase.js`, `.css` and `reference-assets.js` — four banking galleries and the credited banner/poster reference collection
 - `src/merchant-showcase.js`, `.css` and `merchant-assets.js` — PaySphere film and 45 native merchant workflow captures in eight expandable groups
+- `src/project-cases.js` and `.css` — shared editorial case studies, four naturally scrolling scenes, live website embeds and grouped original screen galleries across 16 projects
+- Projects without available screens present the professional module configuration and client-delivery contribution through illustrated delivery stories; no invented app interfaces are included
 - `src/retro-intro.js` and `.css` — room greeting and black-screen entry transition
 - `src/pc-desktop.js` and `.css` — classic desktop, folders, résumé viewer and restart
 - `src/project-folders.css` — horizontal gallery with framed folder titles

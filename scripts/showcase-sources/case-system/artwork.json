@@ -1,0 +1,70 @@
+{
+  "mode": "Built-in image_gen",
+  "purpose": "Illustrative 3D artwork; never an application screenshot or hardware mockup.",
+  "promptNote": "Normalized final production prompt set documenting the material, composition and subject requirements.",
+  "assets": [
+    {
+      "key": "gate",
+      "source": "C:/Users/Prathamesh Phadatare/.codex/generated_images/01a110ca-ba1c-7230-9b95-b6dc1c03f469/exec-52167973-317c-4fe5-8161-63ba87cd30ac.png",
+      "output": "src/showcases/project-art/gate.webp",
+      "subject": "Titanium checkpoint arch, barrier and smoked-glass access pass.",
+      "prompt": "Create a premium, photorealistic 3D still life, landscape 16:10. Near-black graphite setting, restrained lime-green accents, titanium and smoked glass, fine physical material texture, soft cinematic studio light. Show the complete composition with breathing room. No text, logos, people, screens, software interfaces or device mockups. This is illustrative physical-object artwork for a professional project contribution story. Subject: Titanium checkpoint arch, barrier and smoked-glass access pass."
+    },
+    {
+      "key": "visitor",
+      "source": "C:/Users/Prathamesh Phadatare/.codex/generated_images/01a110ca-ba1c-7230-9b95-b6dc1c03f469/exec-1dcfec71-8aa6-4545-a4af-f00a980ed9c2.png",
+      "output": "src/showcases/project-art/visitor.webp",
+      "subject": "Reception bell, lime credential and abstract presence ring.",
+      "prompt": "Create a premium, photorealistic 3D still life, landscape 16:10. Near-black graphite setting, restrained lime-green accents, titanium and smoked glass, fine physical material texture, soft cinematic studio light. Show the complete composition with breathing room. No text, logos, people, screens, software interfaces or device mockups. This is illustrative physical-object artwork for a professional project contribution story. Subject: Reception bell, lime credential and abstract presence ring."
+    },
+    {
+      "key": "asset",
+      "source": "C:/Users/Prathamesh Phadatare/.codex/generated_images/01a110ca-ba1c-7230-9b95-b6dc1c03f469/exec-cf05de2e-5a7d-4ecf-bc2a-8edaf46fbb68.png",
+      "output": "src/showcases/project-art/asset.webp",
+      "subject": "Titanium equipment case, inventory blocks and blank glass tag.",
+      "prompt": "Create a premium, photorealistic 3D still life, landscape 16:10. Near-black graphite setting, restrained lime-green accents, titanium and smoked glass, fine physical material texture, soft cinematic studio light. Show the complete composition with breathing room. No text, logos, people, screens, software interfaces or device mockups. This is illustrative physical-object artwork for a professional project contribution story. Subject: Titanium equipment case, inventory blocks and blank glass tag."
+    },
+    {
+      "key": "helpdesk",
+      "source": "C:/Users/Prathamesh Phadatare/.codex/generated_images/01a110ca-ba1c-7230-9b95-b6dc1c03f469/exec-f04299b5-964f-4e1b-a98e-177e50a793be.png",
+      "output": "src/showcases/project-art/helpdesk.webp",
+      "subject": "Premium headset, glass conversation bubble and lime orb.",
+      "prompt": "Create a premium, photorealistic 3D still life, landscape 16:10. Near-black graphite setting, restrained lime-green accents, titanium and smoked glass, fine physical material texture, soft cinematic studio light. Show the complete composition with breathing room. No text, logos, people, screens, software interfaces or device mockups. This is illustrative physical-object artwork for a professional project contribution story. Subject: Premium headset, glass conversation bubble and lime orb."
+    },
+    {
+      "key": "pigmy",
+      "source": "C:/Users/Prathamesh Phadatare/.codex/generated_images/01a110ca-ba1c-7230-9b95-b6dc1c03f469/exec-5525cec1-b3c9-4186-8e04-1967aac30f31.png",
+      "output": "src/showcases/project-art/pigmy.webp",
+      "subject": "Graphite cashbox, rupee coins and blank receipt.",
+      "prompt": "Create a premium, photorealistic 3D still life, landscape 16:10. Near-black graphite setting, restrained lime-green accents, titanium and smoked glass, fine physical material texture, soft cinematic studio light. Show the complete composition with breathing room. No text, logos, people, screens, software interfaces or device mockups. This is illustrative physical-object artwork for a professional project contribution story. Subject: Graphite cashbox, rupee coins and blank receipt."
+    },
+    {
+      "key": "process-configuration",
+      "source": "C:\\Users\\Prathamesh Phadatare\\.codex\\generated_images\\01a110ca-ba1c-7230-9b95-b6dc1c03f469\\exec-aba9932f-32dc-4ddd-a0ee-4d989d5859e2.png",
+      "output": "src/showcases/project-art/process-configuration.webp",
+      "subject": "Exploded mechanical calibration assembly: titanium rings, knurled graphite dial and lime index.",
+      "prompt": "Create a premium, photorealistic 3D still life, landscape 16:10. Near-black graphite setting, restrained lime-green accents, titanium and smoked glass, fine physical material texture, soft cinematic studio light. Show the complete composition with breathing room. No text, logos, people, screens, software interfaces or device mockups. This is illustrative physical-object artwork for a professional project contribution story. Subject: Exploded mechanical calibration assembly: titanium rings, knurled graphite dial and lime index."
+    },
+    {
+      "key": "process-workflow",
+      "source": "C:\\Users\\Prathamesh Phadatare\\.codex\\generated_images\\01a110ca-ba1c-7230-9b95-b6dc1c03f469\\exec-a8838ad1-d67e-4208-b08b-a87bfbd9063b.png",
+      "output": "src/showcases/project-art/process-workflow.webp",
+      "subject": "Four smoked-glass cubic modules joined by curved titanium connectors with a lime junction.",
+      "prompt": "Create a premium, photorealistic 3D still life, landscape 16:10. Near-black graphite setting, restrained lime-green accents, titanium and smoked glass, fine physical material texture, soft cinematic studio light. Show the complete composition with breathing room. No text, logos, people, screens, software interfaces or device mockups. This is illustrative physical-object artwork for a professional project contribution story. Subject: Four smoked-glass cubic modules joined by curved titanium connectors with a lime junction."
+    },
+    {
+      "key": "process-alignment",
+      "source": "C:\\Users\\Prathamesh Phadatare\\.codex\\generated_images\\01a110ca-ba1c-7230-9b95-b6dc1c03f469\\exec-3ae3f5e3-2217-4186-a3c6-be510397d275.png",
+      "output": "src/showcases/project-art/process-alignment.webp",
+      "subject": "Two interlocking frosted-glass and titanium forms meeting at a lime seam; blank glass blueprint sheet.",
+      "prompt": "Create a premium, photorealistic 3D still life, landscape 16:10. Near-black graphite setting, restrained lime-green accents, titanium and smoked glass, fine physical material texture, soft cinematic studio light. Show the complete composition with breathing room. No text, logos, people, screens, software interfaces or device mockups. This is illustrative physical-object artwork for a professional project contribution story. Subject: Two interlocking frosted-glass and titanium forms meeting at a lime seam; blank glass blueprint sheet."
+    },
+    {
+      "key": "process-delivery",
+      "source": "C:\\Users\\Prathamesh Phadatare\\.codex\\generated_images\\01a110ca-ba1c-7230-9b95-b6dc1c03f469\\exec-32bb6539-091b-43c3-99aa-5c3d8e72bdd1.png",
+      "output": "src/showcases/project-art/process-delivery.webp",
+      "subject": "Open graphite presentation case, titanium module, lime seal and blank handover card.",
+      "prompt": "Create a premium, photorealistic 3D still life, landscape 16:10. Near-black graphite setting, restrained lime-green accents, titanium and smoked glass, fine physical material texture, soft cinematic studio light. Show the complete composition with breathing room. No text, logos, people, screens, software interfaces or device mockups. This is illustrative physical-object artwork for a professional project contribution story. Subject: Open graphite presentation case, titanium module, lime seal and blank handover card."
+    }
+  ]
+}

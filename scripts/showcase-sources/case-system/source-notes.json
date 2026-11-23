@@ -1,0 +1,38 @@
+{
+  "date": "2026-11-23",
+  "brief": "Shared dark-and-lime case-study layout, Lusion-inspired spacious summary and large framed media. Keep horizontal project scrolling and prioritize completed screen-based showcases. Organize product, website and visual design work.",
+  "designReferences": [
+    "https://lusion.co/projects/everswap/",
+    "https://www.awwwards.com/sites/ux-ui-designer-portfolio",
+    "https://www.ulrychkristian.cz/work/mapwhizz",
+    "https://gilhuybrecht.com/",
+    "https://www.wallofportfolios.in/?company=All"
+  ],
+  "referenceUse": "Presentation patterns only. No third-party portfolio artwork, code, claims or personal achievements copied into the new case-study layout.",
+  "pigmy": "Actual Pigmy Agent App design is supplied in Figma. Original file linked; no replacement app created. Project currently presents original workflow context and the professional contribution.",
+  "manoeuvre": {
+    "name": "Manoeuvre Infra Pvt. Ltd.",
+    "liveUrl": "https://manoeuvre-infra.vercel.app/",
+    "sessionTitle": "Manoeuvre_Infra",
+    "sessionId": "01a18724-71cc-7491-920f-3ce6e35a8d10",
+    "sourceRoot": "C:/Users/Prathamesh Phadatare/Documents/Codex/2026-10-29/as-x20/outputs",
+    "captures": [
+      "manoeuvre-navy-preview.png",
+      "about-hero-cta-preview.png",
+      "project-grid-with-company-logos.png"
+    ],
+    "captureNote": "Existing actual website browser captures; original files contain JPEG bytes despite PNG extensions. Converted to public WebP copies without changing the originals. Live root, About and Projects URLs verified HTTP 200."
+  },
+  "hardware": "Reuses the existing licensed photographic MacBook and iPhone templates from scripts/showcase-sources/devices and the Teddy GR / Unsplash monitor photograph already used in CRM and PaySphere. No devices generated. See existing source and license files.",
+  "retainedMedia": "CashBell, CRM and PaySphere films unchanged. Existing actual interface originals and Ashlesh Gavas screen/artwork credits retained.",
+  "motion": "Four natural, alternating screen or contribution scenes per project. Each scene owns document space; no pinned stack, crossfade overlap or forced scroll snapping. Passive, requestAnimationFrame-batched shallow image depth; one-time text reveals; reduced-motion fallback. Native horizontal home project carousel retained.",
+  "artwork": "Nine built-in image_gen physical-object illustrations. These are clearly labelled illustrative 3D visuals, never production screens or device mockups. WebP delivery copies total approximately 1.3 MB. Original PNGs and normalized prompt set are documented in artwork.json.",
+  "processProjects": [
+    "Gate Pass Management",
+    "Visitor Management",
+    "Asset Management",
+    "Helpdesk",
+    "Pigmy Banking"
+  ],
+  "processScope": "User explicitly corrected scope: do not invent or rebuild apps. Describe actual professional module configuration, functional workflows and client delivery. No authored concept interfaces are included."
+}
